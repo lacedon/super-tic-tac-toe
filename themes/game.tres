@@ -1,14 +1,6 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://vig7p8jjbqd7"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://vig7p8jjbqd7"]
 
-[ext_resource type="StyleBox" uid="uid://dpunh6csf784h" path="res://themes/button-styles-hover.tres" id="1_2n3wg"]
-[ext_resource type="StyleBox" uid="uid://4e0re2v4proh" path="res://themes/button-styles-normal.tres" id="2_6buoh"]
-[ext_resource type="StyleBox" uid="uid://cko2yywxcd2p0" path="res://themes/button-styles-pressed.tres" id="3_a1u87"]
-[ext_resource type="StyleBox" uid="uid://c4jdpnf2pum28" path="res://themes/style-box-flat-panel.tres" id="4_80mcs"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sa2tq"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-draw_center = false
-border_color = Color(0.8, 0.8, 0.8, 0)
+[ext_resource type="StyleBox" uid="uid://c4jdpnf2pum28" path="res://themes/panel-styles/style-box-flat-panel.tres" id="4_80mcs"]
 
 [resource]
 Button/colors/font_color = Color(0.992157, 0.964706, 0.890196, 1)
@@ -19,10 +11,6 @@ Button/colors/font_outline_color = Color(1, 1, 1, 0)
 Button/colors/font_pressed_color = Color(0.992157, 0.964706, 0.890196, 1)
 Button/constants/margin_left = 4
 Button/font_sizes/font_size = 32
-Button/styles/focus = SubResource("StyleBoxFlat_sa2tq")
-Button/styles/hover = ExtResource("1_2n3wg")
-Button/styles/normal = ExtResource("2_6buoh")
-Button/styles/pressed = ExtResource("3_a1u87")
 Label/colors/font_color = Color(0.992157, 0.964706, 0.890196, 1)
 Label/font_sizes/font_size = 32
 Panel/styles/panel = ExtResource("4_80mcs")

@@ -2,15 +2,20 @@
 
 [resource]
 data = {
-"menuItems": [{
+"rows": [{
+"items": [{
 "text": "Super TicTacToe",
 "type": "title"
+}]
 }, {
+"items": [{
 "innerMenu": {
-"menuItems": [{
+"closable": true,
+"rows": [{
 "text": "Dificulty",
 "type": "title"
 }, {
+"items": [{
 "props": {
 "aiDificulty": "rando",
 "mode": 0,
@@ -18,9 +23,15 @@ data = {
 },
 "script": "res://components/common/change-scene.gd",
 "size": [160],
+"styles": {
+"direction": 3,
+"mode": 1
+},
 "text": "Rando",
 "type": "button"
+}]
 }, {
+"items": [{
 "props": {
 "aiDificulty": "easy",
 "mode": 0,
@@ -28,35 +39,61 @@ data = {
 },
 "script": "res://components/common/change-scene.gd",
 "size": [160],
+"styles": {
+"direction": 3,
+"mode": 1
+},
 "text": "Easy",
 "type": "button"
 }]
+}]
+},
+"styles": {
+"direction": 3,
+"mode": 1
 },
 "text": "vs Comp",
 "type": "innerMenu"
+}]
 }, {
+"items": [{
 "props": {
 "mode": 1,
 "nextScenePath": "res://scenes/game.tscn"
 },
 "script": "res://components/common/change-scene.gd",
 "size": [160],
+"styles": {
+"direction": 3,
+"mode": 1
+},
 "text": "Hot seat",
 "type": "button"
+}]
 }, {
+"items": [{
 "props": {
 "mode": 1,
 "nextScenePath": "res://scenes/game.tscn"
 },
 "script": "res://components/common/change-scene.gd",
 "size": [160],
+"styles": {
+"direction": 3,
+"mode": 1
+},
 "text": "Tutorial",
 "type": "button"
+}]
 }, {
-"type": "space"
-}, {
+"items": [{
 "script": "res://components/common/exit-button.gd",
+"styles": {
+"direction": 2,
+"mode": 2
+},
 "text": "Exit",
 "type": "button"
+}]
 }]
 }

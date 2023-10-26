@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c2psott5mmktq"]
 
 [ext_resource type="Script" path="res://components/game/game-ui/winner-ui/winner-ui.gd" id="1_bgakh"]
-[ext_resource type="StyleBox" uid="uid://c4jdpnf2pum28" path="res://themes/style-box-flat-panel.tres" id="2_02i7v"]
+[ext_resource type="StyleBox" uid="uid://c4jdpnf2pum28" path="res://themes/panel-styles/style-box-flat-panel.tres" id="2_02i7v"]
 [ext_resource type="Theme" uid="uid://ddbxy7ksk4ske" path="res://themes/game-ui.tres" id="3_o45qj"]
 
 [node name="WinnerUI" type="Control" node_paths=PackedStringArray("titleNode", "playerNameNode")]

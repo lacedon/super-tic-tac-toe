@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bxfey2skaagxd"]
 
 [ext_resource type="Theme" uid="uid://ddbxy7ksk4ske" path="res://themes/game-ui.tres" id="1_6rq2v"]
-[ext_resource type="Script" path="res://components/game/menu-list/menu-list.gd" id="1_eicu8"]
 [ext_resource type="JSON" uid="uid://b4gbys3eokftm" path="res://scenes/menu/menu.tres" id="2_ripwp"]
+[ext_resource type="Script" path="res://components/common/menu-list/menu-list.gd" id="2_upm6s"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -13,12 +13,15 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_6rq2v")
 
-[node name="TTT_MenuList" type="Control" parent="." node_paths=PackedStringArray("parentMenu")]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("1_eicu8")
+[node name="MenuList" type="Control" parent="." node_paths=PackedStringArray("parentMenu")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_upm6s")
 list = ExtResource("2_ripwp")
-fullRect = true
 parentMenu = NodePath("..")

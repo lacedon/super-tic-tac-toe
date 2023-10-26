@@ -1,0 +1,14 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://cko2yywxcd2p0"]
+
+[ext_resource type="Texture2D" uid="uid://duit8cw448bkc" path="res://themes/button-styles/main-right/pressed.svg" id="1_u5l28"]
+
+[resource]
+content_margin_left = 16.0
+content_margin_top = 30.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+texture = ExtResource("1_u5l28")
+texture_margin_left = 10.0
+texture_margin_top = 24.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
