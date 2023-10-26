@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b70ntsmvkm47f"]
 
-[ext_resource type="Theme" uid="uid://vig7p8jjbqd7" path="res://themes/game.tres" id="1_8lak8"]
 [ext_resource type="Script" path="res://state/game/state.gd" id="1_ai4i1"]
+[ext_resource type="Theme" uid="uid://vig7p8jjbqd7" path="res://themes/game.tres" id="1_ejj14"]
 [ext_resource type="PackedScene" uid="uid://cvvxj2xltuls8" path="res://components/game/game-ui/game-ui.tscn" id="1_hkrcm"]
 [ext_resource type="Script" path="res://components/game/camera/camera.gd" id="2_lf8pj"]
 [ext_resource type="PackedScene" uid="uid://6nlb4l7a6hle" path="res://components/game/game-field/game-field.tscn" id="3_h4ddo"]
@@ -15,9 +15,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_8lak8")
+theme = ExtResource("1_ejj14")
 
-[node name="Panel" type="Panel" parent="UI"]
+[node name="Background" type="Panel" parent="UI"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

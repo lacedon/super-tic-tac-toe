@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqpran5581hwu"]
-
-[ext_resource type="Script" path="res://components/game/game-ui/open-full-map/open-full-map.gd" id="1_ke2xo"]
-
-[node name="open-full-map" type="Button"]
-script = ExtResource("1_ke2xo")

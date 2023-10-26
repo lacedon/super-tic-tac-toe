@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://jmvpncytmk0w"]
+[gd_scene load_steps=2 format=3 uid="uid://cbpn7gaycmv0j"]
 
 [ext_resource type="Script" path="res://components/game/game-ui/current-player/current-player.gd" id="1_mcdwj"]
 

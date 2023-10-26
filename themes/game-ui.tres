@@ -1,6 +1,5 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://ddbxy7ksk4ske"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://ddbxy7ksk4ske"]
 
-[ext_resource type="FontFile" uid="uid://dar4x0vqtl8tj" path="res://assets/fonts/Roboto-Regular.ttf" id="1_1rq04"]
 [ext_resource type="StyleBox" uid="uid://dpunh6csf784h" path="res://themes/button-styles/main-full/hover.tres" id="2_iumsj"]
 [ext_resource type="StyleBox" uid="uid://4e0re2v4proh" path="res://themes/button-styles/main-full/normal.tres" id="3_7tqnq"]
 [ext_resource type="FontFile" uid="uid://blqpt64dhrpyj" path="res://assets/fonts/Roboto-Bold.ttf" id="4_egvia"]
@@ -18,8 +17,8 @@ Button/colors/font_outline_color = Color(1, 1, 1, 0)
 Button/colors/font_pressed_color = Color(0.992157, 0.964706, 0.890196, 1)
 Button/constants/custom_minimum_size = 160
 Button/constants/margin_left = 4
-Button/font_sizes/font_size = 32
-Button/fonts/font = ExtResource("1_1rq04")
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("4_egvia")
 Button/styles/focus = SubResource("StyleBoxEmpty_eviif")
 Button/styles/hover = ExtResource("2_iumsj")
 Button/styles/normal = ExtResource("3_7tqnq")

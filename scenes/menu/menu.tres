@@ -8,13 +8,21 @@ data = {
 "type": "title"
 }]
 }, {
+"type": "expand"
+}, {
+"aligment": "end",
 "items": [{
 "innerMenu": {
 "closable": true,
 "rows": [{
+"items": [{
 "text": "Dificulty",
 "type": "title"
+}]
 }, {
+"type": "expand"
+}, {
+"aligment": "end",
 "items": [{
 "props": {
 "aiDificulty": "rando",
@@ -31,6 +39,7 @@ data = {
 "type": "button"
 }]
 }, {
+"aligment": "end",
 "items": [{
 "props": {
 "aiDificulty": "easy",
@@ -56,6 +65,7 @@ data = {
 "type": "innerMenu"
 }]
 }, {
+"aligment": "end",
 "items": [{
 "props": {
 "mode": 1,
@@ -71,6 +81,7 @@ data = {
 "type": "button"
 }]
 }, {
+"aligment": "end",
 "items": [{
 "props": {
 "mode": 1,
@@ -86,6 +97,7 @@ data = {
 "type": "button"
 }]
 }, {
+"aligment": "begin",
 "items": [{
 "script": "res://components/common/exit-button.gd",
 "styles": {

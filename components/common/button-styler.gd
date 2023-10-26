@@ -48,8 +48,8 @@ func _applyOverride(state: ButtonState):
 
 	parent.add_theme_stylebox_override(stateString, stylePressed)
 
-	var fontColor = stylePressed.get_meta('color')
-	if fontColor:
+	if stylePressed.has_meta('color'):
+		var fontColor = stylePressed.get_meta('color')
 		parent.add_theme_color_override("font_color", fontColor)
 		parent.add_theme_color_override("font_pressed_color", fontColor)
 		parent.add_theme_color_override("font_hover_color", fontColor)
