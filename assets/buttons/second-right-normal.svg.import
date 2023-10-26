@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcx6tnwsqmigd"
-path="res://.godot/imported/button-background.png-b652cda082668ab1b14dafded0baea10.ctex"
+uid="uid://dadomiyse4mj"
+path="res://.godot/imported/second-right-normal.svg-ae526ddffe648f3dd71e1956cc844605.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/button-background.png"
-dest_files=["res://.godot/imported/button-background.png-b652cda082668ab1b14dafded0baea10.ctex"]
+source_file="res://assets/buttons/second-right-normal.svg"
+dest_files=["res://.godot/imported/second-right-normal.svg-ae526ddffe648f3dd71e1956cc844605.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
