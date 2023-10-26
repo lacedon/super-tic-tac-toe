@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://b70ntsmvkm47f"]
+
+[ext_resource type="Theme" uid="uid://vig7p8jjbqd7" path="res://themes/game.tres" id="1_8lak8"]
+[ext_resource type="Script" path="res://state/game/state.gd" id="1_ai4i1"]
+[ext_resource type="PackedScene" uid="uid://cvvxj2xltuls8" path="res://components/game/game-ui/game-ui.tscn" id="1_hkrcm"]
+[ext_resource type="Script" path="res://components/game/camera/camera.gd" id="2_lf8pj"]
+[ext_resource type="PackedScene" uid="uid://6nlb4l7a6hle" path="res://components/game/game-field/game-field.tscn" id="3_h4ddo"]
+
+[node name="game" type="Node"]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_8lak8")
+
+[node name="Panel" type="Panel" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameUI" parent="UI" node_paths=PackedStringArray("state") instance=ExtResource("1_hkrcm")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+state = NodePath("../../TTT_State")
+
+[node name="TTT_State" type="Node" parent="."]
+script = ExtResource("1_ai4i1")
+activePlayers = Array[int]([])
+
+[node name="TTT_GameField" parent="." node_paths=PackedStringArray("state") instance=ExtResource("3_h4ddo")]
+position = Vector2(2.08165e-12, 64)
+parentIndex = -1
+state = NodePath("../TTT_State")
+hasOffset = false
+
+[node name="TTT_Camera" type="Camera2D" parent="." node_paths=PackedStringArray("state")]
+script = ExtResource("2_lf8pj")
+state = NodePath("../TTT_State")

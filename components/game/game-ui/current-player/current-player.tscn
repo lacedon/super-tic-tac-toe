@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://jmvpncytmk0w"]
+
+[ext_resource type="Script" path="res://components/game/game-ui/current-player/current-player.gd" id="1_mcdwj"]
+
+[node name="current-player" type="Label"]
+script = ExtResource("1_mcdwj")

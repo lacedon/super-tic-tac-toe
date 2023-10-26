@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2psott5mmktq"]
+
+[ext_resource type="Script" path="res://components/game/game-ui/winner-ui/winner-ui.gd" id="1_bgakh"]
+[ext_resource type="StyleBox" uid="uid://c4jdpnf2pum28" path="res://themes/style-box-flat-panel.tres" id="2_02i7v"]
+[ext_resource type="Theme" uid="uid://ddbxy7ksk4ske" path="res://themes/game-ui.tres" id="3_o45qj"]
+
+[node name="WinnerUI" type="Control" node_paths=PackedStringArray("titleNode", "playerNameNode")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bgakh")
+titleNode = NodePath("Winner/TitleContainer/Title")
+playerNameNode = NodePath("Winner/PlayerNameContainer")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_02i7v")
+
+[node name="Winner" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TitleContainer" type="HBoxContainer" parent="Winner"]
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="Winner/TitleContainer"]
+layout_mode = 2
+theme = ExtResource("3_o45qj")
+text = "Winner is"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerNameContainer" type="HBoxContainer" parent="Winner"]
+layout_mode = 2
+alignment = 1

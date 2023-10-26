@@ -1,0 +1,62 @@
+[gd_resource type="JSON" format=3 uid="uid://b4gbys3eokftm"]
+
+[resource]
+data = {
+"menuItems": [{
+"text": "Super TicTacToe",
+"type": "title"
+}, {
+"innerMenu": {
+"menuItems": [{
+"text": "Dificulty",
+"type": "title"
+}, {
+"props": {
+"aiDificulty": "rando",
+"mode": 0,
+"nextScenePath": "res://scenes/game.tscn"
+},
+"script": "res://components/common/change-scene.gd",
+"size": [160],
+"text": "Rando",
+"type": "button"
+}, {
+"props": {
+"aiDificulty": "easy",
+"mode": 0,
+"nextScenePath": "res://scenes/game.tscn"
+},
+"script": "res://components/common/change-scene.gd",
+"size": [160],
+"text": "Easy",
+"type": "button"
+}]
+},
+"text": "vs Comp",
+"type": "innerMenu"
+}, {
+"props": {
+"mode": 1,
+"nextScenePath": "res://scenes/game.tscn"
+},
+"script": "res://components/common/change-scene.gd",
+"size": [160],
+"text": "Hot seat",
+"type": "button"
+}, {
+"props": {
+"mode": 1,
+"nextScenePath": "res://scenes/game.tscn"
+},
+"script": "res://components/common/change-scene.gd",
+"size": [160],
+"text": "Tutorial",
+"type": "button"
+}, {
+"type": "space"
+}, {
+"script": "res://components/common/exit-button.gd",
+"text": "Exit",
+"type": "button"
+}]
+}

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://2b10u3m8altt"]
+
+[ext_resource type="Theme" uid="uid://vig7p8jjbqd7" path="res://themes/game.tres" id="1_5kn16"]
+[ext_resource type="StyleBox" uid="uid://4e0re2v4proh" path="res://themes/button-styles-normal.tres" id="2_2bb50"]
+[ext_resource type="StyleBox" uid="uid://dpunh6csf784h" path="res://themes/button-styles-hover.tres" id="3_smvg3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cyen2"]
+
+[node name="button" type="Control"]
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 160.0
+offset_bottom = 160.0
+theme = ExtResource("1_5kn16")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 333.0
+offset_bottom = 134.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_styles/normal = ExtResource("2_2bb50")
+theme_override_styles/hover = ExtResource("3_smvg3")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cyen2")
+text = "vs Com"

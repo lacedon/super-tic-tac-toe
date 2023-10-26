@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6yx54x5r1dkl"]
+
+[ext_resource type="Script" path="res://components/game/sign/sign.gd" id="1_fmwd3"]
+
+[node name="SignTest" type="Node2D"]
+position = Vector2(180, 180)
+
+[node name="Sign" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_fmwd3")
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(180, 180)
+offset_left = -180.0
+offset_top = -180.0
