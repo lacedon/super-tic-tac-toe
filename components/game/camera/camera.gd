@@ -34,10 +34,10 @@ func moveCamera(newOpenBlock: int):
 	else:
 		zoom = Vector2(gameSettings.cellNumber, gameSettings.cellNumber)
 
-		# TODO: Refactor to keep behaviour with rounding, but get rid of the warning
+		var blockIndex: int = roundi(float(newOpenBlock) / gameSettings.cellNumber)
 		position = Vector2(
-			(newOpenBlock / gameSettings.cellNumber) * _cellSize,
-			(newOpenBlock - newOpenBlock / gameSettings.cellNumber * gameSettings.cellNumber) * _cellSize,
+			blockIndex * _cellSize,
+			(newOpenBlock - blockIndex * gameSettings.cellNumber) * _cellSize,
 		)
 
 		set_physics_process(false)
