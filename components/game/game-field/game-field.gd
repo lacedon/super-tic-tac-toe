@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 class_name TTT_Game_Field
 
 const TTT_Cell: Resource = preload("res://components/game/cell/cell.gd")
@@ -19,6 +19,8 @@ const lineCoordinates: Array[Vector4] = [
 @export var hasOffset: bool = true
 
 func _ready():
+	prints('size', self.size)
+
 	var index: = 0
 	for x in range(gameSettings.cellNumber):
 		for y in range(gameSettings.cellNumber):

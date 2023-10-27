@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxfey2skaagxd"]
+[gd_scene load_steps=6 format=3 uid="uid://bxfey2skaagxd"]
 
 [ext_resource type="Theme" uid="uid://ddbxy7ksk4ske" path="res://themes/game-ui.tres" id="1_6rq2v"]
+[ext_resource type="Script" path="res://components/common/fps/fps.gd" id="2_e1d2o"]
+[ext_resource type="PackedScene" uid="uid://bof8ywqqpfg5y" path="res://components/game/menu-animation/menu-animation.tscn" id="2_kh8to"]
 [ext_resource type="JSON" uid="uid://b4gbys3eokftm" path="res://scenes/menu/menu.tres" id="2_ripwp"]
 [ext_resource type="Script" path="res://components/common/menu-list/menu-list.gd" id="2_upm6s"]
 
@@ -21,6 +23,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="menu-animation" parent="." instance=ExtResource("2_kh8to")]
+layout_mode = 1
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -31,8 +36,14 @@ grow_vertical = 2
 theme_override_constants/margin_top = 64
 theme_override_constants/margin_bottom = 32
 
-[node name="MenuList" type="Control" parent="MarginContainer" node_paths=PackedStringArray("parentMenu")]
+[node name="MenuList" type="VBoxContainer" parent="MarginContainer" node_paths=PackedStringArray("parentMenu")]
 layout_mode = 2
 script = ExtResource("2_upm6s")
 list = ExtResource("2_ripwp")
 parentMenu = NodePath("..")
+
+[node name="FPSMeter" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 38.0
+script = ExtResource("2_e1d2o")

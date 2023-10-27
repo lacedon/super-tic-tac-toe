@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 const TTT_Game_Field: Resource = preload("res://components/game/game-field/game-field.gd")
 const TTT_Sign: Resource = preload("res://components/game/sign/sign.gd")

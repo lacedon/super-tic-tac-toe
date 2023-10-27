@@ -1,8 +1,8 @@
-const ExtendMenuButton = preload('./extend-menu-button.gd')
-const CloseMenuButton = preload('./close-menu.gd')
+const OpenMenuButton = preload('./button-open-menu.gd')
+const CloseMenuButton = preload('./button-close-menu.gd')
 const ConfigParser = preload('./config-parser.gd');
 
-static func createNodeFromConfig(config: Dictionary, menu: MenuList, parentMenu: Node) -> Node:
+static func createNodeFromConfig(config: Dictionary, menu: MenuList, parentMenu: Node, previousMenu: MenuList) -> Node:
 	match config.type:
 		'title':
 			var label = Label.new()
@@ -29,10 +29,11 @@ static func createNodeFromConfig(config: Dictionary, menu: MenuList, parentMenu:
 
 			return button
 		'innerMenu':
-			var button = ExtendMenuButton.new()
+			var button = OpenMenuButton.new()
 			button.text = config.text
 			button.menuJSON = config.innerMenu
 			button.parentMenu = parentMenu
+			button.previousMenu = menu
 			if 'styles' in config:
 				var buttonThemable = ButtonStyler.new()
 				buttonThemable.mode = config.styles.mode
@@ -45,6 +46,7 @@ static func createNodeFromConfig(config: Dictionary, menu: MenuList, parentMenu:
 			button.text = config.text
 			button.menu = menu
 			button.parentMenu = parentMenu
+			button.previousMenu = previousMenu
 			if 'styles' in config:
 				var buttonThemable = ButtonStyler.new()
 				buttonThemable.mode = config.styles.mode

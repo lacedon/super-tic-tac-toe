@@ -1,9 +1,9 @@
 extends Camera2D
 class_name TTT_Camera
 
-const _cellSize: int = uiSettings.cellSize
 
 @export var state: TTT_State
+var _cellSize: int = uiSettings.cellSize
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,11 +13,11 @@ func _ready():
 
 	moveCamera(TTT_State_Selectors.getOpenBlock(state))
 
-# func _enter_tree():
-# 	state.connect("openBlockChanged", moveCamera)
+func _enter_tree():
+	state.connect("openBlockChanged", moveCamera)
 
-# func _exit_tree():
-# 	state.disconnect("openBlockChanged", moveCamera)
+func _exit_tree():
+	state.disconnect("openBlockChanged", moveCamera)
 
 func _setLimits():
 	limit_left = 0
@@ -32,11 +32,11 @@ func moveCamera(newOpenBlock: int):
 		zoom = Vector2(1, 1)
 		position = Vector2.ZERO
 	else:
-		# zoom = Vector2(float(gameSettings.cellNumber), float(gameSettings.cellNumber))
+		zoom = Vector2(gameSettings.cellNumber, gameSettings.cellNumber)
 
-		# position = Vector2(
-		# 	(newOpenBlock / gameSettings.cellNumber) * cellSize,
-		# 	(newOpenBlock - newOpenBlock / gameSettings.cellNumber * gameSettings.cellNumber) * cellSize,
-		# )
+		position = Vector2(
+			(newOpenBlock / gameSettings.cellNumber) * _cellSize,
+			(newOpenBlock - newOpenBlock / gameSettings.cellNumber * gameSettings.cellNumber) * _cellSize,
+		)
 
 		set_physics_process(false)
