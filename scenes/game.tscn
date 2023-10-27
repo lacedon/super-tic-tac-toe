@@ -53,7 +53,6 @@ grow_vertical = 2
 state = NodePath("../../../TTT_State")
 
 [node name="FPSMeter" type="Label" parent="TTT_Camera"]
-visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("6_04ede")

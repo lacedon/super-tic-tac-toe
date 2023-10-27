@@ -2,7 +2,6 @@ extends VBoxContainer
 class_name MenuList
 
 const ButtonStyler = preload("res://components/common/button-styler.gd")
-const MenuContainer = preload('./menu-container.gd');
 const ConfigParser = preload('./config-parser.gd');
 const RowCreator = preload('./row-creator.gd');
 
@@ -13,7 +12,7 @@ const RowCreator = preload('./row-creator.gd');
 @export var previousMenu: MenuList
 
 func _enter_tree():
-	_applyMenuContainer()
+	_applyMenuConfig()
 
 func _getMenuConfig() -> Dictionary:
 	if listJSON: return listJSON
@@ -27,7 +26,7 @@ func _createRowFromConfig(rowConfig: Dictionary):
 			children.append(ConfigParser.createNodeFromConfig(item, self, parentMenu, previousMenu))
 	return RowCreator.createRow(rowConfig, children)
 
-func _applyMenuContainer():
+func _applyMenuConfig():
 	var menuConfig = _getMenuConfig()
 	for rowConfig in menuConfig.rows:
 		add_child(_createRowFromConfig(rowConfig))

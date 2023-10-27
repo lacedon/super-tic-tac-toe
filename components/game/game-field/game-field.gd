@@ -19,8 +19,6 @@ const lineCoordinates: Array[Vector4] = [
 @export var hasOffset: bool = true
 
 func _ready():
-	prints('size', self.size)
-
 	var index: = 0
 	for x in range(gameSettings.cellNumber):
 		for y in range(gameSettings.cellNumber):
@@ -58,9 +56,9 @@ func _initFieldLines(pointDescriptions: Vector4) -> Line2D:
 	line.end_cap_mode = Line2D.LINE_CAP_ROUND
 
 	var points: PackedVector2Array = []
-	var size: int = abs(pointDescriptions.y - pointDescriptions.w) if isHorizontal else abs(pointDescriptions.x - pointDescriptions.z)
+	var pointNumber: int = abs(pointDescriptions.y - pointDescriptions.w) if isHorizontal else abs(pointDescriptions.x - pointDescriptions.z)
 
-	for coordinate in range(size + 1):
+	for coordinate in range(pointNumber + 1):
 		var x: float = pointDescriptions.x if isHorizontal else float(coordinate)
 		var y: float = pointDescriptions.y if !isHorizontal else float(coordinate)
 		var coordinateOffset: int = int(_offset if hasOffset else 0) if coordinate == 0 || coordinate == size else 0
@@ -71,13 +69,6 @@ func _initFieldLines(pointDescriptions: Vector4) -> Line2D:
 			y * cellSize + (coordinateOffset * offsetFactor if isHorizontal else 1),
 		))
 	line.points = points
-
-	# var width_curve = Curve.new()
-	# width_curve.add_point(Vector2(0, 0.1))
-	# width_curve.add_point(Vector2(0.5, 1))
-	# width_curve.add_point(Vector2(0.75, 1))
-	# width_curve.add_point(Vector2(1, 0.1))
-	# line.width_curve = width_curve
 
 	line.gradient = uiSettings.lineGradient
 
