@@ -86,14 +86,14 @@ mode = 1
 direction = 1
 
 [node name="VSplitContainer" type="VSplitContainer" parent="buttons/VBoxContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(64, 2.08165e-12)
+custom_minimum_size = Vector2(16, 2.08165e-12)
 layout_mode = 2
 dragger_visibility = 1
 
 [node name="second-full" type="Button" parent="buttons/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_8funi")
-text = "Second Normal"
+text = "Snd Normal"
 
 [node name="ButtonStyler" type="Node" parent="buttons/VBoxContainer/MarginContainer/HBoxContainer/second-full"]
 script = ExtResource("2_67rn2")
@@ -130,7 +130,7 @@ text = "Main Right"
 [node name="ButtonStyler" type="Node" parent="buttons/VBoxContainer/MarginContainer2/HBoxContainer/main-right"]
 script = ExtResource("2_67rn2")
 mode = 1
-direction = 2
+direction = 3
 
 [node name="MarginContainer3" type="MarginContainer" parent="buttons/VBoxContainer"]
 layout_mode = 2
@@ -142,7 +142,7 @@ layout_mode = 2
 [node name="second-left" type="Button" parent="buttons/VBoxContainer/MarginContainer3/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_8funi")
-text = "Second Left"
+text = "Snd Left"
 
 [node name="ButtonStyler" type="Node" parent="buttons/VBoxContainer/MarginContainer3/HBoxContainer/second-left"]
 script = ExtResource("2_67rn2")
@@ -157,7 +157,7 @@ dragger_visibility = 1
 [node name="second-right" type="Button" parent="buttons/VBoxContainer/MarginContainer3/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_8funi")
-text = "Second Right"
+text = "Snd Right"
 
 [node name="ButtonStyler" type="Node" parent="buttons/VBoxContainer/MarginContainer3/HBoxContainer/second-right"]
 script = ExtResource("2_67rn2")
