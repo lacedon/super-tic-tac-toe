@@ -61,7 +61,7 @@ func _initFieldLines(pointDescriptions: Vector4) -> Line2D:
 	for coordinate in range(pointNumber + 1):
 		var x: float = pointDescriptions.x if isHorizontal else float(coordinate)
 		var y: float = pointDescriptions.y if !isHorizontal else float(coordinate)
-		var coordinateOffset: int = int(_offset if hasOffset else 0) if coordinate == 0 || coordinate == size else 0
+		var coordinateOffset: int = int(_offset if hasOffset else 0) if (coordinate == 0 || coordinate == pointNumber) else 0
 		var offsetFactor: int = 1 if coordinate == 0 else TTT_State.mainFieldIndex
 
 		points.append(Vector2(
