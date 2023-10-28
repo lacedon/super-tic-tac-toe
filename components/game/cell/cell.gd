@@ -1,20 +1,26 @@
 extends Control
 
-const TTT_Game_Field: Resource = preload("res://components/game/game-field/game-field.gd")
-const TTT_Sign: Resource = preload("res://components/game/sign/sign.gd")
+const ChildHelper = preload('./child.gd')
+const ButtonHelper = preload('./button.gd')
 
 @export var parentIndex: int = TTT_State.mainFieldIndex
 @export var index: int
 @export var state: TTT_State
 @export var cellSize: int = uiSettings.cellSize
-var button
-var child
+var button: ButtonHelper
+var child: ChildHelper
 
 func _ready():
 	var stateChildType = TTT_State_Selectors.getFieldType(state, index, parentIndex)
-	child = _drawChild(stateChildType)
+	var stateOpenBlock = TTT_State_Selectors.getOpenBlock(state)
 
-	if _shouldDrawButton(TTT_State_Selectors.getOpenBlock(state), stateChildType): button = _drawButton()
+	child = ChildHelper.new(state, cellSize, index)
+	child.toggle(stateChildType)
+	add_child(child)
+
+	button = ButtonHelper.new(state, cellSize, parentIndex, _handleButtonPressed)
+	button.toggle(stateOpenBlock, stateChildType)
+	add_child(button)
 
 func _enter_tree():
 	state.connect("openBlockChanged", _updateOpenBlock)
@@ -27,98 +33,21 @@ func _exit_tree():
 	state.disconnect("currentPlayerChanged", _handleNewPlayer)
 
 func _handleNewPlayer(_player: int):
-	toggleBlock(
+	button.toggle(
 		TTT_State_Selectors.getOpenBlock(state),
 		TTT_State_Selectors.getFieldType(state, index, parentIndex),
 	)
 
 func _updateOpenBlock(openBlock: int):
-	toggleBlock(openBlock, TTT_State_Selectors.getFieldType(state, index, parentIndex))
+	button.toggle(openBlock, TTT_State_Selectors.getFieldType(state, index, parentIndex))
 
 func _updateCellType(updatedCellParentIndex: int, updatedCellIndex: int, newType: TTT_State.FieldType):
 	if parentIndex != updatedCellParentIndex || index != updatedCellIndex: return
-	toggleChild(newType)
+	child.toggle(newType)
+	button.toggle(TTT_State_Selectors.getOpenBlock(state), newType)
 
-func toggleChild(childType: TTT_State.FieldType):
-	if child: remove_child(child)
-	child = _drawChild(childType)
-	toggleBlock(TTT_State_Selectors.getOpenBlock(state), childType)
-
-func toggleBlock(stateOpenBlock: int, childType: TTT_State.FieldType):
-	if _shouldDrawButton(stateOpenBlock, childType):
-		if !button:
-			button = _drawButton()
-	elif button:
-		remove_child(button)
-		button = null
-
-func _shouldDrawButton(stateOpenBlock: int, childType: TTT_State.FieldType) -> bool:
-	if !TTT_State_Selectors.getIsCurrentPlayerActive(state): return false
-
-	# If the current cell is already finished
-	if childType == TTT_State.FieldType.x || childType == TTT_State.FieldType.o: return false
-
-	# If the current cell is the top cell and top field is open
-	if parentIndex == TTT_State.mainFieldIndex && stateOpenBlock == TTT_State.mainFieldIndex: return true
-
-	# If the current cell is the inner cell and the parent cell is open
-	if parentIndex != TTT_State.mainFieldIndex && stateOpenBlock == parentIndex: return true
-
-	return false
-
-func _drawButton():
-	var halfCellSize: int = roundi(float(cellSize) / 2)
-	var newButton = Button.new()
-	newButton.size.x = cellSize
-	newButton.size.y = cellSize
-	newButton.position.x = -halfCellSize
-	newButton.position.y = -halfCellSize
-	newButton.pressed.connect(_button_pressed)
-	add_child(newButton)
-	return newButton
-
-func _drawChild(childType: TTT_State.FieldType):
-	var halfCellSize: int = roundi(float(cellSize) / 2)
-	var childToDraw = _createChild(childType)
-	if (childToDraw):
-		add_child(childToDraw)
-		childToDraw.position.x = -halfCellSize
-		childToDraw.position.y = -halfCellSize
-	return childToDraw
-
-func _createChild(childType: TTT_State.FieldType):
-	match childType:
-		TTT_State.FieldType.x: return _createX()
-		TTT_State.FieldType.o: return _createO()
-		TTT_State.FieldType.field: return _createGameField()
-	return
-
-func _createX() -> TTT_Sign:
-	var instance: TTT_Sign = TTT_Sign.new()
-	instance.name = "Sign"
-	instance.cellSize = cellSize
-	instance.value = TTT_State.FieldType.x
-	return instance
-
-func _createO() -> TTT_Sign:
-	var instance: TTT_Sign = TTT_Sign.new()
-	instance.name = "Sign"
-	instance.cellSize = cellSize
-	instance.value = TTT_State.FieldType.o
-	return instance
-
-func _createGameField() -> TTT_Game_Field:
-	var instance: TTT_Game_Field = TTT_Game_Field.new()
-	instance.state = state
-	instance.name = "GameField"
-	instance.parentIndex = index
-	instance.cellSize = roundi(float(cellSize) / gameSettings.cellNumber)
-
-	return instance
-
-func _button_pressed():
+func _handleButtonPressed():
 	if (parentIndex == TTT_State.mainFieldIndex):
 		state.updateOpenBlock(index)
 	else:
-		prints('\nplayer')
 		state.updateField(index, parentIndex)
