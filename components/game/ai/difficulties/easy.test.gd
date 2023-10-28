@@ -6,15 +6,15 @@ func _ready():
 	_test(
 		'. . .\n. . .\n. . .',
 		[
-			{ type = TTT_State.FieldType.none },
-			{ type = TTT_State.FieldType.none },
-			{ type = TTT_State.FieldType.none },
-			{ type = TTT_State.FieldType.none },
-			{ type = TTT_State.FieldType.none },
-			{ type = TTT_State.FieldType.none },
-			{ type = TTT_State.FieldType.none },
-			{ type = TTT_State.FieldType.none },
-			{ type = TTT_State.FieldType.none },
+			{ type = TTT_Cell_Resource.FieldType.none },
+			{ type = TTT_Cell_Resource.FieldType.none },
+			{ type = TTT_Cell_Resource.FieldType.none },
+			{ type = TTT_Cell_Resource.FieldType.none },
+			{ type = TTT_Cell_Resource.FieldType.none },
+			{ type = TTT_Cell_Resource.FieldType.none },
+			{ type = TTT_Cell_Resource.FieldType.none },
+			{ type = TTT_Cell_Resource.FieldType.none },
+			{ type = TTT_Cell_Resource.FieldType.none },
 		],
 		[
 			[],
@@ -27,15 +27,15 @@ func _ready():
 	_test(
 		'x . .\n. . .\n. . .',
 		[
-			{ type = TTT_State.FieldType.x },
-			{ type = TTT_State.FieldType.none },
-			{ type = TTT_State.FieldType.none },
-			{ type = TTT_State.FieldType.none },
-			{ type = TTT_State.FieldType.none },
-			{ type = TTT_State.FieldType.none },
-			{ type = TTT_State.FieldType.none },
-			{ type = TTT_State.FieldType.none },
-			{ type = TTT_State.FieldType.none },
+			{ type = TTT_Cell_Resource.FieldType.x },
+			{ type = TTT_Cell_Resource.FieldType.none },
+			{ type = TTT_Cell_Resource.FieldType.none },
+			{ type = TTT_Cell_Resource.FieldType.none },
+			{ type = TTT_Cell_Resource.FieldType.none },
+			{ type = TTT_Cell_Resource.FieldType.none },
+			{ type = TTT_Cell_Resource.FieldType.none },
+			{ type = TTT_Cell_Resource.FieldType.none },
+			{ type = TTT_Cell_Resource.FieldType.none },
 		],
 		[
 			[],
@@ -46,7 +46,7 @@ func _ready():
 		]
 	)
 
-func _test(testName: String, fieldList: Array, expectedResult: Array):
+func _test(testName: String, fieldList: Array[TTT_Cell_Resource], expectedResult: Array):
 	print('Start testing\n')
 
 	var result = difficultiesEasy._getClosingCells(TTT_State.PlayerSign.o, fieldList)

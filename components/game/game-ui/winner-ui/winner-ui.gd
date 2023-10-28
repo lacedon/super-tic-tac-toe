@@ -26,7 +26,7 @@ func showWinner(winner: TTT_State.PlayerSign, isDraw: bool):
 
 		var winnerSign = TTTSign.new()
 		winnerSign.centererByX = true
-		winnerSign.value = TTT_State.FieldType.x if winner == TTT_State.PlayerSign.x else TTT_State.FieldType.o 
+		winnerSign.value = TTT_Cell_Resource.FieldType.x if winner == TTT_State.PlayerSign.x else TTT_Cell_Resource.FieldType.o 
 		winnerSign.cellSize = winnerSign.cellSize / 2
 		winnerSign.position.x = -winnerSign.cellSize / 2
 		playerNameNode.add_child(winnerSign)

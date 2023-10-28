@@ -18,7 +18,7 @@ func _init(
 	parentIndex = initParentIndex
 	handleButtonPressed = initHandleButtonPressed
 
-func toggle(stateOpenBlock: int, childType: TTT_State.FieldType):
+func toggle(stateOpenBlock: int, childType: TTT_Cell_Resource.FieldType):
 	if _shouldDrawButton(stateOpenBlock, childType):
 		if !button:
 			button = _createButton()
@@ -29,12 +29,12 @@ func toggle(stateOpenBlock: int, childType: TTT_State.FieldType):
 
 func _shouldDrawButton(
 	stateOpenBlock: int,
-	childType: TTT_State.FieldType
+	childType: TTT_Cell_Resource.FieldType
 ) -> bool:
 	if !TTT_State_Selectors.getIsCurrentPlayerActive(state): return false
 
 	# If the current cell is already finished
-	if childType == TTT_State.FieldType.x || childType == TTT_State.FieldType.o: return false
+	if childType == TTT_Cell_Resource.FieldType.x || childType == TTT_Cell_Resource.FieldType.o: return false
 
 	# If the current cell is the top cell and top field is open
 	if parentIndex == TTT_State.mainFieldIndex && stateOpenBlock == TTT_State.mainFieldIndex: return true

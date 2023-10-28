@@ -18,10 +18,10 @@ static func updateField(state: TTT_State, index: int, parentIndex: int):
 	prints(logId, "start")
 
 	var parent = state.fields[parentIndex]
-	if parent.type != TTT_State.FieldType.field || !parent.inner[index]:
+	if parent.type != TTT_Cell_Resource.FieldType.field || !parent.inner[index]:
 		assert("Cannot find field [" + str(parentIndex) + "][" + str(index) + "]. It\"s not field cell.")
 
-	var value = TTT_State.FieldType.x if state.currentPlayer == TTT_State.PlayerSign.x else TTT_State.FieldType.o
+	var value = TTT_Cell_Resource.FieldType.x if state.currentPlayer == TTT_State.PlayerSign.x else TTT_Cell_Resource.FieldType.o
 	_updateCellType(state, index, parentIndex, value)
 	prints("\t", logId, "value", value)
 
@@ -32,7 +32,7 @@ static func updateField(state: TTT_State, index: int, parentIndex: int):
 
 		var finishedField = _getFinishedLine(state.fields)
 		if finishedField:
-			var winner = TTT_State.PlayerSign.x if finishedField == TTT_State.FieldType.x else TTT_State.PlayerSign.o
+			var winner = TTT_State.PlayerSign.x if finishedField == TTT_Cell_Resource.FieldType.x else TTT_State.PlayerSign.o
 			ControllerFinishGame.finishGame(state, winner)
 			prints("\t", logId, "finish game", winner)
 		elif !_hasAvailableFields(state.fields):
@@ -42,7 +42,7 @@ static func updateField(state: TTT_State, index: int, parentIndex: int):
 			ControllerUpdateOpenBlock.updateOpenBlock(state, TTT_State.mainFieldIndex)
 			# ControllerUpdateOpenBlock.updateOpenBlock(state, index)
 			prints("\t", logId, "update openBlock", TTT_State.mainFieldIndex)
-	elif (state.fields[index].type == TTT_State.FieldType.field):
+	elif (state.fields[index].type == TTT_Cell_Resource.FieldType.field):
 		ControllerUpdateOpenBlock.updateOpenBlock(state, index)
 		prints("\t", logId, "update openBlock", index)
 	else:
@@ -52,7 +52,7 @@ static func updateField(state: TTT_State, index: int, parentIndex: int):
 	prints("\t", logId, "togglePlayer")
 	prints(logId, "end", index, parentIndex)
 
-static func _updateCellType(state: TTT_State, index: int, parentIndex: int, value: TTT_State.FieldType):
+static func _updateCellType(state: TTT_State, index: int, parentIndex: int, value: TTT_Cell_Resource.FieldType):
 	if (parentIndex == TTT_State.mainFieldIndex):
 		state.fields[index].type = value
 	else:
@@ -60,12 +60,12 @@ static func _updateCellType(state: TTT_State, index: int, parentIndex: int, valu
 
 	state.emit_signal("cellTypeChanged", parentIndex, index, value)
 
-static func _getFinishedLine(fieldList: Array):
+static func _getFinishedLine(fieldList: Array[TTT_Cell_Resource]):
 	for line in lines:
-		var fieldType: TTT_State.FieldType = fieldList[line.start].type
+		var fieldType: TTT_Cell_Resource.FieldType = fieldList[line.start].type
 		if (
-			fieldType != TTT_State.FieldType.x &&
-			fieldType != TTT_State.FieldType.o
+			fieldType != TTT_Cell_Resource.FieldType.x &&
+			fieldType != TTT_Cell_Resource.FieldType.o
 		):
 			continue
 
@@ -80,7 +80,7 @@ static func _getFinishedLine(fieldList: Array):
 
 	return null
 
-static func _hasAvailableFields(fieldList: Array) -> bool:
+static func _hasAvailableFields(fieldList: Array[TTT_Cell_Resource]) -> bool:
 	for field in fieldList:
-		if field.type == TTT_State.FieldType.none || field.type == TTT_State.FieldType.field: return true
+		if field.type == TTT_Cell_Resource.FieldType.none || field.type == TTT_Cell_Resource.FieldType.field: return true
 	return false

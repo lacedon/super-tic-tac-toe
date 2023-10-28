@@ -9,9 +9,9 @@ const lines = [
 	{ start = 6, stepSize = 1 },
 ]
 
-static func _getClosingCells(playerSign: TTT_State.PlayerSign, fieldList: Array) -> Array[Array]:
-	var playerFieldType: = TTT_State.FieldType.x if playerSign == TTT_State.PlayerSign.x else TTT_State.FieldType.o
-	var enemyFieldType: = TTT_State.FieldType.o if playerSign == TTT_State.PlayerSign.x else TTT_State.FieldType.x
+static func _getClosingCells(playerSign: TTT_State.PlayerSign, fieldList: Array[TTT_Cell_Resource]) -> Array[Array]:
+	var playerFieldType: = TTT_Cell_Resource.FieldType.x if playerSign == TTT_State.PlayerSign.x else TTT_Cell_Resource.FieldType.o
+	var enemyFieldType: = TTT_Cell_Resource.FieldType.o if playerSign == TTT_State.PlayerSign.x else TTT_Cell_Resource.FieldType.x
 	var result: Array[Array] = [[], [], [], [], []]
 
 	for line in lines:
@@ -21,14 +21,14 @@ static func _getClosingCells(playerSign: TTT_State.PlayerSign, fieldList: Array)
 
 		for step in range(3):
 			var index: int = line.start + step * line.stepSize
-			var fieldType: TTT_State.FieldType = fieldList[index].type
+			var fieldType: TTT_Cell_Resource.FieldType = fieldList[index].type
 
 			match (fieldType):
 				playerFieldType:
 					currentPlayerListItemNumber += 1
 				enemyFieldType:
 					enemyListItemNumber += 1
-				TTT_State.FieldType.none, TTT_State.FieldType.field:
+				TTT_Cell_Resource.FieldType.none, TTT_Cell_Resource.FieldType.field:
 					possiblePoints.append(index)
 
 		if currentPlayerListItemNumber == 2: result[0].append_array(possiblePoints)
@@ -73,6 +73,6 @@ static func _printDebugInfo(state: TTT_State, openBlock: int, closingCellsList: 
 
 static func _getDebugField(index: int, values: Array, state: TTT_State, openBlock: int) -> String:
 	if values[index] == null: 
-		if TTT_State_Selectors.getFieldType(state, index, openBlock) == TTT_State.FieldType.x: 'x'
+		if TTT_State_Selectors.getFieldType(state, index, openBlock) == TTT_Cell_Resource.FieldType.x: 'x'
 		return 'o'
 	return str(values[index])

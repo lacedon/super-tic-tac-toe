@@ -41,13 +41,15 @@ func _handleNewPlayer(_player: int):
 func _updateOpenBlock(openBlock: int):
 	button.toggle(openBlock, TTT_State_Selectors.getFieldType(state, index, parentIndex))
 
-func _updateCellType(updatedCellParentIndex: int, updatedCellIndex: int, newType: TTT_State.FieldType):
+func _updateCellType(updatedCellParentIndex: int, updatedCellIndex: int, newType: TTT_Cell_Resource.FieldType):
 	if parentIndex != updatedCellParentIndex || index != updatedCellIndex: return
 	child.toggle(newType)
 	button.toggle(TTT_State_Selectors.getOpenBlock(state), newType)
 
 func _handleButtonPressed():
-	if (parentIndex == TTT_State.mainFieldIndex):
+	var cellType = TTT_State_Selectors.getFieldType(state, index)
+
+	if cellType == TTT_Cell_Resource.FieldType.field:
 		state.updateOpenBlock(index)
 	else:
 		state.updateField(index, parentIndex)

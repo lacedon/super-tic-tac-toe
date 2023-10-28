@@ -2,16 +2,14 @@ extends Node
 class_name TTT_State
 
 signal openBlockChanged(openBlock: int)
-signal cellTypeChanged(parentIndex: int, index: int, newType: FieldType)
+signal cellTypeChanged(parentIndex: int, index: int, newType: TTT_Cell_Resource.FieldType)
 signal currentPlayerChanged(player: PlayerSign)
 signal gameOver(winner: PlayerSign, isDraw: bool)
 
-const ControllerCreateFieldList = preload("./controllers/create-field-list.gd")
 const ControllerUpdateOpenBlock = preload("./controllers/update-open-block.gd")
 const ControllerUpdateField = preload("./controllers/update-field.gd")
 const scriptAI = preload("res://components/game/ai/ai.gd")
 
-enum FieldType { none, x, o, field }
 enum PlayerSign { x, o }
 enum NestingLevel { one, two }
 
@@ -24,14 +22,14 @@ static var mainFieldIndex = -1
 @export var openBlock: int = mainFieldIndex
 var prevOpenBlock: int = mainFieldIndex
 var isGameOver: bool = false
-var fields: Array
+var fields: Array[TTT_Cell_Resource]
 
 func updateOpenBlock(value: int): ControllerUpdateOpenBlock.updateOpenBlock(self, value)
 func updateField(index: int, parentIndex: int): ControllerUpdateField.updateField(self, index, parentIndex)
 
 func _enter_tree():
-  fields = ControllerCreateFieldList.createEmptyFieldList(
-    FieldType.none if nestingLevel == NestingLevel.one else FieldType.field
+  fields = TTT_Cell_Resource.createEmptyFieldList(
+    TTT_Cell_Resource.FieldType.none if nestingLevel == NestingLevel.one else TTT_Cell_Resource.FieldType.field
   )
 
   if !workWithGlobalSettings: return

@@ -5,8 +5,8 @@ static func getCellsToChoose(state: TTT_State, openBlock: int, _playerSign: TTT_
 	for fieldIndex in range(allFields.size()):
 		var field = allFields[fieldIndex]
 		if (
-			field.type == TTT_State.FieldType.none ||
-			field.type == TTT_State.FieldType.field
+			field.type == TTT_Cell_Resource.FieldType.none ||
+			field.type == TTT_Cell_Resource.FieldType.field
 		):
 			options.append(fieldIndex)
 

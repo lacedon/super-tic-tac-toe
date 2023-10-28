@@ -17,12 +17,12 @@ func _init(
 	cellSize = initCellSize
 	index = initIndex
 
-func toggle(childType: TTT_State.FieldType):
+func toggle(childType: TTT_Cell_Resource.FieldType):
 	if child: remove_child(child)
 	child = _createChild(childType)
 	if child: add_child(child)
 
-func _createChild(childType: TTT_State.FieldType,):
+func _createChild(childType: TTT_Cell_Resource.FieldType,):
 	var halfCellSize: int = roundi(float(cellSize) / 2)
 	var newChild = _createBaseChild(childType)
 	if (newChild):
@@ -30,14 +30,14 @@ func _createChild(childType: TTT_State.FieldType,):
 		newChild.position.y = -halfCellSize
 	return newChild
 
-func _createBaseChild(childType: TTT_State.FieldType):
+func _createBaseChild(childType: TTT_Cell_Resource.FieldType):
 	match childType:
-		TTT_State.FieldType.x: return _createSign(TTT_State.FieldType.x)
-		TTT_State.FieldType.o: return _createSign(TTT_State.FieldType.o)
-		TTT_State.FieldType.field: return _createGameField()
+		TTT_Cell_Resource.FieldType.x: return _createSign(TTT_Cell_Resource.FieldType.x)
+		TTT_Cell_Resource.FieldType.o: return _createSign(TTT_Cell_Resource.FieldType.o)
+		TTT_Cell_Resource.FieldType.field: return _createGameField()
 	return
 
-func _createSign(value: TTT_State.FieldType) -> TTT_Sign:
+func _createSign(value: TTT_Cell_Resource.FieldType) -> TTT_Sign:
 	var instance: TTT_Sign = TTT_Sign.new()
 	instance.name = "Sign"
 	instance.cellSize = cellSize
