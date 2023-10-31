@@ -45,10 +45,11 @@ func _createSign(value: TTT_Cell_Resource.FieldType) -> TTT_Sign:
 	return instance
 
 func _createGameField() -> TTT_Game_Field:
-	var instance: TTT_Game_Field = TTT_Game_Field.new()
-	instance.state = state
+	var instance: TTT_Game_Field = TTT_Game_Field.new(
+		state,
+		roundi(float(cellSize) / gameSettings.cellNumber),
+		index
+	)
 	instance.name = "GameField"
-	instance.parentIndex = index
-	instance.cellSize = roundi(float(cellSize) / gameSettings.cellNumber)
 
 	return instance

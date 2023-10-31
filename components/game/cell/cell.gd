@@ -10,15 +10,26 @@ const ButtonHelper = preload('./button.gd')
 var button: ButtonHelper
 var child: ChildHelper
 
+func _init(
+	initState: TTT_State = state,
+	initCellSize: int = cellSize,
+	initIndex: int = index,
+	initParentIndex: int = parentIndex,
+):
+	parentIndex = initParentIndex
+	index = initIndex
+	state = initState
+	cellSize = initCellSize
+	child = ChildHelper.new(state, cellSize, index)
+	button = ButtonHelper.new(state, cellSize, parentIndex, _handleButtonPressed)
+
 func _ready():
 	var stateChildType = TTT_State_Selectors.getFieldType(state, index, parentIndex)
 	var stateOpenBlock = TTT_State_Selectors.getOpenBlock(state)
 
-	child = ChildHelper.new(state, cellSize, index)
 	child.toggle(stateChildType)
 	add_child(child)
 
-	button = ButtonHelper.new(state, cellSize, parentIndex, _handleButtonPressed)
 	button.toggle(stateOpenBlock, stateChildType)
 	add_child(button)
 
@@ -47,7 +58,7 @@ func _updateCellType(updatedCellParentIndex: int, updatedCellIndex: int, newType
 	button.toggle(TTT_State_Selectors.getOpenBlock(state), newType)
 
 func _handleButtonPressed():
-	var cellType = TTT_State_Selectors.getFieldType(state, index)
+	var cellType = TTT_State_Selectors.getFieldType(state, index, parentIndex)
 
 	if cellType == TTT_Cell_Resource.FieldType.field:
 		state.updateOpenBlock(index)

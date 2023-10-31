@@ -30,17 +30,15 @@ func makeTurn():
 	await _getTimeout()
 
 	var openBlock: int = TTT_State_Selectors.getOpenBlock(state)
-	prints('\nopenBlock', openBlock)
-	if openBlock == TTT_State.mainFieldIndex:
-		var cellsToChoose: Array[int] = _difficultyImplementation.getCellsToChoose(state, openBlock, player)
-		var cellIndex: int = _selectCell(cellsToChoose)
-		state.updateOpenBlock(cellIndex)
-		openBlock = cellIndex
-		await _getTimeout()
-
 	var cellsToChoose: Array[int] = _difficultyImplementation.getCellsToChoose(state, openBlock, player)
 	var cellIndex: int = _selectCell(cellsToChoose)
-	state.updateField(cellIndex, openBlock)
+	var cellType: TTT_Cell_Resource.FieldType = TTT_State_Selectors.getFieldType(state, cellIndex, openBlock)
+	if cellType == TTT_Cell_Resource.FieldType.field:
+		state.updateOpenBlock(cellIndex)
+		openBlock = cellIndex
+		makeTurn()
+	else:
+		state.updateField(cellIndex, openBlock)
 
 func _selectCell(cellsToChoose: Array[int]) -> int:
 	return cellsToChoose.pick_random()

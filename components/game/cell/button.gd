@@ -36,11 +36,8 @@ func _shouldDrawButton(
 	# If the current cell is already finished
 	if childType == TTT_Cell_Resource.FieldType.x || childType == TTT_Cell_Resource.FieldType.o: return false
 
-	# If the current cell is the top cell and top field is open
-	if parentIndex == TTT_State.mainFieldIndex && stateOpenBlock == TTT_State.mainFieldIndex: return true
-
-	# If the current cell is the inner cell and the parent cell is open
-	if parentIndex != TTT_State.mainFieldIndex && stateOpenBlock == parentIndex: return true
+	# If the field of the current cell is open
+	if parentIndex == stateOpenBlock: return true
 
 	return false
 

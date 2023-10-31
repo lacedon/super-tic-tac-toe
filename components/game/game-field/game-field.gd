@@ -18,6 +18,17 @@ const lineCoordinates: Array[Vector4] = [
 @export var cellSize: int = uiSettings.cellSize
 @export var hasOffset: bool = true
 
+func _init(
+	initState: TTT_State = state,
+	initCellSize: int = cellSize,
+	initParentIndex: int = parentIndex,
+	initHasOffset: bool = hasOffset,
+):
+	state = initState
+	cellSize = initCellSize
+	parentIndex = initParentIndex
+	hasOffset = initHasOffset
+
 func _ready():
 	var index: = 0
 	for x in range(gameSettings.cellNumber):
@@ -32,12 +43,8 @@ func _ready():
 
 func _createCell(x: int, y: int, index: int) -> TTT_Cell:
 	var halfCellSize: int = roundi(float(cellSize) / 2)
-	var cell: TTT_Cell = TTT_Cell.new()
+	var cell: TTT_Cell = TTT_Cell.new(state, cellSize, index, parentIndex)
 	cell.name = "Cell[" + str(x) + "," + str(y) + "]"
-	cell.state = state
-	cell.index = index
-	cell.cellSize = cellSize
-	cell.parentIndex = parentIndex
 	cell.position.x = x * cellSize + halfCellSize
 	cell.position.y = y * cellSize + halfCellSize
 
@@ -62,7 +69,7 @@ func _initFieldLines(pointDescriptions: Vector4) -> Line2D:
 		var x: float = pointDescriptions.x if isHorizontal else float(coordinate)
 		var y: float = pointDescriptions.y if !isHorizontal else float(coordinate)
 		var coordinateOffset: int = int(_offset if hasOffset else 0) if (coordinate == 0 || coordinate == pointNumber) else 0
-		var offsetFactor: int = 1 if coordinate == 0 else TTT_State.mainFieldIndex
+		var offsetFactor: int = 1 if coordinate == 0 else -1
 
 		points.append(Vector2(
 			x * cellSize + (1 if isHorizontal else coordinateOffset * offsetFactor),
