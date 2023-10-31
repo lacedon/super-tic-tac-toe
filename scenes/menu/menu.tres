@@ -1,111 +1,111 @@
-[gd_resource type="JSON" format=3 uid="uid://b4gbys3eokftm"]
+[gd_resource type="Resource" script_class="Menu" load_steps=18 format=3 uid="uid://bsc4hxfsm7bxt"]
 
-[resource]
-data = {
-"rows": [{
-"items": [{
-"text": "Super TicTacToe",
-"type": "title"
-}]
-}, {
-"type": "expand"
-}, {
-"aligment": "end",
-"items": [{
-"innerMenu": {
-"closable": true,
-"rows": [{
-"items": [{
-"text": "Dificulty",
-"type": "title"
-}]
-}, {
-"type": "expand"
-}, {
-"aligment": "end",
-"items": [{
-"props": {
-"aiDificulty": "rando",
-"mode": 0,
-"nextScenePath": "res://scenes/game.tscn"
-},
-"script": "res://components/common/change-scene.gd",
-"size": [160],
-"styles": {
+[ext_resource type="Script" path="res://components/common/menu-list/resources/menu.gd" id="1_dwj4q"]
+[ext_resource type="Script" path="res://components/common/menu-list/resources/menu-item.gd" id="1_xv5ca"]
+[ext_resource type="Script" path="res://components/common/menu-list/resources/menu-row.gd" id="2_k2i05"]
+[ext_resource type="Resource" uid="uid://c3xxmevn74kxy" path="res://scenes/menu/vs-bot-menu.tres" id="3_d07ws"]
+[ext_resource type="Script" path="res://components/common/change-scene.gd" id="4_r722j"]
+[ext_resource type="Script" path="res://components/common/exit-button.gd" id="5_qiaew"]
+
+[sub_resource type="Resource" id="Resource_b4vat"]
+script = ExtResource("1_xv5ca")
+type = 0
+text = "Super TicTacToe"
+styles = {}
+props = {}
+size = Vector2(0, 0)
+
+[sub_resource type="Resource" id="Resource_e4do5"]
+script = ExtResource("2_k2i05")
+type = 0
+aligment = 1
+items = Array[ExtResource("1_xv5ca")]([SubResource("Resource_b4vat")])
+
+[sub_resource type="Resource" id="Resource_qmyr4"]
+script = ExtResource("2_k2i05")
+type = 1
+aligment = 0
+items = Array[ExtResource("1_xv5ca")]([])
+
+[sub_resource type="Resource" id="Resource_8y1y5"]
+script = ExtResource("1_xv5ca")
+type = 2
+text = "vs Bot"
+styles = {
 "direction": 3,
 "mode": 1
-},
-"text": "Rando",
-"type": "button"
-}]
-}, {
-"aligment": "end",
-"items": [{
-"props": {
-"aiDificulty": "easy",
-"mode": 0,
-"nextScenePath": "res://scenes/game.tscn"
-},
-"script": "res://components/common/change-scene.gd",
-"size": [160],
-"styles": {
+}
+props = {}
+size = Vector2(320, 2.08165e-12)
+innerMenu = ExtResource("3_d07ws")
+
+[sub_resource type="Resource" id="Resource_cssd8"]
+script = ExtResource("2_k2i05")
+type = 0
+aligment = 2
+items = Array[ExtResource("1_xv5ca")]([SubResource("Resource_8y1y5")])
+
+[sub_resource type="Resource" id="Resource_crj03"]
+script = ExtResource("1_xv5ca")
+type = 1
+text = "Hot seat"
+styles = {
 "direction": 3,
 "mode": 1
-},
-"text": "Easy",
-"type": "button"
-}]
-}]
-},
-"styles": {
-"direction": 3,
-"mode": 1
-},
-"text": "vs Bot",
-"type": "innerMenu"
-}]
-}, {
-"aligment": "end",
-"items": [{
-"props": {
+}
+props = {
 "mode": 1,
 "nextScenePath": "res://scenes/game.tscn"
-},
-"script": "res://components/common/change-scene.gd",
-"size": [160],
-"styles": {
+}
+size = Vector2(320, 2.08165e-12)
+scriptPath = ExtResource("4_r722j")
+
+[sub_resource type="Resource" id="Resource_68crb"]
+script = ExtResource("2_k2i05")
+type = 0
+aligment = 2
+items = Array[ExtResource("1_xv5ca")]([SubResource("Resource_crj03")])
+
+[sub_resource type="Resource" id="Resource_bw3sx"]
+script = ExtResource("1_xv5ca")
+type = 1
+text = "Tutorial"
+styles = {
 "direction": 3,
 "mode": 1
-},
-"text": "Hot seat",
-"type": "button"
-}]
-}, {
-"aligment": "end",
-"items": [{
-"props": {
+}
+props = {
 "mode": 1,
 "nextScenePath": "res://scenes/game.tscn"
-},
-"script": "res://components/common/change-scene.gd",
-"size": [160],
-"styles": {
-"direction": 3,
-"mode": 1
-},
-"text": "Tutorial",
-"type": "button"
-}]
-}, {
-"aligment": "begin",
-"items": [{
-"script": "res://components/common/exit-button.gd",
-"styles": {
+}
+size = Vector2(320, 2.08165e-12)
+scriptPath = ExtResource("4_r722j")
+
+[sub_resource type="Resource" id="Resource_3878i"]
+script = ExtResource("2_k2i05")
+type = 0
+aligment = 2
+items = Array[ExtResource("1_xv5ca")]([SubResource("Resource_bw3sx")])
+
+[sub_resource type="Resource" id="Resource_t2kvj"]
+script = ExtResource("1_xv5ca")
+type = 1
+text = "Exit"
+styles = {
 "direction": 2,
 "mode": 2
-},
-"text": "Exit",
-"type": "button"
-}]
-}]
 }
+props = {}
+size = Vector2(0, 0)
+scriptPath = ExtResource("5_qiaew")
+
+[sub_resource type="Resource" id="Resource_ci428"]
+script = ExtResource("2_k2i05")
+type = 0
+aligment = 0
+items = Array[ExtResource("1_xv5ca")]([SubResource("Resource_t2kvj")])
+
+[resource]
+script = ExtResource("1_dwj4q")
+closable = false
+rows = Array[ExtResource("2_k2i05")]([SubResource("Resource_e4do5"), SubResource("Resource_qmyr4"), SubResource("Resource_cssd8"), SubResource("Resource_68crb"), SubResource("Resource_3878i"), SubResource("Resource_ci428")])

@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://ddbxy7ksk4ske" path="res://themes/game-ui.tres" id="1_6rq2v"]
 [ext_resource type="Script" path="res://components/common/bubble-animation/bubble-animation.gd" id="2_be66o"]
 [ext_resource type="Script" path="res://components/common/fps/fps.gd" id="2_e1d2o"]
-[ext_resource type="JSON" uid="uid://b4gbys3eokftm" path="res://scenes/menu/menu.tres" id="2_ripwp"]
+[ext_resource type="Resource" uid="uid://bsc4hxfsm7bxt" path="res://scenes/menu/menu.tres" id="2_ripwp"]
 [ext_resource type="Script" path="res://components/common/menu-list/menu-list.gd" id="2_upm6s"]
 [ext_resource type="Script" path="res://components/game/sign/sign.gd" id="3_txv44"]
 
@@ -47,7 +47,7 @@ theme_override_constants/margin_bottom = 32
 [node name="MenuList" type="VBoxContainer" parent="MarginContainer" node_paths=PackedStringArray("parentMenu")]
 layout_mode = 2
 script = ExtResource("2_upm6s")
-list = ExtResource("2_ripwp")
+menu = ExtResource("2_ripwp")
 parentMenu = NodePath("..")
 
 [node name="FPSMeter" type="Label" parent="."]

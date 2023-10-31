@@ -1,6 +1,8 @@
 extends Button
 
-@export var menuJSON: Dictionary
+const Menu = preload('./resources/menu.gd')
+
+@export var menu: Menu
 @export var parentMenu: Node
 @export var previousMenu: MenuList
 
@@ -14,8 +16,7 @@ func _onClick():
 	previousMenu.hide()
 
 	var childMenu = MenuList.new()
-	childMenu.listJSON = menuJSON
-	childMenu.closable = true
+	childMenu.menu = menu
 	childMenu.parentMenu = parentMenu
 	childMenu.previousMenu = previousMenu
 	childMenu.layout_mode = 1

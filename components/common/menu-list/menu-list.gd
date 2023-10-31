@@ -1,37 +1,32 @@
 extends VBoxContainer
 class_name MenuList
 
+const Menu = preload('./resources/menu.gd')
+const MenuRow = preload('./resources/menu-row.gd')
+const MenuItem = preload('./resources/menu-item.gd')
 const ButtonStyler = preload("res://components/common/button-styler.gd")
-const ConfigParser = preload('./config-parser.gd');
 const RowCreator = preload('./row-creator.gd');
 
-@export var list: Resource
-@export var listJSON: Dictionary
-@export var closable: bool = false
+@export var menu: Menu
 @export var parentMenu: Node
 @export var previousMenu: MenuList
 
 func _enter_tree():
 	_applyMenuConfig()
 
-func _getMenuConfig() -> Dictionary:
-	if listJSON: return listJSON
-	if list: return list.get('data')
-	return { menuItems = [] }
-
-func _createRowFromConfig(rowConfig: Dictionary):
-	var children: Array[Node] = []
-	if 'items' in rowConfig:
-		for item in rowConfig.items:
-			children.append(ConfigParser.createNodeFromConfig(item, self, parentMenu, previousMenu))
-	return RowCreator.createRow(rowConfig, children)
+func _createRow(rowConfig: MenuRow, index: int):
+	return RowCreator.createRow(rowConfig, index, self, parentMenu, previousMenu)
 
 func _applyMenuConfig():
-	var menuConfig = _getMenuConfig()
-	for rowConfig in menuConfig.rows:
-		add_child(_createRowFromConfig(rowConfig))
-	if closable:
-		add_child(_createRowFromConfig({
-			aligment = "end",
-			items = [{ type = 'closeMenu', text = 'Back', styles = { direction = 3, mode = 2 } }]
-		}))
+	if !menu: return
+
+	var index = 1
+	for rowConfig in menu.rows:
+		add_child(_createRow(rowConfig, index))
+		index += 1
+
+	if menu.closable:
+		add_child(_createRow(MenuRow.new(MenuRow.MenuRowType.itemList, MenuRow.MenuRowAligment.end, [
+			MenuItem.new(MenuItem.MenuItemType.closeMenu, 'Back', { direction = 3, mode = 2 })
+		]), index))
+		index += 1

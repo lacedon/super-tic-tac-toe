@@ -1,57 +1,57 @@
+const MenuItem = preload('./resources/menu-item.gd')
 const OpenMenuButton = preload('./button-open-menu.gd')
 const CloseMenuButton = preload('./button-close-menu.gd')
 const ConfigParser = preload('./config-parser.gd');
 
-static func createNodeFromConfig(config: Dictionary, menu: MenuList, parentMenu: Node, previousMenu: MenuList) -> Node:
+static func createNodeFromConfig(config: MenuItem, menu: MenuList, parentMenu: Node, previousMenu: MenuList) -> Node:
 	match config.type:
-		'title':
+		MenuItem.MenuItemType.title:
 			var label = Label.new()
 			label.text = config.text
 			return label
-		'button':
+
+		MenuItem.MenuItemType.button:
 			var button = Button.new()
 			button.text = config.text
-			if 'size' in config:
-				button.custom_minimum_size = Vector2(
-					config.size[0] if config.size.size() > 1 && config.size[0] else 0,
-					config.size[1] if config.size.size() > 2 && config.size[1] else 0,
-				)
-			if 'script' in config:
-				button.set_script(load(config.script))
-			if 'props' in config:
+			button.custom_minimum_size = config.size
+			if config.scriptPath:
+				button.set_script(config.scriptPath)
+			if config.props:
 				for propName in config.props:
 					button[propName] = config.props[propName]
-			if 'styles' in config:
+			if config.styles:
 				var buttonThemable = ButtonStyler.new()
 				buttonThemable.mode = config.styles.mode
 				buttonThemable.direction = config.styles.direction
 				button.add_child(buttonThemable)
-
 			return button
-		'innerMenu':
+
+		MenuItem.MenuItemType.innerMenu:
 			var button = OpenMenuButton.new()
 			button.text = config.text
-			button.menuJSON = config.innerMenu
+			button.menu = config.innerMenu
 			button.parentMenu = parentMenu
 			button.previousMenu = menu
-			if 'styles' in config:
+			button.custom_minimum_size = config.size
+			if config.styles:
 				var buttonThemable = ButtonStyler.new()
 				buttonThemable.mode = config.styles.mode
 				buttonThemable.direction = config.styles.direction
 				button.add_child(buttonThemable)
-
 			return button
-		'closeMenu':
+
+		MenuItem.MenuItemType.closeMenu:
 			var button = CloseMenuButton.new()
 			button.text = config.text
 			button.menu = menu
 			button.parentMenu = parentMenu
 			button.previousMenu = previousMenu
-			if 'styles' in config:
+			button.custom_minimum_size = config.size
+			if config.styles:
 				var buttonThemable = ButtonStyler.new()
 				buttonThemable.mode = config.styles.mode
 				buttonThemable.direction = config.styles.direction
 				button.add_child(buttonThemable)
-
 			return button
+
 	return Node.new()
