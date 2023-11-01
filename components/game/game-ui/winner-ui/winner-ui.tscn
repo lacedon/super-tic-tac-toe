@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2psott5mmktq"]
+[gd_scene load_steps=8 format=3 uid="uid://c2psott5mmktq"]
 
 [ext_resource type="Script" path="res://components/game/game-ui/winner-ui/winner-ui.gd" id="1_bgakh"]
-[ext_resource type="StyleBox" uid="uid://c4jdpnf2pum28" path="res://themes/panel-styles/style-box-flat-panel.tres" id="2_02i7v"]
 [ext_resource type="Theme" uid="uid://ddbxy7ksk4ske" path="res://themes/game-ui.tres" id="3_o45qj"]
+[ext_resource type="Script" path="res://components/common/menu-list/menu-list.gd" id="4_5bjqf"]
+[ext_resource type="Script" path="res://components/common/bubble-animation/bubble-animation.gd" id="4_dappc"]
+[ext_resource type="Resource" uid="uid://cc40yvx4h26rq" path="res://components/game/game-ui/winner-ui/menu-list.tres" id="5_0daj8"]
+[ext_resource type="PackedScene" uid="uid://b5rplu4c1k3el" path="res://components/game/game-ui/player-block/player-block.tscn" id="5_hh5uv"]
+[ext_resource type="Script" path="res://components/game/sign/sign.gd" id="5_re4h5"]
 
 [node name="WinnerUI" type="Control" node_paths=PackedStringArray("titleNode", "playerNameNode")]
 layout_mode = 3
@@ -11,9 +15,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_o45qj")
 script = ExtResource("1_bgakh")
 titleNode = NodePath("Winner/TitleContainer/Title")
-playerNameNode = NodePath("Winner/PlayerNameContainer")
+playerNameNode = NodePath("Winner/PlayerNameContainer/player-block")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -22,7 +27,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = ExtResource("2_02i7v")
+
+[node name="BubbleAnimation" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_dappc")
+ItemCreator = ExtResource("5_re4h5")
 
 [node name="Winner" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -39,7 +53,6 @@ alignment = 1
 
 [node name="Title" type="Label" parent="Winner/TitleContainer"]
 layout_mode = 2
-theme = ExtResource("3_o45qj")
 text = "Winner is"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -47,3 +60,22 @@ vertical_alignment = 1
 [node name="PlayerNameContainer" type="HBoxContainer" parent="Winner"]
 layout_mode = 2
 alignment = 1
+
+[node name="player-block" parent="Winner/PlayerNameContainer" instance=ExtResource("5_hh5uv")]
+custom_minimum_size = Vector2(280, 320)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_bottom = 32
+
+[node name="MenuList" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+script = ExtResource("4_5bjqf")
+menu = ExtResource("5_0daj8")

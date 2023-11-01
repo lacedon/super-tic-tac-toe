@@ -32,12 +32,12 @@ func moveCamera(newOpenBlock: int):
 		zoom = Vector2(1, 1)
 		position = Vector2.ZERO
 	else:
-		zoom = Vector2(gameSettings.cellNumber, gameSettings.cellNumber)
+		# zoom = Vector2(gameSettings.cellNumber, gameSettings.cellNumber)
 
-		var blockIndex: int = roundi(float(newOpenBlock) / gameSettings.cellNumber)
-		position = Vector2(
-			blockIndex * _cellSize,
-			(newOpenBlock - blockIndex * gameSettings.cellNumber) * _cellSize,
-		)
+		# var blockIndex: int = roundi(float(newOpenBlock) / gameSettings.cellNumber)
+		# position = Vector2(
+		# 	blockIndex * _cellSize,
+		# 	(newOpenBlock - blockIndex * gameSettings.cellNumber) * _cellSize,
+		# )
 
 		set_physics_process(false)

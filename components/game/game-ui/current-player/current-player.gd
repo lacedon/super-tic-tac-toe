@@ -1,7 +1,9 @@
-extends Label
+extends Control
 class_name TTT_UI_Current_Player
 
 @export var state: TTT_State
+@export var playerX: Control
+@export var playerY: Control
 
 func _ready():
 	_updatePlayerSign(TTT_State_Selectors.getCurrentPlayer(state))
@@ -13,11 +15,9 @@ func _exit_tree():
 	state.disconnect("currentPlayerChanged", _updatePlayerSign)
 
 func _updatePlayerSign(currentPlayer: TTT_State.PlayerSign):
-	self.text = "Current player: " + _getPlayerSign(currentPlayer)
-	self.add_theme_color_override("font_color", uiSettings.playerXColor if TTT_State_Selectors.getCurrentPlayer(state) == TTT_State.PlayerSign.x else uiSettings.playerOColor)
-
-func _getPlayerSign(currentPlayer: TTT_State.PlayerSign) -> String:
 	if currentPlayer == TTT_State.PlayerSign.x:
-		return "X"
+		playerX.modulate = Color(1.0, 1.0, 1.0, 1.0)
+		playerY.modulate = Color(1.0, 1.0, 1.0, 0.25)
 	else:
-		return "O"
+		playerX.modulate = Color(1.0, 1.0, 1.0, 0.25)
+		playerY.modulate = Color(1.0, 1.0, 1.0, 1.0)

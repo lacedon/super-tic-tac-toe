@@ -1,6 +1,63 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbpn7gaycmv0j"]
+[gd_scene load_steps=4 format=3 uid="uid://cbpn7gaycmv0j"]
 
 [ext_resource type="Script" path="res://components/game/game-ui/current-player/current-player.gd" id="1_mcdwj"]
+[ext_resource type="Script" path="res://components/game/sign/sign.gd" id="2_5kkww"]
+[ext_resource type="PackedScene" uid="uid://b5rplu4c1k3el" path="res://components/game/game-ui/player-block/player-block.tscn" id="2_5ohum"]
 
-[node name="current-player" type="Label"]
+[node name="current-player" type="HBoxContainer" node_paths=PackedStringArray("playerX", "playerY")]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+alignment = 1
 script = ExtResource("1_mcdwj")
+playerX = NodePath("playerX")
+playerY = NodePath("playerY")
+
+[node name="playerX" parent="." instance=ExtResource("2_5ohum")]
+layout_mode = 2
+
+[node name="TTT_Sign" type="TextureRect" parent="playerX"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -321.0
+offset_top = -50.0
+offset_right = -221.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_5kkww")
+value = 1
+cellSize = 100
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+text = "vs"
+
+[node name="playerY" parent="." instance=ExtResource("2_5ohum")]
+layout_mode = 2
+
+[node name="TTT_Sign" type="TextureRect" parent="playerY"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 94.0
+offset_top = -50.0
+offset_right = 194.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_5kkww")
+value = 2
+cellSize = 100

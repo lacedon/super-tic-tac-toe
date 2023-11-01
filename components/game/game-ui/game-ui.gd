@@ -5,4 +5,5 @@ extends Control
 
 func _enter_tree():
 	for node in passStateNodes:
-		node.state = state
+		if node:
+			node.state = state

@@ -1,5 +1,6 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://vig7p8jjbqd7"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://vig7p8jjbqd7"]
 
+[ext_resource type="FontFile" uid="uid://blqpt64dhrpyj" path="res://assets/fonts/Roboto-Bold.ttf" id="1_fnn45"]
 [ext_resource type="StyleBox" uid="uid://c4jdpnf2pum28" path="res://themes/panel-styles/style-box-flat-panel.tres" id="4_80mcs"]
 
 [resource]
@@ -11,6 +12,7 @@ Button/colors/font_outline_color = Color(1, 1, 1, 0)
 Button/colors/font_pressed_color = Color(0.992157, 0.964706, 0.890196, 1)
 Button/constants/margin_left = 4
 Button/font_sizes/font_size = 32
-Label/colors/font_color = Color(0.992157, 0.964706, 0.890196, 1)
-Label/font_sizes/font_size = 32
+Label/colors/font_color = Color(0.027451, 0.211765, 0.258824, 1)
+Label/font_sizes/font_size = 48
+Label/fonts/font = ExtResource("1_fnn45")
 Panel/styles/panel = ExtResource("4_80mcs")

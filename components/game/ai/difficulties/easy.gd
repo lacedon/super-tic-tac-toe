@@ -49,10 +49,10 @@ static func _getClosingCells(playerSign: TTT_State.PlayerSign, fieldList: Array[
 			result[0].append_array(possiblePoints)
 		elif enemyListItemNumber == 2:
 			result[1].append_array(possiblePoints)
-		elif currentPlayerListItemNumber == 1:
-			result[2].append_array(possiblePoints)
 		elif enemyListItemNumber == 1:
 			result[3].append_array(possiblePoints)
+		elif currentPlayerListItemNumber == 1:
+			result[2].append_array(possiblePoints)
 		else:
 			result[4].append_array(possiblePoints)
 

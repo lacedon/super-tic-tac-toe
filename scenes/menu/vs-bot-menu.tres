@@ -16,7 +16,7 @@ size = Vector2(0, 0)
 [sub_resource type="Resource" id="Resource_thb51"]
 script = ExtResource("1_5yx23")
 type = 0
-aligment = 0
+aligment = 1
 items = Array[ExtResource("1_vmsfl")]([SubResource("Resource_hh43i")])
 
 [sub_resource type="Resource" id="Resource_2ijgu"]
@@ -53,7 +53,7 @@ type = 1
 text = "Easy"
 styles = {
 "direction": 3,
-"mode": 2
+"mode": 1
 }
 props = {
 "aiDificulty": "easy",

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b70ntsmvkm47f"]
+[gd_scene load_steps=9 format=3 uid="uid://b70ntsmvkm47f"]
 
 [ext_resource type="Script" path="res://state/game/state.gd" id="1_ai4i1"]
 [ext_resource type="Theme" uid="uid://vig7p8jjbqd7" path="res://themes/game.tres" id="1_ejj14"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://components/game/camera/camera.gd" id="2_lf8pj"]
 [ext_resource type="Script" path="res://components/game/game-field/game-field.gd" id="4_i38hl"]
 [ext_resource type="Script" path="res://components/common/fps/fps.gd" id="6_04ede"]
+[ext_resource type="PackedScene" uid="uid://dv66omxbf1214" path="res://components/common/adv-banner/adv-banner.tscn" id="7_k860c"]
+[ext_resource type="PackedScene" uid="uid://c2psott5mmktq" path="res://components/game/game-ui/winner-ui/winner-ui.tscn" id="8_1xnie"]
 
 [node name="game" type="Node"]
 
@@ -24,35 +26,29 @@ activePlayers = Array[int]([])
 [node name="TTT_Game_Field" type="Control" parent="." node_paths=PackedStringArray("state")]
 layout_mode = 3
 anchors_preset = 0
-offset_top = 64.0
-offset_bottom = 64.0
+offset_top = 320.0
+offset_bottom = 320.0
 script = ExtResource("4_i38hl")
 state = NodePath("../TTT_State")
 hasOffset = false
 
+[node name="GameUI" parent="." node_paths=PackedStringArray("state", "passStateNodes") instance=ExtResource("1_hkrcm")]
+theme = ExtResource("1_ejj14")
+state = NodePath("../TTT_State")
+passStateNodes = [NodePath("VBoxContainer/Header/MarginStart/current-player"), NodePath("VBoxContainer/Header/TTT_UI_Open_Full_Map"), null]
+
 [node name="TTT_Camera" type="Camera2D" parent="." node_paths=PackedStringArray("state")]
+anchor_mode = 0
 script = ExtResource("2_lf8pj")
 state = NodePath("../TTT_State")
-
-[node name="UI" type="Control" parent="TTT_Camera"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_ejj14")
-
-[node name="GameUI" parent="TTT_Camera/UI" node_paths=PackedStringArray("state") instance=ExtResource("1_hkrcm")]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-state = NodePath("../../../TTT_State")
 
 [node name="FPSMeter" type="Label" parent="TTT_Camera"]
 offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("6_04ede")
+
+[node name="adv-banner" parent="." instance=ExtResource("7_k860c")]
+theme = ExtResource("1_ejj14")
+
+[node name="WinnerUI" parent="." node_paths=PackedStringArray("state") instance=ExtResource("8_1xnie")]
+state = NodePath("../TTT_State")
