@@ -12,7 +12,7 @@ func _enter_tree():
 		state.connect("gameOver", showWinner)
 	else:
 		prints('WARN:', 'State is not provided', self)
-		showWinner(TTT_State.PlayerSign.o, false)
+		showWinner(TTT_State.PlayerSign.o, true)
 
 func _exit_tree():
 	if state: state.disconnect("gameOver", showWinner)
@@ -20,7 +20,33 @@ func _exit_tree():
 func showWinner(winner: TTT_State.PlayerSign, isDraw: bool):
 	if isDraw:
 		titleNode.text = 'It\'s a Draw!'
-		playerNameNode.text = ''
+
+		var xSign = TTTSign.new()
+		xSign.centererByX = true
+		xSign.value = TTT_Cell_Resource.FieldType.x
+		xSign.cellSize = uiSettings.cellSize
+		xSign.layout_mode = 1
+		xSign.anchors_preset = PRESET_CENTER
+
+		var oSign = TTTSign.new()
+		oSign.centererByX = true
+		oSign.value = TTT_Cell_Resource.FieldType.o
+		oSign.cellSize = uiSettings.cellSize
+		oSign.layout_mode = 1
+		oSign.anchors_preset = PRESET_CENTER
+
+		var container = HBoxContainer.new()
+
+		container.layout_mode = 1
+		container.anchors_preset = PRESET_CENTER
+		container.add_child(xSign)
+		container.add_child(oSign)
+
+		playerNameNode.add_child(container)
+		playerNameNode.custom_minimum_size = Vector2(
+			playerNameNode.custom_minimum_size.x * 2,
+			playerNameNode.custom_minimum_size.y
+		)
 	else:
 		titleNode.text = 'Winner is'
 
