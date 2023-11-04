@@ -22,11 +22,7 @@ func _exit_tree():
 	state.disconnect("cameraBlockChanged", moveCamera)
 
 func _setLimits():
-	# offset = -gameField.position
-	limit_left = 0
-	limit_right = _cellSize * gameSettings.cellNumber
-	limit_top = 0
-	limit_bottom = _cellSize * gameSettings.cellNumber
+	offset = -gameField.position
 
 func moveCamera(newOpenBlock: int):
 	set_physics_process(true)
@@ -34,35 +30,15 @@ func moveCamera(newOpenBlock: int):
 	var cameraBlock: int = TTT_State_Selectors.getOpenBlock(state) if newOpenBlock == TTT_State.cameraDisabledIndex else newOpenBlock
 
 	if cameraBlock == TTT_State.mainFieldIndex:
-		# offset = -gameField.position
 		zoom = Vector2(1, 1)
+		offset = Vector2.ZERO
 		position = Vector2.ZERO
 	else:
-		# offset = -gameField.position / gameSettings.cellNumber
+		offset = -gameField.position / gameSettings.cellNumber
 		zoom = Vector2(zoomSize, zoomSize)
 
-		# cameraBlock:
-		# 0 3 6
-		# 1 4 7
-		# 2 5 8
-		#
-		# blockIndex:
-		# 0 1 2
-		# 0 1 2
-		# 0 1 2
-		#
-		# position.x:
-		# 0 1 2
-		# 0 1 2
-		# 0 1 2
-		# position.y:
-		# 0 0 0
-		# 1 1 1
-		# 2 2 2
-
-		var blockIndex: int = roundi(float(cameraBlock) / gameSettings.cellNumber)
-		prints('blockIndex', blockIndex)
-		position = Vector2(
+		var blockIndex: int = floori(float(cameraBlock) / gameSettings.cellNumber)
+		position = gameField.position + Vector2(
 			(blockIndex) * _cellSize,
 			(cameraBlock - blockIndex * gameSettings.cellNumber) * _cellSize,
 		)
