@@ -18,6 +18,9 @@ static func getIsFieldFull(fieldList: Array[TTT_Cell_Resource]) -> bool:
 			return false
 	return true
 
+static func getCameraBlock(state: TTT_State) -> int:
+	return state.cameraBlock
+
 static func getOpenBlock(state: TTT_State) -> int:
 	return state.openBlock
 

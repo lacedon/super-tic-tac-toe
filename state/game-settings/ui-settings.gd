@@ -20,3 +20,6 @@ var lineGradient = null
 # 	gradient.add_point(1, Color(0.03, 0.21, 0.26, 1)) # 073642
 # 	return gradient
 # ).call()
+
+func _ready():
+	RenderingServer.set_default_clear_color(Color(0.99, 0.96, 0.89, 1))

@@ -1,0 +1,6 @@
+[gd_resource type="AnimatedTexture" load_steps=2 format=3 uid="uid://bmk0iu5mxn30k"]
+
+[ext_resource type="Texture2D" path="./normal.svg" id="1_vaggl"]
+
+[resource]
+frame_0/texture = ExtResource("1_vaggl")

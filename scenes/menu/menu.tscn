@@ -16,14 +16,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_6rq2v")
 
-[node name="Background" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="BubbleAnimation" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -51,6 +43,7 @@ menu = ExtResource("2_ripwp")
 parentMenu = NodePath("..")
 
 [node name="FPSMeter" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 38.0

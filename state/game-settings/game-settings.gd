@@ -11,4 +11,4 @@ enum GameMode {
 
 var mode: GameMode = GameMode.vsAI
 var aiDificulty: String = 'rando'
-var shouldShowFPS: bool = false
+var shouldShowFPS: bool = true
