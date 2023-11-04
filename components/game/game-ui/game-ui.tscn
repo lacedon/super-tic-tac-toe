@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvvxj2xltuls8"]
+[gd_scene load_steps=8 format=3 uid="uid://cvvxj2xltuls8"]
 
 [ext_resource type="Script" path="res://components/game/game-ui/open-full-map/open-full-map.gd" id="1_4qecr"]
 [ext_resource type="Script" path="res://components/game/game-ui/game-ui.gd" id="1_1254t"]
+[ext_resource type="Theme" uid="uid://vig7p8jjbqd7" path="res://themes/game.tres" id="1_yrynv"]
 [ext_resource type="PackedScene" uid="uid://cbpn7gaycmv0j" path="res://components/game/game-ui/current-player/current-player.tscn" id="2_yuyyf"]
 [ext_resource type="StyleBox" uid="uid://bcci2bff5r8eu" path="res://themes/button-styles/menu/normal.tres" id="4_l26w3"]
 [ext_resource type="StyleBox" path="res://themes/button-styles/menu/hover.tres" id="5_pt8dy"]
@@ -12,6 +13,7 @@ layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
+theme = ExtResource("1_yrynv")
 script = ExtResource("1_1254t")
 passStateNodes = [NodePath("HBoxContainer/MarginContainer/VBoxContainer/Header/MarginStart/current-player"), NodePath("HBoxContainer/VBoxContainer/HBoxContainer2/MarginContainer/TTT_UI_Open_Full_Map")]
 
@@ -94,5 +96,5 @@ theme_override_constants/margin_right = 16
 [node name="TTT_UI_Open_Full_Map" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer2/MarginContainer"]
 custom_minimum_size = Vector2(182, 2.08165e-12)
 layout_mode = 2
-text = "View field"
+text = "Zoom out"
 script = ExtResource("1_4qecr")
