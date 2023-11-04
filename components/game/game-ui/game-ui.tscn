@@ -13,7 +13,7 @@ anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
 script = ExtResource("1_1254t")
-passStateNodes = [NodePath("HBoxContainer/MarginContainer/VBoxContainer/Header/MarginStart/current-player"), NodePath("HBoxContainer/VBoxContainer/HBoxContainer2/TTT_UI_Open_Full_Map")]
+passStateNodes = [NodePath("HBoxContainer/MarginContainer/VBoxContainer/Header/MarginStart/current-player"), NodePath("HBoxContainer/VBoxContainer/HBoxContainer2/MarginContainer/TTT_UI_Open_Full_Map")]
 
 [node name="Panel" type="Panel" parent="."]
 custom_minimum_size = Vector2(2.08165e-12, 260)
@@ -86,7 +86,12 @@ size_flags_vertical = 3
 layout_mode = 2
 alignment = 2
 
-[node name="TTT_UI_Open_Full_Map" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="TTT_UI_Open_Full_Map" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer2/MarginContainer"]
 custom_minimum_size = Vector2(182, 2.08165e-12)
 layout_mode = 2
 text = "View field"
