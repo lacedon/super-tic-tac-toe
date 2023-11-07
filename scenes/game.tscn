@@ -17,6 +17,10 @@ activePlayers = Array[int]([])
 
 [node name="UI" type="CanvasLayer" parent="."]
 
+[node name="adv-banner" parent="UI" instance=ExtResource("7_k860c")]
+offset_top = -100.0
+theme = ExtResource("1_ejj14")
+
 [node name="GameUI" parent="UI" node_paths=PackedStringArray("state") instance=ExtResource("1_hkrcm")]
 state = NodePath("../../TTT_State")
 
@@ -28,10 +32,6 @@ state = NodePath("../../TTT_State")
 offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("6_04ede")
-
-[node name="adv-banner" parent="UI" instance=ExtResource("7_k860c")]
-offset_top = -100.0
-theme = ExtResource("1_ejj14")
 
 [node name="TTT_Camera" type="Camera2D" parent="." node_paths=PackedStringArray("state", "gameField")]
 position = Vector2(1, 0)
