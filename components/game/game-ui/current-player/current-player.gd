@@ -1,6 +1,9 @@
 extends Control
 class_name TTT_UI_Current_Player
 
+const activePlayerStylebox = preload('res://themes/panel-styles/player-block-active.tres');
+const unactivePlayerStylebox = preload('res://themes/panel-styles/player-block-unactive.tres');
+
 @export var state: TTT_State
 @export var playerX: Control
 @export var playerY: Control
@@ -16,8 +19,16 @@ func _exit_tree():
 
 func _updatePlayerSign(currentPlayer: TTT_State.PlayerSign):
 	if currentPlayer == TTT_State.PlayerSign.x:
-		playerX.modulate = Color(1.0, 1.0, 1.0, 1.0)
-		playerY.modulate = Color(1.0, 1.0, 1.0, 0.25)
+		_highlightSign(playerX)
+		_hideSign(playerY)
 	else:
-		playerX.modulate = Color(1.0, 1.0, 1.0, 0.25)
-		playerY.modulate = Color(1.0, 1.0, 1.0, 1.0)
+		_hideSign(playerX)
+		_highlightSign(playerY)
+
+func _hideSign(control: Control):
+	control.modulate = Color(1.0, 1.0, 1.0, 0.25)
+	control.add_theme_stylebox_override('panel', unactivePlayerStylebox)
+
+func _highlightSign(control: Control):
+	control.modulate = Color(1.0, 1.0, 1.0, 1.0)
+	control.add_theme_stylebox_override('panel', activePlayerStylebox)

@@ -1,7 +1,5 @@
 <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 106 106" width="212" height="212">
   <g opacity=".5">
-    <!-- <rect x="9" y="9" width="89" height="89" rx="10" fill="#93A1A1" /> -->
-    <!-- <rect x="10" y="10" width="86" height="86" rx="24" stroke="#6C71C4" stroke-width="32" /> -->
-    <rect x="9" y="9" width="89" height="89" rx="10" stroke="#073642" stroke-width="4" fill="#93A1A1" />
+    <rect x="12" y="12" width="82" height="82" rx="16" fill="#839496" />
   </g>
 </svg>
