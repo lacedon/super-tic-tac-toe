@@ -17,6 +17,7 @@ const lineCoordinates: Array[Vector4] = [
 @export var state: TTT_State
 @export var cellSize: int = uiSettings.cellSize
 @export var hasOffset: bool = true
+var _lines: Array[Line2D] = []
 
 func _init(
 	initState: TTT_State = state,
@@ -39,7 +40,19 @@ func _ready():
 
 	for lineVector in lineCoordinates:
 		var line = _initFieldLines(lineVector)
+		_lines.append(line)
 		add_child(line)
+
+func _enter_tree():
+	state.connect("openBlockChanged", _toggleActive)
+
+func _exit_tree():
+	state.disconnect("openBlockChanged", _toggleActive)
+
+func _toggleActive(openBlock: int):
+	var isActive = openBlock == parentIndex
+	for line in _lines:
+		line.default_color = uiSettings.lineColorActive if isActive else uiSettings.lineColor
 
 func _createCell(x: int, y: int, index: int) -> TTT_Cell:
 	var halfCellSize: int = roundi(float(cellSize) / 2)
@@ -51,13 +64,14 @@ func _createCell(x: int, y: int, index: int) -> TTT_Cell:
 	return cell
 
 func _initFieldLines(pointDescriptions: Vector4) -> Line2D:
+	var isActive = TTT_State_Selectors.getOpenBlock(state) == parentIndex
 	var isHorizontal: bool = pointDescriptions.x == pointDescriptions.z
 
 	var line: Line2D = Line2D.new()
 	line.name = ("Vertical" if isHorizontal else "Horizontal") + "Line" + str(pointDescriptions.x if isHorizontal else pointDescriptions.y)
 
 	line.width = _lineWidth
-	line.default_color = uiSettings.lineColor
+	line.default_color = uiSettings.lineColorActive if isActive else uiSettings.lineColor
 	line.joint_mode = Line2D.LINE_JOINT_ROUND
 	line.begin_cap_mode = Line2D.LINE_CAP_ROUND
 	line.end_cap_mode = Line2D.LINE_CAP_ROUND
@@ -76,7 +90,5 @@ func _initFieldLines(pointDescriptions: Vector4) -> Line2D:
 			y * cellSize + (coordinateOffset * offsetFactor if isHorizontal else 1),
 		))
 	line.points = points
-
-	line.gradient = uiSettings.lineGradient
 
 	return line
