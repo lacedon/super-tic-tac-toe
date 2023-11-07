@@ -13,6 +13,7 @@ func _init(
 	initCellSize: int,
 	initIndex: int,
 ):
+	name = 'ChildHelper'
 	state = initState
 	cellSize = initCellSize
 	index = initIndex

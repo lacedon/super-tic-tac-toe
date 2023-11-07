@@ -22,6 +22,7 @@ enum ButtonState {
 
 @export var mode: ButtonMode
 @export var direction: ButtonDirection
+@export var style: String
 
 func _enter_tree():
 	_applyOverride(ButtonState.normal)
@@ -30,16 +31,18 @@ func _enter_tree():
 
 func _applyOverride(state: ButtonState):
 	if (
+		!style && (
 		mode == ButtonMode.none ||
 		direction == ButtonDirection.none
-	):
+	)):
 			return
 
-	var modeString = ButtonMode.keys()[mode]
-	var directionString = ButtonDirection.keys()[direction]
-	var stateString = ButtonState.keys()[state]
+	var modeString: String = ButtonMode.keys()[mode]
+	var directionString: String = ButtonDirection.keys()[direction]
+	var stateString: String = ButtonState.keys()[state]
+	var folderName: String = style if style else (modeString + '-' + directionString)
 
-	var stylePressedPath: String = 'res://themes/button-styles/' + modeString + '-' + directionString + '/' + stateString + '.tres'
+	var stylePressedPath: String = 'res://themes/button-styles/' + folderName + '/' + stateString + '.tres'
 	var stylePressed: StyleBox = load(stylePressedPath)
 
 	if !stylePressed: return

@@ -18,7 +18,6 @@ activePlayers = Array[int]([])
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="GameUI" parent="UI" node_paths=PackedStringArray("state") instance=ExtResource("1_hkrcm")]
-theme = ExtResource("1_ejj14")
 state = NodePath("../../TTT_State")
 
 [node name="WinnerUI" parent="UI" node_paths=PackedStringArray("state") instance=ExtResource("8_1xnie")]

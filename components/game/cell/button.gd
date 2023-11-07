@@ -1,6 +1,6 @@
-extends Control
+extends Button
 
-var button: Control
+const ButtonStyler = preload('res://components/common/button-styler.gd')
 
 @export var state: TTT_State
 @export var cellSize: int
@@ -13,19 +13,19 @@ func _init(
 	initParentIndex: int,
 	initHandleButtonPressed: Callable,
 ):
+	name = 'CellButton'
 	state = initState
 	cellSize = initCellSize
 	parentIndex = initParentIndex
 	handleButtonPressed = initHandleButtonPressed
 
+	_setDefaultStyles()
+
 func toggle(stateOpenBlock: int, childType: TTT_Cell_Resource.FieldType):
 	if _shouldDrawButton(stateOpenBlock, childType):
-		if !button:
-			button = _createButton()
-			add_child(button)
-	elif button:
-		remove_child(button)
-		button = null
+		show()
+	else:
+		hide()
 
 func _shouldDrawButton(
 	stateOpenBlock: int,
@@ -41,12 +41,15 @@ func _shouldDrawButton(
 
 	return false
 
-func _createButton():
+func _setDefaultStyles():
 	var halfCellSize: int = roundi(float(cellSize) / 2)
-	var newButton = Button.new()
-	newButton.size.x = cellSize
-	newButton.size.y = cellSize
-	newButton.position.x = -halfCellSize
-	newButton.position.y = -halfCellSize
-	newButton.pressed.connect(handleButtonPressed)
-	return newButton
+	size.x = cellSize
+	size.y = cellSize
+	position.x = -halfCellSize
+	position.y = -halfCellSize
+	pressed.connect(handleButtonPressed)
+
+	var buttonStyler = ButtonStyler.new()
+	buttonStyler.name = 'Cell-Button-Styler'
+	buttonStyler.style = 'field-button'
+	add_child(buttonStyler)

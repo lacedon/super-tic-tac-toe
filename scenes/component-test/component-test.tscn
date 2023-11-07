@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://drkku8n4pwk4b"]
+[gd_scene load_steps=4 format=3 uid="uid://drkku8n4pwk4b"]
 
 [ext_resource type="Theme" uid="uid://ddbxy7ksk4ske" path="res://themes/game-ui.tres" id="1_8funi"]
 [ext_resource type="Script" path="res://components/common/button-styler.gd" id="2_67rn2"]
+[ext_resource type="Texture2D" path="res://themes/button-styles/field-button/field-button-hover.tres" id="3_tl0el"]
 
 [node name="component-test" type="Control"]
 layout_mode = 3
@@ -30,8 +31,8 @@ grow_vertical = 2
 
 [node name="MarginContainer5" type="MarginContainer" parent="buttons/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_top = 64
-theme_override_constants/margin_bottom = 32
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_bottom = 16
 
 [node name="HBoxContainer" type="HBoxContainer" parent="buttons/VBoxContainer/MarginContainer5"]
 layout_mode = 2
@@ -43,8 +44,8 @@ text = "Super Mega Title"
 
 [node name="MarginContainer4" type="MarginContainer" parent="buttons/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_top = 64
-theme_override_constants/margin_bottom = 32
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_bottom = 16
 
 [node name="HBoxContainer" type="HBoxContainer" parent="buttons/VBoxContainer/MarginContainer4"]
 layout_mode = 2
@@ -60,8 +61,8 @@ script = ExtResource("2_67rn2")
 
 [node name="MarginContainer" type="MarginContainer" parent="buttons/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_top = 64
-theme_override_constants/margin_bottom = 32
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_bottom = 16
 
 [node name="HBoxContainer" type="HBoxContainer" parent="buttons/VBoxContainer/MarginContainer"]
 layout_mode = 2
@@ -94,7 +95,8 @@ direction = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="buttons/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_bottom = 32
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_bottom = 16
 
 [node name="HBoxContainer" type="HBoxContainer" parent="buttons/VBoxContainer/MarginContainer2"]
 layout_mode = 2
@@ -126,7 +128,8 @@ direction = 3
 
 [node name="MarginContainer3" type="MarginContainer" parent="buttons/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_bottom = 32
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_bottom = 16
 
 [node name="HBoxContainer" type="HBoxContainer" parent="buttons/VBoxContainer/MarginContainer3"]
 layout_mode = 2
@@ -155,3 +158,26 @@ text = "Snd Right"
 script = ExtResource("2_67rn2")
 mode = 2
 direction = 3
+
+[node name="MarginContainer6" type="MarginContainer" parent="buttons/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="buttons/VBoxContainer/MarginContainer6"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="buttons/VBoxContainer/MarginContainer6/HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="ButtonStyler" type="Node" parent="buttons/VBoxContainer/MarginContainer6/HBoxContainer/Button"]
+script = ExtResource("2_67rn2")
+style = "field-button"
+
+[node name="TextureButton" type="TextureButton" parent="buttons/VBoxContainer/MarginContainer6/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_tl0el")
+texture_hover = ExtResource("3_tl0el")
+stretch_mode = 3
