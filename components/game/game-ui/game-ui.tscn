@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvvxj2xltuls8"]
+[gd_scene load_steps=9 format=3 uid="uid://cvvxj2xltuls8"]
 
 [ext_resource type="Script" path="res://components/game/game-ui/open-full-map/open-full-map.gd" id="1_4qecr"]
 [ext_resource type="Script" path="res://components/game/game-ui/game-ui.gd" id="1_1254t"]
@@ -7,6 +7,7 @@
 [ext_resource type="StyleBox" uid="uid://bcci2bff5r8eu" path="res://themes/button-styles/menu/normal.tres" id="4_l26w3"]
 [ext_resource type="StyleBox" path="res://themes/button-styles/menu/hover.tres" id="5_pt8dy"]
 [ext_resource type="StyleBox" path="res://themes/button-styles/menu/pressed.tres" id="6_12p65"]
+[ext_resource type="Script" path="res://components/game/game-ui/in-game-menu/toggle-in-game-menu.gd" id="7_kremk"]
 
 [node name="game-ui" type="Control" node_paths=PackedStringArray("passStateNodes")]
 layout_mode = 3
@@ -15,7 +16,7 @@ anchor_right = 1.0
 grow_horizontal = 2
 theme = ExtResource("1_yrynv")
 script = ExtResource("1_1254t")
-passStateNodes = [NodePath("HBoxContainer/MarginContainer/VBoxContainer/Header/MarginStart/current-player"), NodePath("HBoxContainer/VBoxContainer/HBoxContainer2/MarginContainer/TTT_UI_Open_Full_Map")]
+passStateNodes = [NodePath("HBoxContainer/MarginContainer/VBoxContainer/Header/MarginStart/current-player")]
 
 [node name="Panel" type="Panel" parent="."]
 custom_minimum_size = Vector2(2.08165e-12, 260)
@@ -73,12 +74,13 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+[node name="MenuButton" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer/MarginContainer"]
 custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
 theme_override_styles/normal = ExtResource("4_l26w3")
 theme_override_styles/hover = ExtResource("5_pt8dy")
 theme_override_styles/pressed = ExtResource("6_12p65")
+script = ExtResource("7_kremk")
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2

@@ -10,12 +10,18 @@ func _enter_tree():
 	hide()
 	if state:
 		state.connect("gameOver", showWinner)
+		state.connect("restart", _handleRestart)
 	else:
 		prints('WARN:', 'State is not provided', self)
 		showWinner(TTT_State.PlayerSign.o, true)
 
 func _exit_tree():
-	if state: state.disconnect("gameOver", showWinner)
+	if state:
+		state.disconnect("gameOver", showWinner)
+		state.disconnect("restart", _handleRestart)
+
+func _handleRestart():
+	hide()
 
 func showWinner(winner: TTT_State.PlayerSign, isDraw: bool):
 	if isDraw:

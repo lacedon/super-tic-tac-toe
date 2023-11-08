@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b70ntsmvkm47f"]
+[gd_scene load_steps=11 format=3 uid="uid://b70ntsmvkm47f"]
 
 [ext_resource type="Script" path="res://state/game/state.gd" id="1_ai4i1"]
 [ext_resource type="Theme" uid="uid://vig7p8jjbqd7" path="res://themes/game.tres" id="1_ejj14"]
@@ -6,7 +6,9 @@
 [ext_resource type="Script" path="res://components/game/camera/camera.gd" id="2_lf8pj"]
 [ext_resource type="Script" path="res://components/game/game-field/game-field.gd" id="4_i38hl"]
 [ext_resource type="Script" path="res://components/common/fps/fps.gd" id="6_04ede"]
+[ext_resource type="PackedScene" uid="uid://dmw1beya3k70" path="res://components/game/game-ui/in-game-menu/in-game-menu.tscn" id="6_vv2wx"]
 [ext_resource type="PackedScene" uid="uid://dv66omxbf1214" path="res://components/common/adv-banner/adv-banner.tscn" id="7_k860c"]
+[ext_resource type="Theme" uid="uid://ddbxy7ksk4ske" path="res://themes/game-ui.tres" id="7_plqqw"]
 [ext_resource type="PackedScene" uid="uid://c2psott5mmktq" path="res://components/game/game-ui/winner-ui/winner-ui.tscn" id="8_1xnie"]
 
 [node name="game" type="Node"]
@@ -27,6 +29,10 @@ state = NodePath("../../TTT_State")
 [node name="WinnerUI" parent="UI" node_paths=PackedStringArray("state") instance=ExtResource("8_1xnie")]
 visible = false
 state = NodePath("../../TTT_State")
+
+[node name="in-game-menu" parent="UI" instance=ExtResource("6_vv2wx")]
+visible = false
+theme = ExtResource("7_plqqw")
 
 [node name="FPSMeter" type="Label" parent="UI"]
 offset_right = 40.0

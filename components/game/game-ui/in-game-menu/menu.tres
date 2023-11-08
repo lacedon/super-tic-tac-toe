@@ -1,0 +1,94 @@
+[gd_resource type="Resource" script_class="Menu" load_steps=17 format=3 uid="uid://btxyeeopc48td"]
+
+[ext_resource type="Script" path="res://components/common/menu-list/resources/menu.gd" id="1_40h2m"]
+[ext_resource type="Script" path="res://components/common/menu-list/resources/menu-row.gd" id="1_nk45n"]
+[ext_resource type="Script" path="res://components/common/menu-list/resources/menu-item.gd" id="2_2wmbe"]
+[ext_resource type="Script" path="res://components/game/game-ui/in-game-menu/toggle-in-game-menu.gd" id="3_3pecc"]
+[ext_resource type="Script" path="res://components/common/change-scene.gd" id="3_gbqyt"]
+[ext_resource type="Script" path="res://components/game/game-ui/in-game-menu/restart.gd" id="4_bcdld"]
+[ext_resource type="Script" path="res://components/common/exit-button.gd" id="4_mncdi"]
+
+[sub_resource type="Resource" id="Resource_bwfc7"]
+script = ExtResource("1_nk45n")
+type = 1
+aligment = 0
+items = Array[ExtResource("2_2wmbe")]([])
+
+[sub_resource type="Resource" id="Resource_q7je7"]
+script = ExtResource("2_2wmbe")
+type = 1
+text = "Continue"
+styles = {
+"direction": 3,
+"mode": 1
+}
+props = {}
+size = Vector2(0, 0)
+scriptPath = ExtResource("3_3pecc")
+
+[sub_resource type="Resource" id="Resource_vcxhf"]
+script = ExtResource("1_nk45n")
+type = 0
+aligment = 2
+items = Array[ExtResource("2_2wmbe")]([SubResource("Resource_q7je7")])
+
+[sub_resource type="Resource" id="Resource_ipejv"]
+script = ExtResource("2_2wmbe")
+type = 1
+text = "Restart"
+styles = {
+"direction": 3,
+"mode": 1
+}
+props = {}
+size = Vector2(0, 0)
+scriptPath = ExtResource("4_bcdld")
+
+[sub_resource type="Resource" id="Resource_el3bk"]
+script = ExtResource("1_nk45n")
+type = 0
+aligment = 2
+items = Array[ExtResource("2_2wmbe")]([SubResource("Resource_ipejv")])
+
+[sub_resource type="Resource" id="Resource_v3hch"]
+script = ExtResource("2_2wmbe")
+type = 1
+text = "Open menu"
+styles = {
+"direction": 3,
+"mode": 1
+}
+props = {
+"nextScenePath": "res://scenes/menu/menu.tscn"
+}
+size = Vector2(0, 0)
+scriptPath = ExtResource("3_gbqyt")
+
+[sub_resource type="Resource" id="Resource_eh1y6"]
+script = ExtResource("1_nk45n")
+type = 0
+aligment = 2
+items = Array[ExtResource("2_2wmbe")]([SubResource("Resource_v3hch")])
+
+[sub_resource type="Resource" id="Resource_yfy45"]
+script = ExtResource("2_2wmbe")
+type = 1
+text = "Exit"
+styles = {
+"direction": 3,
+"mode": 2
+}
+props = {}
+size = Vector2(0, 0)
+scriptPath = ExtResource("4_mncdi")
+
+[sub_resource type="Resource" id="Resource_6xb3f"]
+script = ExtResource("1_nk45n")
+type = 0
+aligment = 2
+items = Array[ExtResource("2_2wmbe")]([SubResource("Resource_yfy45")])
+
+[resource]
+script = ExtResource("1_40h2m")
+closable = false
+rows = Array[ExtResource("1_nk45n")]([SubResource("Resource_bwfc7"), SubResource("Resource_vcxhf"), SubResource("Resource_el3bk"), SubResource("Resource_eh1y6"), SubResource("Resource_6xb3f")])

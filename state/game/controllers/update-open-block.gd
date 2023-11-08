@@ -6,6 +6,3 @@ static func updateOpenBlock(state: TTT_State, value: int):
 	state.prevOpenBlock = state.openBlock
 	state.openBlock = value
 	state.emit_signal("openBlockChanged", value)
-
-	if state.cameraBlock == TTT_State.cameraDisabledIndex:
-		state.emit_signal("cameraBlockChanged", value)

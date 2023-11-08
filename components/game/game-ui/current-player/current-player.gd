@@ -13,9 +13,14 @@ func _ready():
 
 func _enter_tree():
 	state.connect("currentPlayerChanged", _updatePlayerSign)
+	state.connect("restart", _handleRestart)
 
 func _exit_tree():
 	state.disconnect("currentPlayerChanged", _updatePlayerSign)
+	state.disconnect("restart", _handleRestart)
+
+func _handleRestart():
+	_updatePlayerSign(TTT_State_Selectors.getCurrentPlayer(state))
 
 func _updatePlayerSign(currentPlayer: TTT_State.PlayerSign):
 	if currentPlayer == TTT_State.PlayerSign.x:

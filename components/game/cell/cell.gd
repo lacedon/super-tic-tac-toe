@@ -37,11 +37,19 @@ func _enter_tree():
 	state.connect("openBlockChanged", _updateOpenBlock)
 	state.connect("cellTypeChanged", _updateCellType)
 	state.connect("currentPlayerChanged", _handleNewPlayer)
+	state.connect("restart", _handleRestart)
 
 func _exit_tree():
 	state.disconnect("openBlockChanged", _updateOpenBlock)
 	state.disconnect("cellTypeChanged", _updateCellType)
 	state.disconnect("currentPlayerChanged", _handleNewPlayer)
+	state.disconnect("restart", _handleRestart)
+
+func _handleRestart():
+	var openBlock: = TTT_State_Selectors.getOpenBlock(state)
+	var type: = TTT_State_Selectors.getFieldType(state, index, parentIndex)
+	child.toggle(type)
+	button.toggle(openBlock, type)
 
 func _handleNewPlayer(_player: int):
 	button.toggle(

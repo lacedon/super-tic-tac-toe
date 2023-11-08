@@ -1,9 +1,9 @@
 extends Camera2D
 class_name TTT_Camera
 
-
 @export var state: TTT_State
 @export var gameField: Node
+var isCameraZoomedOut: bool = false
 var _cellSize: int = uiSettings.cellSize
 var zoomSize: float = 3
 
@@ -13,23 +13,33 @@ func _ready():
 	position_smoothing_enabled = true
 	_setLimits()
 
-	moveCamera(TTT_State_Selectors.getCameraBlock(state))
+	moveCamera(TTT_State_Selectors.getOpenBlock(state))
 
 func _enter_tree():
-	state.connect("cameraBlockChanged", moveCamera)
+	eventEmitter.addListener('toggleCamera', toggleCamera)
+	state.connect("openBlockChanged", moveCamera)
+	state.connect("restart", _handleRestart)
 
 func _exit_tree():
-	state.disconnect("cameraBlockChanged", moveCamera)
+	eventEmitter.removeListener('toggleCamera', toggleCamera)
+	state.disconnect("openBlockChanged", moveCamera)
+	state.disconnect("restart", _handleRestart)
+
+func _handleRestart():
+	isCameraZoomedOut = false
+	moveCamera(TTT_State_Selectors.getOpenBlock(state))
 
 func _setLimits():
 	offset = -gameField.position
 
-func moveCamera(newOpenBlock: int):
+func toggleCamera():
+	isCameraZoomedOut = !isCameraZoomedOut
+	moveCamera(TTT_State_Selectors.getOpenBlock(state))
+
+func moveCamera(openBlock: int):
 	set_physics_process(true)
 
-	var cameraBlock: int = TTT_State_Selectors.getOpenBlock(state) if newOpenBlock == TTT_State.cameraDisabledIndex else newOpenBlock
-
-	if cameraBlock == TTT_State.mainFieldIndex:
+	if isCameraZoomedOut || openBlock == TTT_State.mainFieldIndex:
 		zoom = Vector2(1, 1)
 		offset = Vector2.ZERO
 		position = Vector2.ZERO
@@ -37,10 +47,10 @@ func moveCamera(newOpenBlock: int):
 		offset = -gameField.position / gameSettings.cellNumber
 		zoom = Vector2(zoomSize, zoomSize)
 
-		var blockIndex: int = floori(float(cameraBlock) / gameSettings.cellNumber)
+		var blockIndex: int = floori(float(openBlock) / gameSettings.cellNumber)
 		position = gameField.position + Vector2(
 			(blockIndex) * _cellSize,
-			(cameraBlock - blockIndex * gameSettings.cellNumber) * _cellSize,
+			(openBlock - blockIndex * gameSettings.cellNumber) * _cellSize,
 		)
 
 	set_physics_process(false)
