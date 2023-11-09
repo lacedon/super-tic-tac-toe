@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpmuyv3lj50uf"]
+
+[ext_resource type="AudioStream" uid="uid://byji7gnph88ij" path="res://assets/komiku-bicycle.mp3" id="1_g0o7y"]
+
+[node name="background-music" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_g0o7y")
+autoplay = true
+attenuation = 3.5
