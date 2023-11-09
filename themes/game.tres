@@ -1,20 +1,20 @@
 [gd_resource type="Theme" load_steps=7 format=3 uid="uid://vig7p8jjbqd7"]
 
 [ext_resource type="FontFile" uid="uid://blqpt64dhrpyj" path="res://assets/fonts/Roboto-Bold.ttf" id="1_fnn45"]
-[ext_resource type="StyleBox" uid="uid://hdqbtpk03wjj" path="res://themes/button-styles/main-full/hover.tres" id="1_mrqae"]
-[ext_resource type="StyleBox" uid="uid://3e18bls66sei" path="res://themes/button-styles/main-full/normal.tres" id="2_mo755"]
-[ext_resource type="StyleBox" uid="uid://2ijqb4ppo18d" path="res://themes/button-styles/main-full/pressed.tres" id="3_xfvdu"]
+[ext_resource type="StyleBox" uid="uid://dpunh6csf784h" path="res://themes/button-styles/main-full/hover.tres" id="1_mrqae"]
+[ext_resource type="StyleBox" uid="uid://4e0re2v4proh" path="res://themes/button-styles/main-full/normal.tres" id="2_mo755"]
+[ext_resource type="StyleBox" uid="uid://cko2yywxcd2p0" path="res://themes/button-styles/main-full/pressed.tres" id="3_xfvdu"]
 [ext_resource type="StyleBox" uid="uid://c4jdpnf2pum28" path="res://themes/panel-styles/style-box-flat-panel.tres" id="4_80mcs"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oe7bk"]
 
 [resource]
-Button/colors/font_color = Color(0.992157, 0.964706, 0.890196, 1)
-Button/colors/font_focus_color = Color(0.992157, 0.964706, 0.890196, 1)
-Button/colors/font_hover_color = Color(0.992157, 0.964706, 0.890196, 1)
-Button/colors/font_hover_pressed_color = Color(0.992157, 0.964706, 0.890196, 1)
+Button/colors/font_color = Color(0.345098, 0.431373, 0.458824, 1)
+Button/colors/font_focus_color = Color(0.345098, 0.431373, 0.458824, 1)
+Button/colors/font_hover_color = Color(0.345098, 0.431373, 0.458824, 1)
+Button/colors/font_hover_pressed_color = Color(0.345098, 0.431373, 0.458824, 1)
 Button/colors/font_outline_color = Color(1, 1, 1, 0)
-Button/colors/font_pressed_color = Color(0.992157, 0.964706, 0.890196, 1)
+Button/colors/font_pressed_color = Color(0.345098, 0.431373, 0.458824, 1)
 Button/constants/margin_left = 4
 Button/font_sizes/font_size = 32
 Button/styles/focus = SubResource("StyleBoxEmpty_oe7bk")
