@@ -76,7 +76,7 @@ type = 1
 text = "Exit"
 styles = {
 "direction": 3,
-"mode": 2
+"mode": 1
 }
 props = {}
 size = Vector2(0, 0)

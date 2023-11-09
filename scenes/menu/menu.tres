@@ -151,7 +151,7 @@ type = 1
 text = "Exit"
 styles = {
 "direction": 1,
-"mode": 2
+"mode": 1
 }
 props = {}
 size = Vector2(280, 2.08165e-12)
