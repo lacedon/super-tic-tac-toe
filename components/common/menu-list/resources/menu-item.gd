@@ -8,6 +8,8 @@ enum MenuItemType {
 	button,
 	innerMenu,
 	closeMenu,
+	spacer,
+	label,
 }
 
 @export var type: MenuItemType = MenuItemType.button

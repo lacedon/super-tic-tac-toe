@@ -16,7 +16,7 @@ anchor_right = 1.0
 grow_horizontal = 2
 theme = ExtResource("1_yrynv")
 script = ExtResource("1_1254t")
-passStateNodes = [NodePath("HBoxContainer/MarginContainer/VBoxContainer/Header/MarginStart/current-player")]
+passStateNodes = [NodePath("HBoxContainer/MarginContainer/VBoxContainer/Header/MarginStart/current-player"), NodePath("HBoxContainer/VBoxContainer/HBoxContainer2/MarginContainer/TTT_UI_Open_Full_Map")]
 
 [node name="Panel" type="Panel" parent="."]
 custom_minimum_size = Vector2(2.08165e-12, 260)

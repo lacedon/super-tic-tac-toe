@@ -3,10 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://dtji86lxlfi1s" path="./hover.svg" id="1_e1qmr"]
 
 [resource]
-content_margin_left = 32.0
-content_margin_top = 44.0
-content_margin_right = 32.0
-content_margin_bottom = 48.0
+content_margin_left = 16.0
+content_margin_top = 22.0
+content_margin_right = 16.0
+content_margin_bottom = 24.0
 texture = ExtResource("1_e1qmr")
 texture_margin_left = 20.0
 texture_margin_top = 32.0

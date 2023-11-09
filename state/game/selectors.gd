@@ -32,3 +32,6 @@ static func getIsCurrentPlayerActive(state: TTT_State) -> bool:
 
 static func getIsGameOver(state: TTT_State) -> bool:
 	return state.isGameOver
+
+static func getShouldShowZoom(state: TTT_State) -> bool:
+	return state.nestingLevel != TTT_State.NestingLevel.one

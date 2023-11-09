@@ -1,0 +1,15 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://cy35amnr1jo4g"]
+
+[ext_resource type="Texture2D" uid="uid://pcbttgjo7gwa" path="./normal.svg" id="1_d6a12"]
+
+[resource]
+content_margin_left = 32.0
+content_margin_top = 32.0
+content_margin_right = 32.0
+content_margin_bottom = 60.0
+texture = ExtResource("1_d6a12")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 48.0
+metadata/color = Color(0.152941, 0.592157, 0.168627, 1)

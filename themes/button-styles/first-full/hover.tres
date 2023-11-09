@@ -1,0 +1,15 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://c37jss2e3xysh"]
+
+[ext_resource type="Texture2D" uid="uid://cemma40bprw82" path="res://themes/button-styles/first-full/hover.svg" id="1_y2je5"]
+
+[resource]
+content_margin_left = 32.0
+content_margin_top = 44.0
+content_margin_right = 32.0
+content_margin_bottom = 48.0
+texture = ExtResource("1_y2je5")
+texture_margin_left = 20.0
+texture_margin_top = 32.0
+texture_margin_right = 20.0
+texture_margin_bottom = 46.0
+metadata/color = Color(0.152941, 0.592157, 0.168627, 1)

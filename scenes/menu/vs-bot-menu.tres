@@ -34,8 +34,10 @@ styles = {
 "mode": 1
 }
 props = {
+"gameSettingModification": {
 "aiDificulty": "rando",
-"mode": 0,
+"mode": 0
+},
 "nextScenePath": "res://scenes/game.tscn"
 }
 size = Vector2(320, 2.08165e-12)
@@ -56,8 +58,10 @@ styles = {
 "mode": 1
 }
 props = {
+"gameSettingModification": {
 "aiDificulty": "easy",
-"mode": 0,
+"mode": 0
+},
 "nextScenePath": "res://scenes/game.tscn"
 }
 size = Vector2(320, 2.08165e-12)

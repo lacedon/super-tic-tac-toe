@@ -43,7 +43,6 @@ menu = ExtResource("2_ripwp")
 parentMenu = NodePath("..")
 
 [node name="FPSMeter" type="Label" parent="."]
-visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 38.0

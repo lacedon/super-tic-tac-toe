@@ -17,7 +17,7 @@ enum NestingLevel { one, two }
 static var mainFieldIndex = -1
 
 @export var workWithGlobalSettings: bool = true
-@export var nestingLevel: NestingLevel = NestingLevel.two
+@export var nestingLevel: NestingLevel = NestingLevel.one
 @export var currentPlayer: PlayerSign = PlayerSign.x
 @export var activePlayers: Array[PlayerSign] = [currentPlayer]
 @export var openBlock: int = mainFieldIndex

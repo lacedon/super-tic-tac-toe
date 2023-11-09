@@ -4,7 +4,8 @@ class_name ButtonStyler
 enum ButtonMode {
 	none,
 	main,
-	second
+	second,
+	first,
 }
 
 enum ButtonDirection {

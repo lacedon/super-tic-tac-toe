@@ -25,7 +25,7 @@ static func updateField(state: TTT_State, index: int, parentIndex: int):
 	_updateCellType(state, index, parentIndex, value)
 	prints("\t", logId, "value", value)
 
-	var finishedLine = _getFinishedLine(parent.inner)
+	var finishedLine =_getFinishedLine(state.fields if parentIndex == TTT_State.mainFieldIndex else parent.inner)
 	prints("\t", logId, "finishedLine", finishedLine)
 	if finishedLine:
 		_updateCellType(state, parentIndex, TTT_State.mainFieldIndex, finishedLine)
@@ -42,6 +42,9 @@ static func updateField(state: TTT_State, index: int, parentIndex: int):
 			ControllerUpdateOpenBlock.updateOpenBlock(state, TTT_State.mainFieldIndex)
 			# ControllerUpdateOpenBlock.updateOpenBlock(state, index)
 			prints("\t", logId, "update openBlock", TTT_State.mainFieldIndex)
+	elif parentIndex == TTT_State.mainFieldIndex && !_hasAvailableFields(state.fields):
+		ControllerFinishGame.finishGame(state, state.currentPlayer, true)
+		prints("\t", logId, "finish game", 'It\'s draw')
 	elif (state.fields[index].type == TTT_Cell_Resource.FieldType.field):
 		ControllerUpdateOpenBlock.updateOpenBlock(state, index)
 		prints("\t", logId, "update openBlock", index)

@@ -7,6 +7,12 @@ static func createNodeFromConfig(config: MenuItem, menu: MenuList, parentMenu: N
 	match config.type:
 		MenuItem.MenuItemType.title:
 			var label = Label.new()
+			label.add_theme_font_size_override('font_size', 80)
+			label.text = config.text
+			return label
+
+		MenuItem.MenuItemType.label:
+			var label = Label.new()
 			label.text = config.text
 			return label
 
@@ -53,5 +59,15 @@ static func createNodeFromConfig(config: MenuItem, menu: MenuList, parentMenu: N
 				buttonThemable.direction = config.styles.direction
 				button.add_child(buttonThemable)
 			return button
+
+		MenuItem.MenuItemType.spacer:
+			var spacer = VSplitContainer.new()
+
+			if config.size == Vector2.ZERO:
+				spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+			else:
+				spacer.custom_minimum_size = config.size
+
+			return spacer
 
 	return Node.new()
