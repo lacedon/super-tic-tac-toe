@@ -1,9 +1,9 @@
 [gd_resource type="Theme" load_steps=7 format=3 uid="uid://vig7p8jjbqd7"]
 
 [ext_resource type="FontFile" uid="uid://blqpt64dhrpyj" path="res://assets/fonts/Roboto-Bold.ttf" id="1_fnn45"]
-[ext_resource type="StyleBox" uid="uid://hdqbtpk03wjj" path="res://themes/button-styles/main-compact/hover.tres" id="1_mrqae"]
-[ext_resource type="StyleBox" uid="uid://3e18bls66sei" path="res://themes/button-styles/main-compact/normal.tres" id="2_mo755"]
-[ext_resource type="StyleBox" uid="uid://2ijqb4ppo18d" path="res://themes/button-styles/main-compact/pressed.tres" id="3_xfvdu"]
+[ext_resource type="StyleBox" uid="uid://hdqbtpk03wjj" path="res://themes/button-styles/main-full/hover.tres" id="1_mrqae"]
+[ext_resource type="StyleBox" uid="uid://3e18bls66sei" path="res://themes/button-styles/main-full/normal.tres" id="2_mo755"]
+[ext_resource type="StyleBox" uid="uid://2ijqb4ppo18d" path="res://themes/button-styles/main-full/pressed.tres" id="3_xfvdu"]
 [ext_resource type="StyleBox" uid="uid://c4jdpnf2pum28" path="res://themes/panel-styles/style-box-flat-panel.tres" id="4_80mcs"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oe7bk"]
