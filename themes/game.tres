@@ -1,9 +1,9 @@
 [gd_resource type="Theme" load_steps=7 format=3 uid="uid://vig7p8jjbqd7"]
 
 [ext_resource type="FontFile" uid="uid://blqpt64dhrpyj" path="res://assets/fonts/Roboto-Bold.ttf" id="1_fnn45"]
-[ext_resource type="StyleBox" uid="uid://dpunh6csf784h" path="res://themes/button-styles/main-full/hover.tres" id="1_ntgxq"]
-[ext_resource type="StyleBox" uid="uid://4e0re2v4proh" path="res://themes/button-styles/main-full/normal.tres" id="2_fqct8"]
-[ext_resource type="StyleBox" uid="uid://cko2yywxcd2p0" path="res://themes/button-styles/main-full/pressed.tres" id="3_ym225"]
+[ext_resource type="StyleBox" uid="uid://cyadgaxjap7r" path="res://themes/button-styles/main-full/hover.tres" id="1_ygr8h"]
+[ext_resource type="StyleBox" uid="uid://bshhiqo3xu1lt" path="res://themes/button-styles/main-full/normal.tres" id="2_p05eb"]
+[ext_resource type="StyleBox" uid="uid://cwru2hyfrd6b3" path="res://themes/button-styles/main-full/pressed.tres" id="3_u2ckj"]
 [ext_resource type="StyleBox" uid="uid://c4jdpnf2pum28" path="res://themes/panel-styles/style-box-flat-panel.tres" id="4_80mcs"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oe7bk"]
@@ -18,9 +18,9 @@ Button/colors/font_pressed_color = Color(0.345098, 0.431373, 0.458824, 1)
 Button/constants/margin_left = 4
 Button/font_sizes/font_size = 32
 Button/styles/focus = SubResource("StyleBoxEmpty_oe7bk")
-Button/styles/hover = ExtResource("1_ntgxq")
-Button/styles/normal = ExtResource("2_fqct8")
-Button/styles/pressed = ExtResource("3_ym225")
+Button/styles/hover = ExtResource("1_ygr8h")
+Button/styles/normal = ExtResource("2_p05eb")
+Button/styles/pressed = ExtResource("3_u2ckj")
 Label/colors/font_color = Color(0.027451, 0.211765, 0.258824, 1)
 Label/font_sizes/font_size = 48
 Label/fonts/font = ExtResource("1_fnn45")

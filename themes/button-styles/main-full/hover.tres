@@ -1,13 +1,13 @@
-[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://dpunh6csf784h"]
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://cyadgaxjap7r"]
 
-[ext_resource type="Texture2D" uid="uid://ctksk1xasptqy" path="res://themes/button-styles/main-full/hover.svg" id="1_ajuaq"]
+[ext_resource type="Texture2D" uid="uid://ctksk1xasptqy" path="res://themes/button-styles/main-full/hover.svg" id="1_q6ebs"]
 
 [resource]
 content_margin_left = 16.0
 content_margin_top = 22.0
 content_margin_right = 16.0
 content_margin_bottom = 24.0
-texture = ExtResource("1_ajuaq")
+texture = ExtResource("1_q6ebs")
 texture_margin_left = 20.0
 texture_margin_top = 32.0
 texture_margin_right = 20.0

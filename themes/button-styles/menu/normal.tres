@@ -1,6 +1,6 @@
-[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://bcci2bff5r8eu"]
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://cwlreaff5np8d"]
 
-[ext_resource type="Texture2D" uid="uid://c3fcbfwlbkxn" path="res://themes/button-styles/menu/normal.svg" id="1_1cerx"]
+[ext_resource type="Texture2D" path="./normal.svg" id="1_new6a"]
 
 [resource]
-texture = ExtResource("1_1cerx")
+texture = ExtResource("1_new6a")
