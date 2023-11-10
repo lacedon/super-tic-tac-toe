@@ -1,8 +1,8 @@
 extends Control
 class_name TTT_UI_Current_Player
 
-const activePlayerStylebox = preload('res://themes/panel-styles/player-block-active.tres');
-const unactivePlayerStylebox = preload('res://themes/panel-styles/player-block-unactive.tres');
+const activePlayerStylebox = preload('res://themes/panel-styles/player-block-active.tres')
+const unactivePlayerStylebox = preload('res://themes/panel-styles/player-block-unactive.tres')
 
 @export var state: TTT_State
 @export var playerX: Control

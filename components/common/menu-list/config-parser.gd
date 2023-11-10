@@ -1,7 +1,9 @@
 const MenuItem = preload('./resources/menu-item.gd')
 const OpenMenuButton = preload('./button-open-menu.gd')
 const CloseMenuButton = preload('./button-close-menu.gd')
-const ConfigParser = preload('./config-parser.gd');
+const ConfigParser = preload('./config-parser.gd')
+const ButtonStyler = preload("res://components/common/button-styler.gd")
+const ButtonSound = preload("res://components/common/button-sound.gd")
 
 static func createNodeFromConfig(config: MenuItem, menu: MenuList, parentMenu: Node, previousMenu: MenuList) -> Node:
 	match config.type:
@@ -25,11 +27,17 @@ static func createNodeFromConfig(config: MenuItem, menu: MenuList, parentMenu: N
 			if config.props:
 				for propName in config.props:
 					button[propName] = config.props[propName]
+
 			if config.styles:
 				var buttonThemable = ButtonStyler.new()
 				buttonThemable.mode = config.styles.mode
 				buttonThemable.direction = config.styles.direction
 				button.add_child(buttonThemable)
+
+			var buttonSound = ButtonSound.new()
+			buttonSound.downSound = menu.buttonDownSound
+			button.add_child(buttonSound)
+
 			return button
 
 		MenuItem.MenuItemType.innerMenu:

@@ -1,5 +1,5 @@
 const MenuRow = preload('./resources/menu-row.gd')
-const ConfigParser = preload('./config-parser.gd');
+const ConfigParser = preload('./config-parser.gd')
 
 static func createRow(rowConfig: MenuRow, index: int, menu: MenuList, parentNode: Node, previousMenu: MenuList) -> MarginContainer:
 	var horizontalContainer = HBoxContainer.new()

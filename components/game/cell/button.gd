@@ -1,6 +1,8 @@
 extends Button
 
+const fieldNoice = preload("res://assets/field-noise.mp3")
 const ButtonStyler = preload('res://components/common/button-styler.gd')
+const ButtonSound = preload('res://components/common/button-sound.gd')
 
 @export var state: TTT_State
 @export var cellSize: int
@@ -53,3 +55,8 @@ func _setDefaultStyles():
 	buttonStyler.name = 'Cell-Button-Styler'
 	buttonStyler.style = 'field-button'
 	add_child(buttonStyler)
+
+	var buttonSound = ButtonSound.new()
+	buttonSound.name = 'Cell-Button-Sound'
+	buttonSound.upSound = fieldNoice
+	add_child(buttonSound)

@@ -1,11 +1,11 @@
 extends VBoxContainer
 class_name MenuList
 
+const buttonDownSound = preload("res://assets/button-noise.mp3")
 const Menu = preload('./resources/menu.gd')
 const MenuRow = preload('./resources/menu-row.gd')
 const MenuItem = preload('./resources/menu-item.gd')
-const ButtonStyler = preload("res://components/common/button-styler.gd")
-const RowCreator = preload('./row-creator.gd');
+const RowCreator = preload('./row-creator.gd')
 
 @export var menu: Menu
 @export var parentMenu: Node

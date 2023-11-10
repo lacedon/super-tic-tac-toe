@@ -4,5 +4,6 @@
 
 [node name="background-music" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_g0o7y")
+volume_db = -10.0
 autoplay = true
 attenuation = 3.5
