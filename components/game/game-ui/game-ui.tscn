@@ -19,7 +19,7 @@ script = ExtResource("1_1254t")
 passStateNodes = [NodePath("HBoxContainer/MarginContainer/VBoxContainer/Header/MarginStart/current-player"), NodePath("HBoxContainer/VBoxContainer/HBoxContainer2/MarginContainer/TTT_UI_Open_Full_Map")]
 
 [node name="Panel" type="Panel" parent="."]
-custom_minimum_size = Vector2(2.08165e-12, 260)
+custom_minimum_size = Vector2(2.08165e-12, 284)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
