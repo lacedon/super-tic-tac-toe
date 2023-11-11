@@ -13,8 +13,11 @@ const backgroundMusicVolume: float = 0.5
 const uiMusicVolume: float = 0.5
 
 func _ready():
+	# TODO: Figure out how to use buses
+	# SoundManager.set_default_music_bus("Music")
+	# SoundManager.set_default_sound_bus("Sound")
 	SoundManager.set_music_volume(backgroundMusicVolume)
 	SoundManager.set_sound_volume(uiMusicVolume)
 
 	RenderingServer.set_default_clear_color(Color(0.99, 0.96, 0.89, 1))
-	SoundManager.play_music_at_volume(backgroundMusic)
+	SoundManager.play_music(backgroundMusic, 2)
