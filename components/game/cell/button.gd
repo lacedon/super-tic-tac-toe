@@ -58,5 +58,5 @@ func _setDefaultStyles():
 
 	var buttonSound = ButtonSound.new()
 	buttonSound.name = 'Cell-Button-Sound'
-	buttonSound.upSound = fieldNoice
+	buttonSound.pressSound = fieldNoice
 	add_child(buttonSound)

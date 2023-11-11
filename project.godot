@@ -20,7 +20,6 @@ config/icon="res://icon.png"
 gameSettings="*res://state/game-settings/game-settings.gd"
 uiSettings="*res://state/game-settings/ui-settings.gd"
 eventEmitter="*res://components/common/event-emitter.gd"
-backgroundMusic="res://components/game/background-music/background-music.tscn"
 SoundManager="*res://addons/sound_manager/sound_manager.gd"
 
 [display]
