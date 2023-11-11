@@ -1,6 +1,7 @@
 extends Control
 
 const TTTSign = preload("res://components/game/sign/sign.gd")
+const winnerSound = preload('res://assets/game-over-win.mp3')
 
 @export var state: TTT_State
 @export var titleNode: Label
@@ -24,6 +25,8 @@ func _handleRestart():
 	hide()
 
 func showWinner(winner: TTT_State.PlayerSign, isDraw: bool):
+	SoundManager.play_sound(winnerSound)
+
 	if isDraw:
 		titleNode.text = 'It\'s a Draw!'
 

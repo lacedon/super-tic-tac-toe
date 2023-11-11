@@ -14,12 +14,6 @@ func _exit_tree():
 	get_parent().disconnect('button_down', playDownSound)
 	get_parent().disconnect('button_up', playUpSound)
 
-func playPressedSound(): _playSound(pressSound)
-func playDownSound(): _playSound(downSound)
-func playUpSound(): _playSound(upSound)
-
-func _playSound(sound: AudioStream):
-	if !sound: return
-
-	stream = sound
-	play()
+func playPressedSound(): if pressSound: SoundManager.play_sound(pressSound)
+func playDownSound(): if downSound: SoundManager.play_sound(downSound)
+func playUpSound(): if upSound: SoundManager.play_sound(upSound)

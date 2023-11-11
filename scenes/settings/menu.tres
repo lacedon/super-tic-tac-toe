@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Menu" load_steps=2 format=3 uid="uid://c3n8wqqj4x0lj"]
+
+[ext_resource type="Script" path="res://components/common/menu-list/resources/menu.gd" id="1_vn0mb"]
+
+[resource]
+script = ExtResource("1_vn0mb")
+closable = false
+rows = Array[Resource("res://components/common/menu-list/resources/menu-row.gd")]([])

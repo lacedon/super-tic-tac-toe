@@ -1,14 +1,13 @@
 [gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://cb11avmh55sw0"]
 
-[ext_resource type="Texture2D" path="./pressed.svg" id="1_l4tvn"]
+[ext_resource type="Texture2D" uid="uid://chmd1bh36mnuf" path="res://themes/button-styles/second-full/pressed.svg" id="1_l4tvn"]
 
 [resource]
-texture = ExtResource("1_l4tvn")
-
 content_margin_left = 16.0
 content_margin_top = 44.0
 content_margin_right = 16.0
 content_margin_bottom = 16.0
+texture = ExtResource("1_l4tvn")
 texture_margin_left = 20.0
 texture_margin_top = 48.0
 texture_margin_right = 20.0

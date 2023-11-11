@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://vig7p8jjbqd7"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://vig7p8jjbqd7"]
 
 [ext_resource type="FontFile" uid="uid://blqpt64dhrpyj" path="res://assets/fonts/Roboto-Bold.ttf" id="1_fnn45"]
 [ext_resource type="StyleBox" uid="uid://cyadgaxjap7r" path="res://themes/button-styles/main-full/hover.tres" id="1_ygr8h"]
@@ -7,6 +7,9 @@
 [ext_resource type="StyleBox" uid="uid://c4jdpnf2pum28" path="res://themes/panel-styles/style-box-flat-panel.tres" id="4_80mcs"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oe7bk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_07558"]
+bg_color = Color(0.345098, 0.619608, 0.886275, 1)
 
 [resource]
 Button/colors/font_color = Color(0.345098, 0.431373, 0.458824, 1)
@@ -21,6 +24,7 @@ Button/styles/focus = SubResource("StyleBoxEmpty_oe7bk")
 Button/styles/hover = ExtResource("1_ygr8h")
 Button/styles/normal = ExtResource("2_p05eb")
 Button/styles/pressed = ExtResource("3_u2ckj")
+HSlider/styles/slider = SubResource("StyleBoxFlat_07558")
 Label/colors/font_color = Color(0.027451, 0.211765, 0.258824, 1)
 Label/font_sizes/font_size = 48
 Label/fonts/font = ExtResource("1_fnn45")
