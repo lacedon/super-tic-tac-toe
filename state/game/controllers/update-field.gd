@@ -40,7 +40,6 @@ static func updateField(state: TTT_State, index: int, parentIndex: int):
 			prints("\t", logId, "finish game", 'It\'s draw')
 		else:
 			ControllerUpdateOpenBlock.updateOpenBlock(state, TTT_State.mainFieldIndex)
-			# ControllerUpdateOpenBlock.updateOpenBlock(state, index)
 			prints("\t", logId, "update openBlock", TTT_State.mainFieldIndex)
 	elif parentIndex == TTT_State.mainFieldIndex && !_hasAvailableFields(state.fields):
 		ControllerFinishGame.finishGame(state, state.currentPlayer, true)
@@ -49,7 +48,8 @@ static func updateField(state: TTT_State, index: int, parentIndex: int):
 		ControllerUpdateOpenBlock.updateOpenBlock(state, index)
 		prints("\t", logId, "update openBlock", index)
 	else:
-		prints("\t", logId, "keep openBlock")
+		ControllerUpdateOpenBlock.updateOpenBlock(state, TTT_State.mainFieldIndex)
+		prints("\t", logId, "update openBlock", TTT_State.mainFieldIndex)
 
 	ControllerUpdatePlayer.togglePlayer(state, true)
 	prints("\t", logId, "togglePlayer")

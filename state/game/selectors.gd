@@ -12,11 +12,11 @@ static func getFieldType(state: TTT_State, index: int, parentIndex: int = TTT_St
 static func getFieldList(state: TTT_State, parentIndex: int) -> Array[TTT_Cell_Resource]:
 	return state.fields if parentIndex == TTT_State.mainFieldIndex else state.fields[parentIndex].inner
 
-static func getIsFieldFull(fieldList: Array[TTT_Cell_Resource]) -> bool:
+static func getIsFieldAvailable(fieldList: Array[TTT_Cell_Resource]) -> bool:
 	for cell in fieldList:
 		if cell.type == TTT_Cell_Resource.FieldType.none:
-			return false
-	return true
+			return true
+	return false
 
 static func getOpenBlock(state: TTT_State) -> int:
 	return state.openBlock

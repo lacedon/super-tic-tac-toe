@@ -42,7 +42,7 @@ static func _getClosingCells(playerSign: TTT_State.PlayerSign, fieldList: Array[
 				TTT_Cell_Resource.FieldType.none:
 					possiblePoints.append(index)
 				TTT_Cell_Resource.FieldType.field:
-					if TTT_State_Selectors.getIsFieldFull(fieldList[index].inner):
+					if TTT_State_Selectors.getIsFieldAvailable(fieldList[index].inner):
 						possiblePoints.append(index)
 
 		if currentPlayerListItemNumber == 2:
