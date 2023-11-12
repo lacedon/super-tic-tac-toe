@@ -16,4 +16,3 @@ func _exit_tree():
 func emitRestartGame():
 	emit_signal('restartGame')
 	emit_signal('toggleInGameMenu')
-

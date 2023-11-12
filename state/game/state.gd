@@ -7,9 +7,9 @@ signal currentPlayerChanged(player: PlayerSign)
 signal gameOver(winner: PlayerSign, isDraw: bool)
 signal restart()
 
+const ControllerStartGame = preload("./controllers/start-game.gd")
 const ControllerUpdateOpenBlock = preload("./controllers/update-open-block.gd")
 const ControllerUpdateField = preload("./controllers/update-field.gd")
-const scriptAI = preload("res://components/game/ai/ai.gd")
 
 enum PlayerSign { x, o }
 enum NestingLevel { one, two }
@@ -27,37 +27,11 @@ var fields: Array[TTT_Cell_Resource]
 
 func updateOpenBlock(value: int): ControllerUpdateOpenBlock.updateOpenBlock(self, value)
 func updateField(index: int, parentIndex: int): ControllerUpdateField.updateField(self, index, parentIndex)
+func _startGame(): ControllerStartGame.startGame(self)
 
 func _enter_tree():
-	eventEmitter.addListener('restartGame', startGame)
-	startGame()
+	eventEmitter.addListener('restartGame', _startGame)
+	_startGame()
 
 func _exit_tree():
-	eventEmitter.removeListener('restartGame', startGame)
-
-func startGame():
-	prints('Restart game')
-
-	openBlock = mainFieldIndex
-	prevOpenBlock = mainFieldIndex
-	currentPlayer = PlayerSign.x
-	isGameOver = false
-
-	fields = TTT_Cell_Resource.createEmptyFieldList(
-		TTT_Cell_Resource.FieldType.none if nestingLevel == NestingLevel.one else TTT_Cell_Resource.FieldType.field
-	)
-
-	if !workWithGlobalSettings: return
-
-	match gameSettings.mode:
-		GameSettings.GameMode.vsAI:
-			activePlayers = [PlayerSign.x]
-
-			var ai: TTT_AI = scriptAI.new()
-			ai.state = self
-			ai.player = PlayerSign.o
-			add_child(ai)
-		GameSettings.GameMode.hotSeat:
-			activePlayers = [PlayerSign.x, PlayerSign.o]
-
-	emit_signal('restart')
+	eventEmitter.removeListener('restartGame', _startGame)
