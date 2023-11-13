@@ -25,7 +25,7 @@ func _handleRestart():
 	hide()
 
 func showWinner(winner: TTT_State.PlayerSign, isDraw: bool):
-	SoundManager.play_sound(winnerSound)
+	SoundManager.play_ui_sound(winnerSound)
 
 	if isDraw:
 		titleNode.text = 'It\'s a Draw!'
