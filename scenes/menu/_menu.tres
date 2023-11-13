@@ -27,7 +27,7 @@ data = {
 "props": {
 "aiDificulty": "rando",
 "mode": 0,
-"nextScenePath": "res://scenes/game.tscn"
+"nextScenePath": "res://scenes/game/game.tscn"
 },
 "script": "res://components/common/change-scene.gd",
 "size": [320],
@@ -44,7 +44,7 @@ data = {
 "props": {
 "aiDificulty": "easy",
 "mode": 0,
-"nextScenePath": "res://scenes/game.tscn"
+"nextScenePath": "res://scenes/game/game.tscn"
 },
 "script": "res://components/common/change-scene.gd",
 "size": [320],
@@ -70,7 +70,7 @@ data = {
 "items": [{
 "props": {
 "mode": 1,
-"nextScenePath": "res://scenes/game.tscn"
+"nextScenePath": "res://scenes/game/game.tscn"
 },
 "script": "res://components/common/change-scene.gd",
 "size": [320],
@@ -86,7 +86,7 @@ data = {
 "items": [{
 "props": {
 "mode": 1,
-"nextScenePath": "res://scenes/game.tscn"
+"nextScenePath": "res://scenes/game/game.tscn"
 },
 "script": "res://components/common/change-scene.gd",
 "size": [320],

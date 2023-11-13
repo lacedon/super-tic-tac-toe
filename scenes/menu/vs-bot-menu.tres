@@ -38,7 +38,7 @@ props = {
 "aiDificulty": "rando",
 "mode": 0
 },
-"nextScenePath": "res://scenes/game.tscn"
+"nextScenePath": "res://scenes/game/game.tscn"
 }
 size = Vector2(320, 2.08165e-12)
 scriptPath = ExtResource("3_ww0yo")
@@ -62,7 +62,7 @@ props = {
 "aiDificulty": "easy",
 "mode": 0
 },
-"nextScenePath": "res://scenes/game.tscn"
+"nextScenePath": "res://scenes/game/game.tscn"
 }
 size = Vector2(320, 2.08165e-12)
 scriptPath = ExtResource("3_ww0yo")
