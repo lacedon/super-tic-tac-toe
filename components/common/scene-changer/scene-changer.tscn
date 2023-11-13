@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://opqwb48qiedg"]
+[gd_scene load_steps=11 format=3 uid="uid://opqwb48qiedg"]
 
 [ext_resource type="Script" path="res://components/common/scene-changer/scene-changer.gd" id="1_6r3si"]
 [ext_resource type="Texture2D" uid="uid://crmgg0jowmqrm" path="res://assets/circle.svg" id="2_b3nvy"]
 [ext_resource type="Texture2D" uid="uid://b5kxr1ma6afeb" path="res://assets/x.svg" id="2_purar"]
+[ext_resource type="Shader" path="res://components/common/scene-changer/Shaders/circle_mask.gdshader" id="4_hvrs5"]
 
 [sub_resource type="Animation" id="Animation_q7kwc"]
 resource_name = "oScaleOut"
@@ -10,14 +11,14 @@ length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("XRect:modulate")
+tracks/0/path = NodePath("XRect:material:shader_parameter/defaultOpacity")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.4),
+"times": PackedFloat32Array(0, 0.3, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [1.0, 2.08165e-12, Color(1, 1, 1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -34,26 +35,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("XRect:scale")
+tracks/2/path = NodePath("XRect:material:shader_parameter/textureScale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(10, 10)]
+"values": [2.08165e-12]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("ORect:scale")
+tracks/3/path = NodePath("ORect:material:shader_parameter/textureScale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(3, 3), Vector2(2.08165e-12, 2.08165e-12)]
+"values": [2.08165e-12, 2.08165e-12, 50.0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -74,45 +75,77 @@ length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("XRect:scale")
+tracks/0/path = NodePath("ORect:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(2.08165e-12, 2.08165e-12), Vector2(10, 10)]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("XRect:visible")
+tracks/1/path = NodePath("XRect:material:shader_parameter/textureScale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [50.0, 2.08165e-12]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ORect:visible")
+tracks/2/path = NodePath("XRect:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("XRect:material:shader_parameter/defaultOpacity")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [null, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_yu3c0"]
+length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ktxsi"]
 _data = {
+"RESET": SubResource("Animation_yu3c0"),
 "oScaleOut": SubResource("Animation_q7kwc"),
 "xScaleIn": SubResource("Animation_mvmmg")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bf5fr"]
+shader = ExtResource("4_hvrs5")
+shader_parameter/isReverted = false
+shader_parameter/textureScale = 2.08165e-12
+shader_parameter/defaultOpacity = 1.0
+shader_parameter/dimensions = Vector2(1, 1)
+shader_parameter/maskTexture = ExtResource("2_b3nvy")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0dxqk"]
+shader = ExtResource("4_hvrs5")
+shader_parameter/isReverted = false
+shader_parameter/textureScale = 2.08165e-12
+shader_parameter/defaultOpacity = 0.333333
+shader_parameter/dimensions = Vector2(1, 1)
+shader_parameter/maskTexture = ExtResource("2_purar")
 
 [node name="scene-changer" type="Control" node_paths=PackedStringArray("animationPlayer", "scenes")]
 z_index = 100
@@ -125,33 +158,29 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_6r3si")
 animationPlayer = NodePath("AnimationPlayer")
-scenes = [NodePath("XRect"), NodePath("ORect")]
+scenes = [NodePath("ORect"), NodePath("XRect")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_ktxsi")
 }
 
-[node name="ORect" type="TextureRect" parent="."]
-visible = false
+[node name="ORect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_bf5fr")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2.08165e-12, 2.08165e-12)
-pivot_offset = Vector2(360, 640)
-texture = ExtResource("2_b3nvy")
+color = Color(0.14902, 0.545098, 0.823529, 1)
 
-[node name="XRect" type="TextureRect" parent="."]
-visible = false
+[node name="XRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_0dxqk")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(10, 10)
-pivot_offset = Vector2(360, 640)
-texture = ExtResource("2_purar")
+color = Color(0.862745, 0.196078, 0.184314, 1)

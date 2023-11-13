@@ -11,6 +11,7 @@ func _ready():
 func changeScene(targetScene: String) -> void:
 	for scene in scenes:
 		scene.position = Vector2.ZERO
+		scene.get_material().set_shader_parameter('dimensions', scene.size)
 		scene.pivot_offset = scene.size / 2
 
 	var currentCamera = get_viewport().get_camera_2d()
