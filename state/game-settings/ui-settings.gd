@@ -20,4 +20,4 @@ func _ready():
 	SoundManager.set_sound_volume(uiMusicVolume)
 
 	RenderingServer.set_default_clear_color(Color(0.99, 0.96, 0.89, 1))
-	SoundManager.play_music(backgroundMusic, 2)
+	# SoundManager.play_music(backgroundMusic, 2)
