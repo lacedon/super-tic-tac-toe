@@ -7,6 +7,7 @@ var child: Control
 var state: TTT_State
 var cellSize: int
 var index: int
+var animationPlayer: = _initAnimationPlayer()
 
 func _init(
 	initState: TTT_State,
@@ -17,6 +18,9 @@ func _init(
 	state = initState
 	cellSize = initCellSize
 	index = initIndex
+
+func _ready():
+	add_child(animationPlayer)
 
 func toggle(childType: TTT_Cell_Resource.FieldType):
 	if child: remove_child(child)
@@ -29,6 +33,7 @@ func _createChild(childType: TTT_Cell_Resource.FieldType,):
 	if (newChild):
 		newChild.position.x = -halfCellSize
 		newChild.position.y = -halfCellSize
+		animationPlayer.play('scaleIn')
 	return newChild
 
 func _createBaseChild(childType: TTT_Cell_Resource.FieldType):
@@ -39,10 +44,12 @@ func _createBaseChild(childType: TTT_Cell_Resource.FieldType):
 	return
 
 func _createSign(value: TTT_Cell_Resource.FieldType) -> TTT_Sign:
+	var halfCellSize: int = roundi(float(cellSize) / 2)
 	var instance: TTT_Sign = TTT_Sign.new()
 	instance.name = "Sign"
 	instance.cellSize = cellSize
 	instance.value = value
+	instance.pivot_offset = Vector2(halfCellSize, halfCellSize)
 	return instance
 
 func _createGameField() -> TTT_Game_Field:
@@ -54,3 +61,18 @@ func _createGameField() -> TTT_Game_Field:
 	instance.name = "GameField"
 
 	return instance
+
+func _initAnimationPlayer() -> AnimationPlayer:
+	var animation: = Animation.new()
+	animation.add_track(Animation.TYPE_VALUE)
+	animation.track_set_path(0, "Sign:scale")
+	animation.track_insert_key(0, 0.0, Vector2(0, 0))
+	animation.track_insert_key(0, 0.1, Vector2(1, 1))
+
+	var library: = AnimationLibrary.new()
+	library.add_animation('scaleIn', animation)
+
+	var player = AnimationPlayer.new()
+	player.add_animation_library('', library)
+
+	return player

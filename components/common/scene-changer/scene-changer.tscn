@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://b5kxr1ma6afeb" path="res://assets/x.svg" id="2_purar"]
 [ext_resource type="Shader" path="res://components/common/scene-changer/Shaders/circle_mask.gdshader" id="4_hvrs5"]
 
+[sub_resource type="Animation" id="Animation_yu3c0"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_q7kwc"]
 resource_name = "oScaleOut"
 length = 0.6
@@ -121,9 +124,6 @@ tracks/3/keys = {
 "values": [null, 1.0]
 }
 
-[sub_resource type="Animation" id="Animation_yu3c0"]
-length = 0.001
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ktxsi"]
 _data = {
 "RESET": SubResource("Animation_yu3c0"),
@@ -134,7 +134,7 @@ _data = {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bf5fr"]
 shader = ExtResource("4_hvrs5")
 shader_parameter/isReverted = false
-shader_parameter/textureScale = 2.08165e-12
+shader_parameter/textureScale = 50.0
 shader_parameter/defaultOpacity = 1.0
 shader_parameter/dimensions = Vector2(1, 1)
 shader_parameter/maskTexture = ExtResource("2_b3nvy")
@@ -143,7 +143,7 @@ shader_parameter/maskTexture = ExtResource("2_b3nvy")
 shader = ExtResource("4_hvrs5")
 shader_parameter/isReverted = false
 shader_parameter/textureScale = 2.08165e-12
-shader_parameter/defaultOpacity = 0.333333
+shader_parameter/defaultOpacity = 2.08165e-12
 shader_parameter/dimensions = Vector2(1, 1)
 shader_parameter/maskTexture = ExtResource("2_purar")
 
@@ -166,6 +166,7 @@ libraries = {
 }
 
 [node name="ORect" type="ColorRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_bf5fr")
 layout_mode = 1
 anchors_preset = 15
@@ -176,6 +177,7 @@ grow_vertical = 2
 color = Color(0.14902, 0.545098, 0.823529, 1)
 
 [node name="XRect" type="ColorRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_0dxqk")
 layout_mode = 1
 anchors_preset = 15
