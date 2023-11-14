@@ -14,10 +14,6 @@ func changeScene(targetScene: String) -> void:
 		scene.get_material().set_shader_parameter('dimensions', scene.size)
 		scene.pivot_offset = scene.size / 2
 
-	var currentCamera = get_viewport().get_camera_2d()
-	if currentCamera:
-		currentCamera.enabled = false
-
 	animationPlayer.play("xScaleIn")
 	await animationPlayer.animation_finished
 
@@ -25,7 +21,3 @@ func changeScene(targetScene: String) -> void:
 
 	animationPlayer.play("oScaleOut")
 	await animationPlayer.animation_finished
-
-	var updatedCurrentCamera = get_viewport().get_camera_2d()
-	if updatedCurrentCamera:
-		updatedCurrentCamera.enabled = true

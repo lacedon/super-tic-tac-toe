@@ -14,7 +14,7 @@ length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("XRect:material:shader_parameter/defaultOpacity")
+tracks/0/path = NodePath("CanvasLayer/XRect:material:shader_parameter/defaultOpacity")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -26,7 +26,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ORect:visible")
+tracks/1/path = NodePath("CanvasLayer/ORect:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -38,7 +38,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("XRect:material:shader_parameter/textureScale")
+tracks/2/path = NodePath("CanvasLayer/XRect:material:shader_parameter/textureScale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -50,7 +50,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("ORect:material:shader_parameter/textureScale")
+tracks/3/path = NodePath("CanvasLayer/ORect:material:shader_parameter/textureScale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -62,7 +62,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("XRect:visible")
+tracks/4/path = NodePath("CanvasLayer/XRect:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -78,7 +78,7 @@ length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ORect:visible")
+tracks/0/path = NodePath("CanvasLayer/ORect:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -90,7 +90,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("XRect:material:shader_parameter/textureScale")
+tracks/1/path = NodePath("CanvasLayer/XRect:material:shader_parameter/textureScale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -102,7 +102,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("XRect:visible")
+tracks/2/path = NodePath("CanvasLayer/XRect:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -114,7 +114,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("XRect:material:shader_parameter/defaultOpacity")
+tracks/3/path = NodePath("CanvasLayer/XRect:material:shader_parameter/defaultOpacity")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -134,7 +134,7 @@ _data = {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bf5fr"]
 shader = ExtResource("4_hvrs5")
 shader_parameter/isReverted = false
-shader_parameter/textureScale = 50.0
+shader_parameter/textureScale = 2.08165e-12
 shader_parameter/defaultOpacity = 1.0
 shader_parameter/dimensions = Vector2(1, 1)
 shader_parameter/maskTexture = ExtResource("2_b3nvy")
@@ -158,17 +158,18 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_6r3si")
 animationPlayer = NodePath("AnimationPlayer")
-scenes = [NodePath("ORect"), NodePath("XRect")]
+scenes = [NodePath("CanvasLayer/ORect"), NodePath("CanvasLayer/XRect")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_ktxsi")
 }
 
-[node name="ORect" type="ColorRect" parent="."]
-visible = false
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="ORect" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_bf5fr")
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -176,10 +177,9 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.14902, 0.545098, 0.823529, 1)
 
-[node name="XRect" type="ColorRect" parent="."]
+[node name="XRect" type="ColorRect" parent="CanvasLayer"]
 visible = false
 material = SubResource("ShaderMaterial_0dxqk")
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
