@@ -8,6 +8,7 @@ var state: TTT_State
 var cellSize: int
 var index: int
 var animationPlayer: = _initAnimationPlayer()
+var currentType: TTT_Cell_Resource.FieldType
 
 func _init(
 	initState: TTT_State,
@@ -23,9 +24,15 @@ func _ready():
 	add_child(animationPlayer)
 
 func toggle(childType: TTT_Cell_Resource.FieldType):
+	if childType == currentType: return
+
+	currentType = childType
 	if child: remove_child(child)
-	child = _createChild(childType)
-	if child: add_child(child)
+	child = await _createChild(childType)
+	if child:
+		add_child(child)
+		animationPlayer.play('scaleIn')
+		await animationPlayer.animation_finished
 
 func _createChild(childType: TTT_Cell_Resource.FieldType,):
 	var halfCellSize: int = roundi(float(cellSize) / 2)
@@ -33,7 +40,6 @@ func _createChild(childType: TTT_Cell_Resource.FieldType,):
 	if (newChild):
 		newChild.position.x = -halfCellSize
 		newChild.position.y = -halfCellSize
-		animationPlayer.play('scaleIn')
 	return newChild
 
 func _createBaseChild(childType: TTT_Cell_Resource.FieldType):
@@ -64,6 +70,7 @@ func _createGameField() -> TTT_Game_Field:
 
 func _initAnimationPlayer() -> AnimationPlayer:
 	var animation: = Animation.new()
+	animation.length = 0.2
 	animation.add_track(Animation.TYPE_VALUE)
 	animation.track_set_path(0, "Sign:scale")
 	animation.track_insert_key(0, 0.0, Vector2(0, 0))

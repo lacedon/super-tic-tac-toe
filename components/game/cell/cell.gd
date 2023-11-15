@@ -63,8 +63,8 @@ func _updateOpenBlock(openBlock: int):
 
 func _updateCellType(updatedCellParentIndex: int, updatedCellIndex: int, newType: TTT_Cell_Resource.FieldType):
 	if parentIndex != updatedCellParentIndex || index != updatedCellIndex: return
-	childHelper.toggle(newType)
 	buttonHelper.toggle(TTT_State_Selectors.getOpenBlock(state), newType)
+	await childHelper.toggle(newType)
 
 func _handleButtonPressed():
 	var cellType = TTT_State_Selectors.getFieldType(state, index, parentIndex)
@@ -72,4 +72,10 @@ func _handleButtonPressed():
 	if cellType == TTT_Cell_Resource.FieldType.field:
 		state.updateOpenBlock(index)
 	else:
+		await _updateCellType(
+			parentIndex,
+			index,
+			TTT_Cell_Resource.FieldType.x if TTT_State_Selectors.getCurrentPlayer(state) == TTT_State.PlayerSign.x else TTT_Cell_Resource.FieldType.o
+		)
+
 		state.updateField(index, parentIndex)
