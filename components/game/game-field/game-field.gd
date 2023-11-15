@@ -45,9 +45,14 @@ func _ready():
 
 func _enter_tree():
 	state.connect("openBlockChanged", _toggleActive)
+	state.connect("restart", _handleRestart)
 
 func _exit_tree():
 	state.disconnect("openBlockChanged", _toggleActive)
+	state.disconnect("restart", _handleRestart)
+
+func _handleRestart():
+	_toggleActive(TTT_State.mainFieldIndex)
 
 func _toggleActive(openBlock: int):
 	var isActive = openBlock == parentIndex
