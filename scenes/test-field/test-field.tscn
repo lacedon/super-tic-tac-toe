@@ -64,7 +64,7 @@ layout_mode = 2
 
 [node name="switchPlayer" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "Swith player"
+text = "Swith Player"
 
 [node name="VSeparator" type="VSeparator" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -81,5 +81,19 @@ popup/item_1/id = 1
 popup/item_2/text = "Rando"
 popup/item_2/id = 2
 
+[node name="MarginContainer4" type="MarginContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/MarginContainer4"]
+layout_mode = 2
+
+[node name="restartGame" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer4/HBoxContainer"]
+layout_mode = 2
+text = "Restart Game"
+
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/switchPlayer" to="." method="_onSwitchPlayerPressed"]
 [connection signal="item_selected" from="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/changeDifficulty" to="." method="_onChangeDifficultyItemSelected"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/MarginContainer4/HBoxContainer/restartGame" to="." method="_onRestartGamePressed"]

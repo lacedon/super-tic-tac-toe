@@ -51,3 +51,7 @@ func _onChangeDifficultyItemSelected(index: int):
 
 func _onSwitchPlayerPressed():
 	state.togglePlayer()
+
+func _onRestartGamePressed():
+	state.startGame()
+	drawNumbers()

@@ -29,11 +29,11 @@ var fields: Array[TTT_Cell_Resource]
 func updateOpenBlock(value: int): ControllerUpdateOpenBlock.updateOpenBlock(self, value)
 func updateField(index: int, parentIndex: int): ControllerUpdateField.updateField(self, index, parentIndex)
 func togglePlayer(): ControllerUpdatePlayer.togglePlayer(self, true, PlayerSign.x)
-func _startGame(): ControllerStartGame.startGame(self)
+func startGame(): ControllerStartGame.startGame(self)
 
 func _enter_tree():
-	eventEmitter.addListener('restartGame', _startGame)
-	_startGame()
+	eventEmitter.addListener('restartGame', startGame)
+	startGame()
 
 func _exit_tree():
-	eventEmitter.removeListener('restartGame', _startGame)
+	eventEmitter.removeListener('restartGame', startGame)
