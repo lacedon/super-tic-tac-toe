@@ -28,7 +28,6 @@ const lineColor: Color = Color(0.4, 0.48, 0.51, 1) # 667a82
 const lineColorActive: Color = Color(0.03, 0.21, 0.26, 1) # 073642
 
 func _ready():
-
 	# Set background color
 	RenderingServer.set_default_clear_color(Color(0.99, 0.96, 0.89, 1))
 

@@ -41,8 +41,9 @@ text = "Rando"
 styles = {}
 scriptPath = ExtResource("6_jp34q")
 props = {
-"settingName": "aiDificulty",
-"settingValue": "rando"
+"settingUpdate": {
+"aiDificulty": "rando"
+}
 }
 
 [sub_resource type="Resource" id="Resource_rm55r"]
@@ -55,8 +56,9 @@ text = "Easy"
 styles = {}
 scriptPath = ExtResource("6_jp34q")
 props = {
-"settingName": "aiDificulty",
-"settingValue": "easy"
+"settingUpdate": {
+"aiDificulty": "easy"
+}
 }
 
 [sub_resource type="Resource" id="Resource_7eb1g"]
@@ -69,8 +71,9 @@ text = "Hard"
 styles = {}
 scriptPath = ExtResource("6_jp34q")
 props = {
-"settingName": "aiDificulty",
-"settingValue": "easy"
+"settingUpdate": {
+"aiDificulty": "hard"
+}
 }
 
 [sub_resource type="Resource" id="Resource_rce7g"]
@@ -170,8 +173,9 @@ text = "Never zoom"
 styles = {}
 scriptPath = ExtResource("6_jp34q")
 props = {
-"settingName": "disableZoom",
-"settingValue": true
+"settingUpdate": {
+"disableZoom": true
+}
 }
 
 [sub_resource type="Resource" id="Resource_0ukqs"]

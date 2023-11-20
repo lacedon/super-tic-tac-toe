@@ -1,12 +1,13 @@
 extends Button
 
-@export var settingName: String
-var settingValue: Variant
+@export var settingUpdate: Dictionary
 
 func _enter_tree():
 	self.toggle_mode = true
 
-	handleGameSettingChanged(settingName, gameSettings[settingName], null)
+	for propKey in settingUpdate:
+		handleGameSettingChanged(propKey, gameSettings[propKey], null)
+		break
 
 	connect("pressed", setSettingChange)
 	gameSettings.connect("gameSettingChanged", handleGameSettingChanged)
@@ -16,12 +17,27 @@ func _exit_tree():
 	gameSettings.disconnect("gameSettingChanged", handleGameSettingChanged)
 
 func setSettingChange():
-	gameSettings.changeSetting(settingName, !gameSettings[settingName] if typeof(settingValue) == TYPE_BOOL else settingValue)
+	for propKey in settingUpdate:
+		var newValue: Variant = !gameSettings[propKey] if typeof(settingUpdate[propKey]) == TYPE_BOOL else settingUpdate[propKey]
+		gameSettings.changeSetting(propKey, newValue)
 
 func handleGameSettingChanged(key: String, newValue: Variant, _oldValue: Variant):
-	if settingName != key: return
+	if !_isRelatedSettingChanged(key): return
 
-	if settingValue == newValue:
+	if _isAllRelatedSettingChanged(key, newValue):
 		self.button_pressed = true
 	else:
 		self.button_pressed = false
+
+func _isRelatedSettingChanged(key: String) -> bool:
+	for propKey in settingUpdate:
+		if propKey == key: return true
+	return false
+
+func _isAllRelatedSettingChanged(key: String, newValue: Variant) -> bool:
+	for propKey in settingUpdate:
+		if propKey == key:
+			return settingUpdate[propKey] == newValue
+		else:
+			return propKey in gameSettings && gameSettings[propKey] == settingUpdate[propKey]
+	return false
