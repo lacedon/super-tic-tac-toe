@@ -9,7 +9,7 @@ var aiScript: GDScript
 var titleText: String = ''
 
 func _ready():
-	disableBackgroundMusic()
+	disableSounds()
 	updateDifficulty(gameSettings.aiDificulty)
 
 func _enter_tree():
@@ -22,8 +22,9 @@ func _enter_tree():
 func _exit_tree():
 	state.connect('cellTypeChanged', handleCellTypeChanged)
 
-func disableBackgroundMusic():
+func disableSounds():
 	SoundManager.set_music_volume(0)
+	SoundManager.set_sound_volume(0)
 
 func disableAI():
 	gameSettings.changeSetting('mode', GameSettings.GameMode.hotSeat)
@@ -38,7 +39,7 @@ func handleCellTypeChanged(_parentIndex: int, _index: int, _newType: TTT_Cell_Re
 	drawNumbers()
 
 func drawNumbers():
-	var cellsToChoose = aiScript.getCellsToChoose(state, state.openBlock, TTT_State.PlayerSign.o)
+	var cellsToChoose: Array[int] = aiScript.getCellsToChoose(state, state.openBlock, TTT_State.PlayerSign.o)
 	for cellIndex in range(gameField.cells.size()):
 		var cellButton = gameField.cells[cellIndex].get_child(1)
 
@@ -46,7 +47,7 @@ func drawNumbers():
 			cellButton.text = str(cellIndex) if cellsToChoose.has(cellIndex) else ''
 
 func _onChangeDifficultyItemSelected(index: int):
-	var difficulty = changeDifficultyButton.get_item_text(index)
+	var difficulty: String = changeDifficultyButton.get_item_text(index)
 	updateDifficulty(difficulty.to_lower())
 
 func _onSwitchPlayerPressed():
