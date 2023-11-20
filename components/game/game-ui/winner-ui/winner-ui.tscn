@@ -4,9 +4,9 @@
 [ext_resource type="Theme" uid="uid://ddbxy7ksk4ske" path="res://themes/game-ui.tres" id="3_o45qj"]
 [ext_resource type="Script" path="res://components/common/menu-generator/menu-generator.gd" id="4_5bjqf"]
 [ext_resource type="Script" path="res://components/common/bubble-animation/bubble-animation.gd" id="4_dappc"]
-[ext_resource type="Resource" uid="uid://cc40yvx4h26rq" path="res://components/game/game-ui/winner-ui/menu-generator.tres" id="5_0daj8"]
 [ext_resource type="PackedScene" uid="uid://b5rplu4c1k3el" path="res://components/game/game-ui/player-block/player-block.tscn" id="5_hh5uv"]
 [ext_resource type="Script" path="res://components/game/sign/sign.gd" id="5_re4h5"]
+[ext_resource type="Resource" uid="uid://cc40yvx4h26rq" path="res://components/game/game-ui/winner-ui/menu.tres" id="7_d113v"]
 
 [node name="WinnerUI" type="Control" node_paths=PackedStringArray("titleNode", "playerNameNode")]
 layout_mode = 3
@@ -78,4 +78,4 @@ theme_override_constants/margin_bottom = 32
 [node name="MenuGenerator" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 script = ExtResource("4_5bjqf")
-menu = ExtResource("5_0daj8")
+menu = ExtResource("7_d113v")
