@@ -10,12 +10,11 @@ var titleText: String = ''
 
 func _ready():
 	disableBackgroundMusic()
-	drawNumbers()
+	updateDifficulty(gameSettings.aiDificulty)
 
 func _enter_tree():
 	titleText = titleComponent.text
 
-	updateDifficulty(gameSettings.aiDificulty)
 	disableAI()
 
 	state.connect('cellTypeChanged', handleCellTypeChanged)
@@ -33,6 +32,7 @@ func updateDifficulty(difficulty: String):
 	gameSettings.changeSetting('aiDificulty', difficulty)
 	titleComponent.text = titleText.replace('{Difficulty}', difficulty)
 	aiScript = load('res://components/game/ai/difficulties/' + difficulty + '.gd')
+	drawNumbers()
 
 func handleCellTypeChanged(_parentIndex: int, _index: int, _newType: TTT_Cell_Resource.FieldType):
 	drawNumbers()
