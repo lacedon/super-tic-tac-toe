@@ -1,3 +1,5 @@
+@tool
+
 extends MenuItem
 class_name MenuItemButton
 
@@ -19,11 +21,12 @@ func _init(
 	props = initProps
 	scriptPath = initScriptPath
 
-func createItem(menu: MenuList) -> Control:
+func createItem(menuGenerator: MenuGenerator) -> Control:
 	var button = Button.new()
 	button.text = text
 	if scriptPath:
 		button.set_script(scriptPath)
+
 	if props:
 		for propName in props:
 			button[propName] = props[propName]
@@ -35,7 +38,7 @@ func createItem(menu: MenuList) -> Control:
 		button.add_child(buttonThemable)
 
 	var buttonSound = ButtonSound.new()
-	buttonSound.downSound = menu.buttonDownSound
+	buttonSound.downSound = menuGenerator.buttonDownSound
 	button.add_child(buttonSound)
 
 	return button

@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://components/game/game-ui/winner-ui/winner-ui.gd" id="1_bgakh"]
 [ext_resource type="Theme" uid="uid://ddbxy7ksk4ske" path="res://themes/game-ui.tres" id="3_o45qj"]
-[ext_resource type="Script" path="res://components/common/menu-list/menu-list.gd" id="4_5bjqf"]
+[ext_resource type="Script" path="res://components/common/menu-generator/menu-generator.gd" id="4_5bjqf"]
 [ext_resource type="Script" path="res://components/common/bubble-animation/bubble-animation.gd" id="4_dappc"]
-[ext_resource type="Resource" uid="uid://cc40yvx4h26rq" path="res://components/game/game-ui/winner-ui/menu-list.tres" id="5_0daj8"]
+[ext_resource type="Resource" uid="uid://cc40yvx4h26rq" path="res://components/game/game-ui/winner-ui/menu-generator.tres" id="5_0daj8"]
 [ext_resource type="PackedScene" uid="uid://b5rplu4c1k3el" path="res://components/game/game-ui/player-block/player-block.tscn" id="5_hh5uv"]
 [ext_resource type="Script" path="res://components/game/sign/sign.gd" id="5_re4h5"]
 
@@ -75,7 +75,7 @@ grow_vertical = 2
 theme_override_constants/margin_top = 64
 theme_override_constants/margin_bottom = 32
 
-[node name="MenuList" type="VBoxContainer" parent="MarginContainer"]
+[node name="MenuGenerator" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 script = ExtResource("4_5bjqf")
 menu = ExtResource("5_0daj8")

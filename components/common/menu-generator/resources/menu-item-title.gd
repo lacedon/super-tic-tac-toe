@@ -1,3 +1,5 @@
+@tool
+
 extends MenuItem
 class_name MenuItemTitle
 
@@ -10,7 +12,7 @@ func _init(
 	text = initText
 	props = initProps
 
-func createItem(_menu: MenuList) -> Control:
+func createItem(_menuGenerator: MenuGenerator) -> Control:
 	var title = Label.new()
 	title.add_theme_font_size_override('font_size', 80)
 

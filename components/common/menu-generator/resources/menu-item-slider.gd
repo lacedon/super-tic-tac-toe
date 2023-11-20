@@ -1,3 +1,5 @@
+@tool
+
 extends MenuItem
 class_name MenuItemSlider
 
@@ -23,7 +25,7 @@ func _init(
 	maxValue = initMax
 	labelProps = initLabelProps
 
-func createItem(_menu: MenuList) -> Control:
+func createItem(_menuGenerator: MenuGenerator) -> Control:
 	var container = HBoxContainer.new()
 	container.name = 'Slider container'
 

@@ -1,5 +1,7 @@
+@tool
+
 extends VBoxContainer
-class_name MenuList
+class_name MenuGenerator
 
 const buttonDownSound = preload("res://assets/button-noise.mp3")
 const Menu = preload('./resources/menu.gd')
@@ -16,12 +18,17 @@ func _createRow(rowConfig: MenuRow, index: int):
 	marginContainer.add_theme_constant_override('margin_right', 0)
 	marginContainer.add_theme_constant_override('margin_top', 16)
 	marginContainer.add_theme_constant_override('margin_bottom', 0)
+
 	marginContainer.add_child(rowConfig.createRow(self, marginContainer))
 
 	return marginContainer
 
 func _applyMenuConfig():
 	if !menu: return
+
+	# Clear previous children
+	for child in self.get_children():
+		child.queue_free()
 
 	var index = 1
 	for rowConfig in menu.rows:

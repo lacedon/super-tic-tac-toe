@@ -2,7 +2,7 @@ extends Button
 
 @export var menu: Node
 @export var parentMenu: Node
-@export var previousMenu: MenuList
+@export var previousMenu: MenuGenerator
 
 func _enter_tree():
 	connect("pressed", closeMenu)

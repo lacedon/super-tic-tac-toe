@@ -1,3 +1,5 @@
+@tool
+
 extends MenuItem
 class_name MenuItemLabel
 
@@ -10,7 +12,7 @@ func _init(
 	text = initText
 	props = initProps
 
-func createItem(_menu: MenuList) -> Control:
+func createItem(_menuGenerator: MenuGenerator) -> Control:
 	var label = Label.new()
 	label.text = text
 

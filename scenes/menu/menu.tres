@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="Menu" load_steps=27 format=3 uid="uid://bsc4hxfsm7bxt"]
 
-[ext_resource type="Script" path="res://components/common/menu-list/resources/menu-item-title.gd" id="1_348tg"]
-[ext_resource type="Script" path="res://components/common/menu-list/resources/menu.gd" id="1_dwj4q"]
-[ext_resource type="Script" path="res://components/common/menu-list/resources/menu-row-list.gd" id="2_k2i05"]
-[ext_resource type="Script" path="res://components/common/menu-list/resources/menu-row-spacer.gd" id="3_0ptxc"]
-[ext_resource type="Script" path="res://components/common/menu-list/resources/menu-item-label.gd" id="4_6wdxf"]
+[ext_resource type="Script" path="res://components/common/menu-generator/resources/menu-item-title.gd" id="1_348tg"]
+[ext_resource type="Script" path="res://components/common/menu-generator/resources/menu.gd" id="1_dwj4q"]
+[ext_resource type="Script" path="res://components/common/menu-generator/resources/menu-row-list.gd" id="2_k2i05"]
+[ext_resource type="Script" path="res://components/common/menu-generator/resources/menu-row-spacer.gd" id="3_0ptxc"]
+[ext_resource type="Script" path="res://components/common/menu-generator/resources/menu-item-label.gd" id="4_6wdxf"]
 [ext_resource type="Script" path="res://components/common/change-scene.gd" id="4_r722j"]
 [ext_resource type="Script" path="res://components/common/exit-button.gd" id="5_qiaew"]
-[ext_resource type="Script" path="res://components/common/menu-list/resources/menu-item-button.gd" id="5_uh68e"]
-[ext_resource type="Script" path="res://components/common/menu-list/resources/menu-item-spacer.gd" id="7_u6led"]
+[ext_resource type="Script" path="res://components/common/menu-generator/resources/menu-item-button.gd" id="5_uh68e"]
+[ext_resource type="Script" path="res://components/common/menu-generator/resources/menu-item-spacer.gd" id="7_u6led"]
 
 [sub_resource type="Resource" id="Resource_sfgem"]
 script = ExtResource("1_348tg")
@@ -18,7 +18,7 @@ props = {}
 [sub_resource type="Resource" id="Resource_e4do5"]
 script = ExtResource("2_k2i05")
 aligment = 1
-items = Array[Resource("res://components/common/menu-list/resources/menu-item.gd")]([SubResource("Resource_sfgem")])
+items = Array[Resource("res://components/common/menu-generator/resources/menu-item.gd")]([SubResource("Resource_sfgem")])
 
 [sub_resource type="Resource" id="Resource_g8kwd"]
 script = ExtResource("3_0ptxc")
@@ -31,7 +31,7 @@ props = {}
 [sub_resource type="Resource" id="Resource_gnxsl"]
 script = ExtResource("2_k2i05")
 aligment = 1
-items = Array[Resource("res://components/common/menu-list/resources/menu-item.gd")]([SubResource("Resource_87wuk")])
+items = Array[Resource("res://components/common/menu-generator/resources/menu-item.gd")]([SubResource("Resource_87wuk")])
 
 [sub_resource type="Resource" id="Resource_gar4y"]
 script = ExtResource("5_uh68e")
@@ -72,7 +72,7 @@ props = {
 [sub_resource type="Resource" id="Resource_cssd8"]
 script = ExtResource("2_k2i05")
 aligment = 1
-items = Array[Resource("res://components/common/menu-list/resources/menu-item.gd")]([SubResource("Resource_gar4y"), SubResource("Resource_j2vj4"), SubResource("Resource_6mne3")])
+items = Array[Resource("res://components/common/menu-generator/resources/menu-item.gd")]([SubResource("Resource_gar4y"), SubResource("Resource_j2vj4"), SubResource("Resource_6mne3")])
 
 [sub_resource type="Resource" id="Resource_txw1t"]
 script = ExtResource("3_0ptxc")
@@ -104,7 +104,7 @@ props = {
 [sub_resource type="Resource" id="Resource_3878i"]
 script = ExtResource("2_k2i05")
 aligment = 1
-items = Array[Resource("res://components/common/menu-list/resources/menu-item.gd")]([SubResource("Resource_ldejw"), SubResource("Resource_tk3n7"), SubResource("Resource_xj5r0")])
+items = Array[Resource("res://components/common/menu-generator/resources/menu-item.gd")]([SubResource("Resource_ldejw"), SubResource("Resource_tk3n7"), SubResource("Resource_xj5r0")])
 
 [sub_resource type="Resource" id="Resource_k784y"]
 script = ExtResource("7_u6led")
@@ -125,8 +125,8 @@ props = {
 [sub_resource type="Resource" id="Resource_ci428"]
 script = ExtResource("2_k2i05")
 aligment = 1
-items = Array[Resource("res://components/common/menu-list/resources/menu-item.gd")]([SubResource("Resource_k784y"), SubResource("Resource_848hq")])
+items = Array[Resource("res://components/common/menu-generator/resources/menu-item.gd")]([SubResource("Resource_k784y"), SubResource("Resource_848hq")])
 
 [resource]
 script = ExtResource("1_dwj4q")
-rows = Array[Resource("res://components/common/menu-list/resources/menu-row.gd")]([SubResource("Resource_e4do5"), SubResource("Resource_g8kwd"), SubResource("Resource_gnxsl"), SubResource("Resource_cssd8"), SubResource("Resource_txw1t"), SubResource("Resource_3878i"), SubResource("Resource_ci428")])
+rows = Array[Resource("res://components/common/menu-generator/resources/menu-row.gd")]([SubResource("Resource_e4do5"), SubResource("Resource_g8kwd"), SubResource("Resource_gnxsl"), SubResource("Resource_cssd8"), SubResource("Resource_txw1t"), SubResource("Resource_3878i"), SubResource("Resource_ci428")])

@@ -1,3 +1,5 @@
+@tool
+
 extends MenuRow
 class_name MenuRowList
 
@@ -19,7 +21,7 @@ func _init(
 	aligment = initAligment
 	items = initItems
 
-func createRow(menu: MenuList, _parent: Control) -> Control:
+func createRow(menuGenerator: MenuGenerator, _parent: Control) -> Control:
 	var horizontalContainer = HBoxContainer.new()
 	horizontalContainer.name = 'RowContainer'
 
@@ -32,6 +34,6 @@ func createRow(menu: MenuList, _parent: Control) -> Control:
 			horizontalContainer.alignment = BoxContainer.ALIGNMENT_CENTER
 
 	for item in items:
-		horizontalContainer.add_child(item.createItem(menu))
+		horizontalContainer.add_child(item.createItem(menuGenerator))
 
 	return horizontalContainer

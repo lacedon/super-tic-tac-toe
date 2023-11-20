@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="Menu" load_steps=40 format=3 uid="uid://c3n8wqqj4x0lj"]
 
-[ext_resource type="Script" path="res://components/common/menu-list/resources/menu-item-title.gd" id="1_2u61n"]
-[ext_resource type="Script" path="res://components/common/menu-list/resources/menu.gd" id="1_vn0mb"]
-[ext_resource type="Script" path="res://components/common/menu-list/resources/menu-row-list.gd" id="2_bvo8j"]
-[ext_resource type="Script" path="res://components/common/menu-list/resources/menu-row-spacer.gd" id="3_wlhmi"]
-[ext_resource type="Script" path="res://components/common/menu-list/resources/menu-item-slider.gd" id="4_0epfj"]
-[ext_resource type="Script" path="res://components/common/menu-list/resources/menu-item-button.gd" id="4_y1y35"]
+[ext_resource type="Script" path="res://components/common/menu-generator/resources/menu-item-title.gd" id="1_2u61n"]
+[ext_resource type="Script" path="res://components/common/menu-generator/resources/menu.gd" id="1_vn0mb"]
+[ext_resource type="Script" path="res://components/common/menu-generator/resources/menu-row-list.gd" id="2_bvo8j"]
+[ext_resource type="Script" path="res://components/common/menu-generator/resources/menu-row-spacer.gd" id="3_wlhmi"]
+[ext_resource type="Script" path="res://components/common/menu-generator/resources/menu-item-slider.gd" id="4_0epfj"]
+[ext_resource type="Script" path="res://components/common/menu-generator/resources/menu-item-button.gd" id="4_y1y35"]
 [ext_resource type="Script" path="res://components/common/change-scene.gd" id="5_05nrr"]
-[ext_resource type="Script" path="res://components/common/menu-list/resources/menu-item-label.gd" id="5_n7aaa"]
-[ext_resource type="Script" path="res://components/common/menu-list/resources/menu-item-spacer.gd" id="6_j1fnt"]
+[ext_resource type="Script" path="res://components/common/menu-generator/resources/menu-item-label.gd" id="5_n7aaa"]
+[ext_resource type="Script" path="res://components/common/menu-generator/resources/menu-item-spacer.gd" id="6_j1fnt"]
 [ext_resource type="Script" path="res://components/game/settings-changers/change-game-setting-button.gd" id="6_jp34q"]
 [ext_resource type="Script" path="res://components/game/settings-changers/change-game-setting-slider.gd" id="9_gg6wq"]
 
@@ -20,7 +20,7 @@ props = {}
 [sub_resource type="Resource" id="Resource_d3wny"]
 script = ExtResource("2_bvo8j")
 aligment = 1
-items = Array[Resource("res://components/common/menu-list/resources/menu-item.gd")]([SubResource("Resource_plbgg")])
+items = Array[Resource("res://components/common/menu-generator/resources/menu-item.gd")]([SubResource("Resource_plbgg")])
 
 [sub_resource type="Resource" id="Resource_jxkna"]
 script = ExtResource("3_wlhmi")
@@ -33,7 +33,7 @@ props = {}
 [sub_resource type="Resource" id="Resource_kii30"]
 script = ExtResource("2_bvo8j")
 aligment = 1
-items = Array[Resource("res://components/common/menu-list/resources/menu-item.gd")]([SubResource("Resource_cr0st")])
+items = Array[Resource("res://components/common/menu-generator/resources/menu-item.gd")]([SubResource("Resource_cr0st")])
 
 [sub_resource type="Resource" id="Resource_hdhub"]
 script = ExtResource("4_y1y35")
@@ -76,7 +76,7 @@ props = {
 [sub_resource type="Resource" id="Resource_rce7g"]
 script = ExtResource("2_bvo8j")
 aligment = 0
-items = Array[Resource("res://components/common/menu-list/resources/menu-item.gd")]([SubResource("Resource_hdhub"), SubResource("Resource_rm55r"), SubResource("Resource_8bc3n"), SubResource("Resource_7eb1g"), SubResource("Resource_y3xs1")])
+items = Array[Resource("res://components/common/menu-generator/resources/menu-item.gd")]([SubResource("Resource_hdhub"), SubResource("Resource_rm55r"), SubResource("Resource_8bc3n"), SubResource("Resource_7eb1g"), SubResource("Resource_y3xs1")])
 
 [sub_resource type="Resource" id="Resource_0y8pu"]
 script = ExtResource("3_wlhmi")
@@ -89,7 +89,7 @@ props = {}
 [sub_resource type="Resource" id="Resource_k0cvk"]
 script = ExtResource("2_bvo8j")
 aligment = 1
-items = Array[Resource("res://components/common/menu-list/resources/menu-item.gd")]([SubResource("Resource_fejvp")])
+items = Array[Resource("res://components/common/menu-generator/resources/menu-item.gd")]([SubResource("Resource_fejvp")])
 
 [sub_resource type="Resource" id="Resource_86m0k"]
 script = ExtResource("4_0epfj")
@@ -109,7 +109,7 @@ props = {
 [sub_resource type="Resource" id="Resource_257fa"]
 script = ExtResource("2_bvo8j")
 aligment = 1
-items = Array[Resource("res://components/common/menu-list/resources/menu-item.gd")]([SubResource("Resource_86m0k")])
+items = Array[Resource("res://components/common/menu-generator/resources/menu-item.gd")]([SubResource("Resource_86m0k")])
 
 [sub_resource type="Resource" id="Resource_espw0"]
 script = ExtResource("4_0epfj")
@@ -129,7 +129,7 @@ props = {
 [sub_resource type="Resource" id="Resource_1r7d7"]
 script = ExtResource("2_bvo8j")
 aligment = 1
-items = Array[Resource("res://components/common/menu-list/resources/menu-item.gd")]([SubResource("Resource_espw0")])
+items = Array[Resource("res://components/common/menu-generator/resources/menu-item.gd")]([SubResource("Resource_espw0")])
 
 [sub_resource type="Resource" id="Resource_747qv"]
 script = ExtResource("4_0epfj")
@@ -149,7 +149,7 @@ props = {
 [sub_resource type="Resource" id="Resource_ka0mk"]
 script = ExtResource("2_bvo8j")
 aligment = 1
-items = Array[Resource("res://components/common/menu-list/resources/menu-item.gd")]([SubResource("Resource_747qv")])
+items = Array[Resource("res://components/common/menu-generator/resources/menu-item.gd")]([SubResource("Resource_747qv")])
 
 [sub_resource type="Resource" id="Resource_ftumy"]
 script = ExtResource("3_wlhmi")
@@ -162,7 +162,7 @@ props = {}
 [sub_resource type="Resource" id="Resource_orqch"]
 script = ExtResource("2_bvo8j")
 aligment = 1
-items = Array[Resource("res://components/common/menu-list/resources/menu-item.gd")]([SubResource("Resource_uqraf")])
+items = Array[Resource("res://components/common/menu-generator/resources/menu-item.gd")]([SubResource("Resource_uqraf")])
 
 [sub_resource type="Resource" id="Resource_87o3v"]
 script = ExtResource("4_y1y35")
@@ -177,7 +177,7 @@ props = {
 [sub_resource type="Resource" id="Resource_0ukqs"]
 script = ExtResource("2_bvo8j")
 aligment = 2
-items = Array[Resource("res://components/common/menu-list/resources/menu-item.gd")]([SubResource("Resource_87o3v")])
+items = Array[Resource("res://components/common/menu-generator/resources/menu-item.gd")]([SubResource("Resource_87o3v")])
 
 [sub_resource type="Resource" id="Resource_u8hrg"]
 script = ExtResource("3_wlhmi")
@@ -195,8 +195,8 @@ props = {
 [sub_resource type="Resource" id="Resource_txgl2"]
 script = ExtResource("2_bvo8j")
 aligment = 2
-items = Array[Resource("res://components/common/menu-list/resources/menu-item.gd")]([SubResource("Resource_70fta")])
+items = Array[Resource("res://components/common/menu-generator/resources/menu-item.gd")]([SubResource("Resource_70fta")])
 
 [resource]
 script = ExtResource("1_vn0mb")
-rows = Array[Resource("res://components/common/menu-list/resources/menu-row.gd")]([SubResource("Resource_d3wny"), SubResource("Resource_jxkna"), SubResource("Resource_kii30"), SubResource("Resource_rce7g"), SubResource("Resource_0y8pu"), SubResource("Resource_k0cvk"), SubResource("Resource_257fa"), SubResource("Resource_1r7d7"), SubResource("Resource_ka0mk"), SubResource("Resource_ftumy"), SubResource("Resource_orqch"), SubResource("Resource_0ukqs"), SubResource("Resource_u8hrg"), SubResource("Resource_txgl2")])
+rows = Array[Resource("res://components/common/menu-generator/resources/menu-row.gd")]([SubResource("Resource_d3wny"), SubResource("Resource_jxkna"), SubResource("Resource_kii30"), SubResource("Resource_rce7g"), SubResource("Resource_0y8pu"), SubResource("Resource_k0cvk"), SubResource("Resource_257fa"), SubResource("Resource_1r7d7"), SubResource("Resource_ka0mk"), SubResource("Resource_ftumy"), SubResource("Resource_orqch"), SubResource("Resource_0ukqs"), SubResource("Resource_u8hrg"), SubResource("Resource_txgl2")])

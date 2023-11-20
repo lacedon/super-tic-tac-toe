@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Menu" load_steps=18 format=3 uid="uid://btxyeeopc48td"]
 
-[ext_resource type="Script" path="res://components/common/menu-list/resources/menu-row-spacer.gd" id="1_5whnw"]
-[ext_resource type="Script" path="res://components/common/menu-list/resources/menu.gd" id="1_40h2m"]
-[ext_resource type="Script" path="res://components/common/menu-list/resources/menu-row-list.gd" id="1_nk45n"]
-[ext_resource type="Script" path="res://components/common/menu-list/resources/menu-item-button.gd" id="2_2wmbe"]
+[ext_resource type="Script" path="res://components/common/menu-generator/resources/menu-row-spacer.gd" id="1_5whnw"]
+[ext_resource type="Script" path="res://components/common/menu-generator/resources/menu.gd" id="1_40h2m"]
+[ext_resource type="Script" path="res://components/common/menu-generator/resources/menu-row-list.gd" id="1_nk45n"]
+[ext_resource type="Script" path="res://components/common/menu-generator/resources/menu-item-button.gd" id="2_2wmbe"]
 [ext_resource type="Script" path="res://components/game/game-ui/in-game-menu/toggle-in-game-menu.gd" id="3_3pecc"]
 [ext_resource type="Script" path="res://components/common/change-scene.gd" id="3_gbqyt"]
 [ext_resource type="Script" path="res://components/game/game-ui/in-game-menu/restart.gd" id="4_bcdld"]
@@ -25,7 +25,7 @@ props = {}
 [sub_resource type="Resource" id="Resource_vcxhf"]
 script = ExtResource("1_nk45n")
 aligment = 2
-items = Array[Resource("res://components/common/menu-list/resources/menu-item.gd")]([SubResource("Resource_q7je7")])
+items = Array[Resource("res://components/common/menu-generator/resources/menu-item.gd")]([SubResource("Resource_q7je7")])
 
 [sub_resource type="Resource" id="Resource_ipejv"]
 script = ExtResource("2_2wmbe")
@@ -40,7 +40,7 @@ props = {}
 [sub_resource type="Resource" id="Resource_el3bk"]
 script = ExtResource("1_nk45n")
 aligment = 2
-items = Array[Resource("res://components/common/menu-list/resources/menu-item.gd")]([SubResource("Resource_ipejv")])
+items = Array[Resource("res://components/common/menu-generator/resources/menu-item.gd")]([SubResource("Resource_ipejv")])
 
 [sub_resource type="Resource" id="Resource_v3hch"]
 script = ExtResource("2_2wmbe")
@@ -57,7 +57,7 @@ props = {
 [sub_resource type="Resource" id="Resource_eh1y6"]
 script = ExtResource("1_nk45n")
 aligment = 2
-items = Array[Resource("res://components/common/menu-list/resources/menu-item.gd")]([SubResource("Resource_v3hch")])
+items = Array[Resource("res://components/common/menu-generator/resources/menu-item.gd")]([SubResource("Resource_v3hch")])
 
 [sub_resource type="Resource" id="Resource_yfy45"]
 script = ExtResource("2_2wmbe")
@@ -72,8 +72,8 @@ props = {}
 [sub_resource type="Resource" id="Resource_6xb3f"]
 script = ExtResource("1_nk45n")
 aligment = 2
-items = Array[Resource("res://components/common/menu-list/resources/menu-item.gd")]([SubResource("Resource_yfy45")])
+items = Array[Resource("res://components/common/menu-generator/resources/menu-item.gd")]([SubResource("Resource_yfy45")])
 
 [resource]
 script = ExtResource("1_40h2m")
-rows = Array[Resource("res://components/common/menu-list/resources/menu-row.gd")]([SubResource("Resource_y5w05"), SubResource("Resource_vcxhf"), SubResource("Resource_el3bk"), SubResource("Resource_eh1y6"), SubResource("Resource_6xb3f")])
+rows = Array[Resource("res://components/common/menu-generator/resources/menu-row.gd")]([SubResource("Resource_y5w05"), SubResource("Resource_vcxhf"), SubResource("Resource_el3bk"), SubResource("Resource_eh1y6"), SubResource("Resource_6xb3f")])
