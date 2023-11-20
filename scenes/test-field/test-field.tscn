@@ -64,7 +64,7 @@ layout_mode = 2
 
 [node name="switchPlayer" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "Swith Player"
+text = "Switch Player"
 
 [node name="VSeparator" type="VSeparator" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
