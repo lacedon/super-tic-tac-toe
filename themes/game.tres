@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://vig7p8jjbqd7"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://vig7p8jjbqd7"]
 
 [ext_resource type="FontFile" uid="uid://blqpt64dhrpyj" path="res://assets/fonts/Roboto-Bold.ttf" id="1_fnn45"]
+[ext_resource type="StyleBox" uid="uid://bhvndtnx1dhex" path="res://themes/button-styles/main-full/disabled.tres" id="1_vr0c6"]
 [ext_resource type="StyleBox" uid="uid://cyadgaxjap7r" path="res://themes/button-styles/main-full/hover.tres" id="1_ygr8h"]
 [ext_resource type="StyleBox" uid="uid://bshhiqo3xu1lt" path="res://themes/button-styles/main-full/normal.tres" id="2_p05eb"]
 [ext_resource type="StyleBox" uid="uid://cwru2hyfrd6b3" path="res://themes/button-styles/main-full/pressed.tres" id="3_u2ckj"]
@@ -13,6 +14,7 @@ bg_color = Color(0.345098, 0.619608, 0.886275, 1)
 
 [resource]
 Button/colors/font_color = Color(0.345098, 0.431373, 0.458824, 1)
+Button/colors/font_disabled_color = Color(0.576471, 0.631373, 0.631373, 1)
 Button/colors/font_focus_color = Color(0.345098, 0.431373, 0.458824, 1)
 Button/colors/font_hover_color = Color(0.345098, 0.431373, 0.458824, 1)
 Button/colors/font_hover_pressed_color = Color(0.345098, 0.431373, 0.458824, 1)
@@ -20,6 +22,7 @@ Button/colors/font_outline_color = Color(1, 1, 1, 0)
 Button/colors/font_pressed_color = Color(0.345098, 0.431373, 0.458824, 1)
 Button/constants/margin_left = 4
 Button/font_sizes/font_size = 32
+Button/styles/disabled = ExtResource("1_vr0c6")
 Button/styles/focus = SubResource("StyleBoxEmpty_oe7bk")
 Button/styles/hover = ExtResource("1_ygr8h")
 Button/styles/normal = ExtResource("2_p05eb")

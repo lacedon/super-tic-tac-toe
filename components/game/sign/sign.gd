@@ -5,7 +5,7 @@ const spriteX = preload('res://assets/x.svg')
 const spriteO = preload('res://assets/o.svg')
 
 @export var value: TTT_Cell_Resource.FieldType
-@export var cellSize: int = uiSettings.cellSize
+@export var cellSize: int = gameSettings.cellSize
 @export var centererByX: bool = false
 
 func _ready():

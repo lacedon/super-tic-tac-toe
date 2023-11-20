@@ -9,7 +9,7 @@ const ButtonSound = preload('res://components/common/button-sound.gd')
 signal toggleCamera()
 
 func _enter_tree():
-	if !TTT_State_Selectors.getShouldShowZoom(state):
+	if !TTT_State_Selectors.getShouldShowZoom(state) || gameSettings.disableZoom:
 		hide()
 		return
 

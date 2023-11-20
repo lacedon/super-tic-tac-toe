@@ -1,0 +1,15 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://bhvndtnx1dhex"]
+
+[ext_resource type="Texture2D" uid="uid://bmxt8n3rh763g" path="res://themes/button-styles/main-full/disabled.svg" id="1_o8a4p"]
+
+[resource]
+content_margin_left = 16.0
+content_margin_top = 44.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+texture = ExtResource("1_o8a4p")
+texture_margin_left = 20.0
+texture_margin_top = 48.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+metadata/color = Color(0.576471, 0.631373, 0.631373, 1)

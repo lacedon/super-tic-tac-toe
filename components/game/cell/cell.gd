@@ -6,7 +6,7 @@ const ButtonHelper = preload('./helper-button.gd')
 @export var parentIndex: int = TTT_State.mainFieldIndex
 @export var index: int
 @export var state: TTT_State
-@export var cellSize: int = uiSettings.cellSize
+@export var cellSize: int = gameSettings.cellSize
 var buttonHelper: ButtonHelper
 var childHelper: ChildHelper
 

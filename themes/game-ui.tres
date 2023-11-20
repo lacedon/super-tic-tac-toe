@@ -1,28 +1,44 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://ddbxy7ksk4ske"]
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://ddbxy7ksk4ske"]
 
 [ext_resource type="StyleBox" uid="uid://cyadgaxjap7r" path="res://themes/button-styles/main-full/hover.tres" id="2_c6hxp"]
+[ext_resource type="StyleBox" uid="uid://bhvndtnx1dhex" path="res://themes/button-styles/main-full/disabled.tres" id="2_x8c80"]
 [ext_resource type="StyleBox" uid="uid://bshhiqo3xu1lt" path="res://themes/button-styles/main-full/normal.tres" id="3_dlxd0"]
 [ext_resource type="StyleBox" uid="uid://cwru2hyfrd6b3" path="res://themes/button-styles/main-full/pressed.tres" id="4_boo11"]
 [ext_resource type="FontFile" uid="uid://blqpt64dhrpyj" path="res://assets/fonts/Roboto-Bold.ttf" id="4_egvia"]
 [ext_resource type="StyleBox" uid="uid://c4jdpnf2pum28" path="res://themes/panel-styles/style-box-flat-panel.tres" id="6_2jxq3"]
+[ext_resource type="Texture2D" uid="uid://covw5txghvlx1" path="res://assets/icons/checkbox-checked.svg" id="6_e7apm"]
+[ext_resource type="Texture2D" uid="uid://bjiglrtntim7f" path="res://themes/slider-styles/main-full/grabber.svg" id="6_kajef"]
+[ext_resource type="StyleBox" uid="uid://cwm6ouq75aehq" path="res://themes/slider-styles/main-full/grabber-area.tres" id="7_27ml5"]
+[ext_resource type="Texture2D" uid="uid://cfj1eue7ila3j" path="res://assets/icons/checkbox-unchecked.svg" id="7_o2j3n"]
+[ext_resource type="Texture2D" uid="uid://de66b5va0bl0u" path="res://themes/slider-styles/main-full/grabber-disabled.svg" id="7_vvaqo"]
+[ext_resource type="StyleBox" uid="uid://dgc22u01th3w5" path="res://themes/slider-styles/main-full/slider.tres" id="8_p4bbp"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eviif"]
 
 [resource]
-Button/colors/font_color = Color(0.992157, 0.964706, 0.890196, 1)
-Button/colors/font_focus_color = Color(0.992157, 0.964706, 0.890196, 1)
-Button/colors/font_hover_color = Color(0.992157, 0.964706, 0.890196, 1)
-Button/colors/font_hover_pressed_color = Color(0.992157, 0.964706, 0.890196, 1)
+Button/colors/font_color = Color(0.345098, 0.431373, 0.458824, 1)
+Button/colors/font_focus_color = Color(0.345098, 0.431373, 0.458824, 1)
+Button/colors/font_hover_color = Color(0.345098, 0.431373, 0.458824, 1)
+Button/colors/font_hover_pressed_color = Color(0.345098, 0.431373, 0.458824, 1)
 Button/colors/font_outline_color = Color(1, 1, 1, 0)
-Button/colors/font_pressed_color = Color(0.992157, 0.964706, 0.890196, 1)
+Button/colors/font_pressed_color = Color(0.345098, 0.431373, 0.458824, 1)
 Button/constants/custom_minimum_size = 160
 Button/constants/margin_left = 4
 Button/font_sizes/font_size = 48
 Button/fonts/font = ExtResource("4_egvia")
+Button/styles/disabled = ExtResource("2_x8c80")
 Button/styles/focus = SubResource("StyleBoxEmpty_eviif")
 Button/styles/hover = ExtResource("2_c6hxp")
 Button/styles/normal = ExtResource("3_dlxd0")
 Button/styles/pressed = ExtResource("4_boo11")
+CheckBox/icons/checked = ExtResource("6_e7apm")
+CheckBox/icons/unchecked = ExtResource("7_o2j3n")
+HSlider/icons/grabber = ExtResource("6_kajef")
+HSlider/icons/grabber_disabled = ExtResource("7_vvaqo")
+HSlider/icons/grabber_highlight = ExtResource("6_kajef")
+HSlider/styles/grabber_area = ExtResource("7_27ml5")
+HSlider/styles/grabber_area_highlight = ExtResource("7_27ml5")
+HSlider/styles/slider = ExtResource("8_p4bbp")
 Label/colors/font_color = Color(0.027451, 0.211765, 0.258824, 1)
 Label/colors/font_outline_color = Color(0.992157, 0.964706, 0.890196, 1)
 Label/constants/outline_size = 32

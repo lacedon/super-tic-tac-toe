@@ -3,8 +3,8 @@ class_name TTT_Game_Field
 
 const TTT_Cell: Resource = preload("res://components/game/cell/cell.gd")
 
-const _offset: int = uiSettings.gameFieldOffset
-const _lineWidth: int = uiSettings.gameFieldLineWidth
+const _offset: int = gameSettings.gameFieldOffset
+const _lineWidth: int = gameSettings.gameFieldLineWidth
 
 const lineCoordinates: Array[Vector4] = [
 	Vector4(1, 0, 1, 3),
@@ -15,7 +15,7 @@ const lineCoordinates: Array[Vector4] = [
 
 @export var parentIndex: int = TTT_State.mainFieldIndex
 @export var state: TTT_State
-@export var cellSize: int = uiSettings.cellSize
+@export var cellSize: int = gameSettings.cellSize
 @export var hasOffset: bool = true
 var _lines: Array[Line2D] = []
 
@@ -57,7 +57,7 @@ func _handleRestart():
 func _toggleActive(openBlock: int):
 	var isActive = openBlock == parentIndex
 	for line in _lines:
-		line.default_color = uiSettings.lineColorActive if isActive else uiSettings.lineColor
+		line.default_color = gameSettings.lineColorActive if isActive else gameSettings.lineColor
 
 func _createCell(x: int, y: int, index: int) -> TTT_Cell:
 	var halfCellSize: int = roundi(float(cellSize) / 2)
@@ -76,7 +76,7 @@ func _initFieldLines(pointDescriptions: Vector4) -> Line2D:
 	line.name = ("Vertical" if isHorizontal else "Horizontal") + "Line" + str(pointDescriptions.x if isHorizontal else pointDescriptions.y)
 
 	line.width = _lineWidth
-	line.default_color = uiSettings.lineColorActive if isActive else uiSettings.lineColor
+	line.default_color = gameSettings.lineColorActive if isActive else gameSettings.lineColor
 	line.joint_mode = Line2D.LINE_JOINT_ROUND
 	line.begin_cap_mode = Line2D.LINE_CAP_ROUND
 	line.end_cap_mode = Line2D.LINE_CAP_ROUND

@@ -1,14 +1,9 @@
 extends Resource
 class_name Menu
 
-const MenuRow = preload('./menu-row.gd')
+const MenuRow = preload('./menu-row-list.gd')
 
-@export var closable: bool = false
 @export var rows: Array[MenuRow] = []
 
-func _init(
-	initClosable: bool = closable,
-	initRows: Array[MenuRow] = rows,
-):
-	closable = initClosable
+func _init(initRows: Array[MenuRow] = rows):
 	rows = initRows

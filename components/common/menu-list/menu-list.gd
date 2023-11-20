@@ -3,19 +3,22 @@ class_name MenuList
 
 const buttonDownSound = preload("res://assets/button-noise.mp3")
 const Menu = preload('./resources/menu.gd')
-const MenuRow = preload('./resources/menu-row.gd')
-const MenuItem = preload('./resources/menu-item.gd')
-const RowCreator = preload('./row-creator.gd')
 
 @export var menu: Menu
-@export var parentMenu: Node
-@export var previousMenu: MenuList
 
 func _enter_tree():
 	_applyMenuConfig()
 
 func _createRow(rowConfig: MenuRow, index: int):
-	return RowCreator.createRow(rowConfig, index, self, parentMenu, previousMenu)
+	var marginContainer = MarginContainer.new()
+	marginContainer.name = 'Row #' + str(index)
+	marginContainer.add_theme_constant_override('margin_left', 0)
+	marginContainer.add_theme_constant_override('margin_right', 0)
+	marginContainer.add_theme_constant_override('margin_top', 16)
+	marginContainer.add_theme_constant_override('margin_bottom', 0)
+	marginContainer.add_child(rowConfig.createRow(self, marginContainer))
+
+	return marginContainer
 
 func _applyMenuConfig():
 	if !menu: return
@@ -23,10 +26,4 @@ func _applyMenuConfig():
 	var index = 1
 	for rowConfig in menu.rows:
 		add_child(_createRow(rowConfig, index))
-		index += 1
-
-	if menu.closable:
-		add_child(_createRow(MenuRow.new(MenuRow.MenuRowType.itemList, MenuRow.MenuRowAligment.end, [
-			MenuItem.new(MenuItem.MenuItemType.closeMenu, 'Back', { direction = 3, mode = 2 })
-		]), index))
 		index += 1

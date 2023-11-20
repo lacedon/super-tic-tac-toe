@@ -4,7 +4,7 @@ class_name TTT_Camera
 @export var state: TTT_State
 @export var gameField: Node
 var isCameraZoomedOut: bool = false
-var _cellSize: int = uiSettings.cellSize
+var _cellSize: int = gameSettings.cellSize
 var zoomSize: float = 3
 
 # Called when the node enters the scene tree for the first time.
@@ -39,7 +39,7 @@ func toggleCamera():
 func moveCamera(openBlock: int):
 	set_physics_process(true)
 
-	if isCameraZoomedOut || openBlock == TTT_State.mainFieldIndex:
+	if gameSettings.disableZoom || isCameraZoomedOut || openBlock == TTT_State.mainFieldIndex:
 		zoom = Vector2(1, 1)
 		offset = Vector2.ZERO
 		position = Vector2.ZERO

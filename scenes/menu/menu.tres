@@ -1,169 +1,132 @@
-[gd_resource type="Resource" script_class="Menu" load_steps=23 format=3 uid="uid://bsc4hxfsm7bxt"]
+[gd_resource type="Resource" script_class="Menu" load_steps=27 format=3 uid="uid://bsc4hxfsm7bxt"]
 
+[ext_resource type="Script" path="res://components/common/menu-list/resources/menu-item-title.gd" id="1_348tg"]
 [ext_resource type="Script" path="res://components/common/menu-list/resources/menu.gd" id="1_dwj4q"]
-[ext_resource type="Script" path="res://components/common/menu-list/resources/menu-item.gd" id="1_xv5ca"]
-[ext_resource type="Script" path="res://components/common/menu-list/resources/menu-row.gd" id="2_k2i05"]
+[ext_resource type="Script" path="res://components/common/menu-list/resources/menu-row-list.gd" id="2_k2i05"]
+[ext_resource type="Script" path="res://components/common/menu-list/resources/menu-row-spacer.gd" id="3_0ptxc"]
+[ext_resource type="Script" path="res://components/common/menu-list/resources/menu-item-label.gd" id="4_6wdxf"]
 [ext_resource type="Script" path="res://components/common/change-scene.gd" id="4_r722j"]
 [ext_resource type="Script" path="res://components/common/exit-button.gd" id="5_qiaew"]
+[ext_resource type="Script" path="res://components/common/menu-list/resources/menu-item-button.gd" id="5_uh68e"]
+[ext_resource type="Script" path="res://components/common/menu-list/resources/menu-item-spacer.gd" id="7_u6led"]
 
-[sub_resource type="Resource" id="Resource_b4vat"]
-script = ExtResource("1_xv5ca")
-type = 0
+[sub_resource type="Resource" id="Resource_sfgem"]
+script = ExtResource("1_348tg")
 text = "Super TicTacToe"
-styles = {}
 props = {}
-size = Vector2(0, 0)
 
 [sub_resource type="Resource" id="Resource_e4do5"]
 script = ExtResource("2_k2i05")
-type = 0
 aligment = 1
-items = Array[ExtResource("1_xv5ca")]([SubResource("Resource_b4vat")])
+items = Array[Resource("res://components/common/menu-list/resources/menu-item.gd")]([SubResource("Resource_sfgem")])
 
-[sub_resource type="Resource" id="Resource_yvgac"]
-script = ExtResource("2_k2i05")
-type = 1
-aligment = 0
-items = Array[ExtResource("1_xv5ca")]([])
+[sub_resource type="Resource" id="Resource_g8kwd"]
+script = ExtResource("3_0ptxc")
 
-[sub_resource type="Resource" id="Resource_sml4j"]
-script = ExtResource("1_xv5ca")
-type = 5
-text = "Play"
-styles = {}
+[sub_resource type="Resource" id="Resource_87wuk"]
+script = ExtResource("4_6wdxf")
+text = "Play vs"
 props = {}
-size = Vector2(0, 0)
 
 [sub_resource type="Resource" id="Resource_gnxsl"]
 script = ExtResource("2_k2i05")
-type = 0
 aligment = 1
-items = Array[ExtResource("1_xv5ca")]([SubResource("Resource_sml4j")])
+items = Array[Resource("res://components/common/menu-list/resources/menu-item.gd")]([SubResource("Resource_87wuk")])
 
-[sub_resource type="Resource" id="Resource_crj03"]
-script = ExtResource("1_xv5ca")
-type = 1
-text = "vs Human"
+[sub_resource type="Resource" id="Resource_gar4y"]
+script = ExtResource("5_uh68e")
+text = "Human"
 styles = {
 "direction": 1,
 "mode": 3
 }
+scriptPath = ExtResource("4_r722j")
 props = {
+"custom_minimum_size": Vector2(280, 2.08167e-12),
 "gameSettingModification": {
 "mode": 1
 },
 "nextScenePath": "res://scenes/game/game.tscn"
 }
-size = Vector2(280, 2.08165e-12)
-scriptPath = ExtResource("4_r722j")
 
-[sub_resource type="Resource" id="Resource_vbwdh"]
-script = ExtResource("1_xv5ca")
-type = 4
-text = ""
-styles = {}
+[sub_resource type="Resource" id="Resource_j2vj4"]
+script = ExtResource("7_u6led")
 props = {}
-size = Vector2(64, 2.08165e-12)
 
-[sub_resource type="Resource" id="Resource_44lg6"]
-script = ExtResource("1_xv5ca")
-type = 1
-text = "vs Bot"
+[sub_resource type="Resource" id="Resource_6mne3"]
+script = ExtResource("5_uh68e")
+text = "Bot"
 styles = {
 "direction": 1,
 "mode": 3
 }
+scriptPath = ExtResource("4_r722j")
 props = {
+"custom_minimum_size": Vector2(280, 2.08167e-12),
 "gameSettingModification": {
-"aiDificulty": "easy",
 "mode": 0
 },
 "nextScenePath": "res://scenes/game/game.tscn"
 }
-size = Vector2(280, 2.08165e-12)
-scriptPath = ExtResource("4_r722j")
 
 [sub_resource type="Resource" id="Resource_cssd8"]
 script = ExtResource("2_k2i05")
-type = 0
 aligment = 1
-items = Array[ExtResource("1_xv5ca")]([SubResource("Resource_crj03"), SubResource("Resource_vbwdh"), SubResource("Resource_44lg6")])
+items = Array[Resource("res://components/common/menu-list/resources/menu-item.gd")]([SubResource("Resource_gar4y"), SubResource("Resource_j2vj4"), SubResource("Resource_6mne3")])
 
-[sub_resource type="Resource" id="Resource_qmyr4"]
-script = ExtResource("2_k2i05")
-type = 1
-aligment = 0
-items = Array[ExtResource("1_xv5ca")]([])
+[sub_resource type="Resource" id="Resource_txw1t"]
+script = ExtResource("3_0ptxc")
 
-[sub_resource type="Resource" id="Resource_32jin"]
-script = ExtResource("1_xv5ca")
-type = 1
+[sub_resource type="Resource" id="Resource_ldejw"]
+script = ExtResource("5_uh68e")
 text = "Settings"
-styles = {
-"direction": "1",
-"mode": "1"
-}
-props = {}
-size = Vector2(280, 2.08165e-12)
-
-[sub_resource type="Resource" id="Resource_fxwua"]
-script = ExtResource("1_xv5ca")
-type = 4
-text = ""
 styles = {}
-props = {}
-size = Vector2(64, 2.08165e-12)
-
-[sub_resource type="Resource" id="Resource_bw3sx"]
-script = ExtResource("1_xv5ca")
-type = 1
-text = "Tutorial"
-styles = {
-"direction": 1,
-"mode": 1
-}
+scriptPath = ExtResource("4_r722j")
 props = {
-"gameSettingModification": {
-"mode": 1
-},
+"custom_minimum_size": Vector2(280, 2.08167e-12),
+"nextScenePath": "res://scenes/settings/settings.tscn"
+}
+
+[sub_resource type="Resource" id="Resource_tk3n7"]
+script = ExtResource("7_u6led")
+props = {}
+
+[sub_resource type="Resource" id="Resource_xj5r0"]
+script = ExtResource("5_uh68e")
+text = "Tutorial"
+styles = {}
+scriptPath = ExtResource("4_r722j")
+props = {
+"custom_minimum_size": Vector2(280, 2.08167e-12),
 "nextScenePath": "res://scenes/game/game.tscn"
 }
-size = Vector2(280, 2.08165e-12)
-scriptPath = ExtResource("4_r722j")
 
 [sub_resource type="Resource" id="Resource_3878i"]
 script = ExtResource("2_k2i05")
-type = 0
 aligment = 1
-items = Array[ExtResource("1_xv5ca")]([SubResource("Resource_32jin"), SubResource("Resource_fxwua"), SubResource("Resource_bw3sx")])
+items = Array[Resource("res://components/common/menu-list/resources/menu-item.gd")]([SubResource("Resource_ldejw"), SubResource("Resource_tk3n7"), SubResource("Resource_xj5r0")])
 
-[sub_resource type="Resource" id="Resource_tiq6r"]
-script = ExtResource("1_xv5ca")
-type = 4
-text = ""
-styles = {}
+[sub_resource type="Resource" id="Resource_k784y"]
+script = ExtResource("7_u6led")
 props = {}
-size = Vector2(344, 2.08165e-12)
 
-[sub_resource type="Resource" id="Resource_t2kvj"]
-script = ExtResource("1_xv5ca")
-type = 1
+[sub_resource type="Resource" id="Resource_848hq"]
+script = ExtResource("5_uh68e")
 text = "Exit"
 styles = {
 "direction": 1,
 "mode": 1
 }
-props = {}
-size = Vector2(280, 2.08165e-12)
 scriptPath = ExtResource("5_qiaew")
+props = {
+"custom_minimum_size": Vector2(280, 2.08167e-12)
+}
 
 [sub_resource type="Resource" id="Resource_ci428"]
 script = ExtResource("2_k2i05")
-type = 0
 aligment = 1
-items = Array[ExtResource("1_xv5ca")]([SubResource("Resource_tiq6r"), SubResource("Resource_t2kvj")])
+items = Array[Resource("res://components/common/menu-list/resources/menu-item.gd")]([SubResource("Resource_k784y"), SubResource("Resource_848hq")])
 
 [resource]
 script = ExtResource("1_dwj4q")
-closable = false
-rows = Array[ExtResource("2_k2i05")]([SubResource("Resource_e4do5"), SubResource("Resource_yvgac"), SubResource("Resource_gnxsl"), SubResource("Resource_cssd8"), SubResource("Resource_qmyr4"), SubResource("Resource_3878i"), SubResource("Resource_ci428")])
+rows = Array[Resource("res://components/common/menu-list/resources/menu-row.gd")]([SubResource("Resource_e4do5"), SubResource("Resource_g8kwd"), SubResource("Resource_gnxsl"), SubResource("Resource_cssd8"), SubResource("Resource_txw1t"), SubResource("Resource_3878i"), SubResource("Resource_ci428")])

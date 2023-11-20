@@ -18,10 +18,10 @@ config/icon="res://icon.png"
 [autoload]
 
 gameSettings="*res://state/game-settings/game-settings.gd"
-uiSettings="*res://state/game-settings/ui-settings.gd"
 eventEmitter="*res://components/common/event-emitter.gd"
 SoundManager="*res://addons/sound_manager/sound_manager.gd"
 sceneChanger="*res://components/common/scene-changer/scene-changer.tscn"
+musicPlayer="*res://components/game/music-player/music-player.gd"
 
 [display]
 
