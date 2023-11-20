@@ -24,8 +24,5 @@ func syncVolume():
 	SoundManager.set_music_volume(_getVolume('backgroundVolume'))
 	SoundManager.set_sound_volume(_getVolume('uiVolume'))
 
-	# prints('SoundManager.music.bus', SoundManager.music.bus)
-	prints('SoundManager.get_music_volume', SoundManager.get_music_volume())
-
 func _handleGameSettingChanged(key: String, _newValue: Variant, _oldValue: Variant):
 	if volumeSettings.has(key): syncVolume()
