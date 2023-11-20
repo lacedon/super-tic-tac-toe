@@ -23,7 +23,6 @@ func _initTurnAction(_value: int):
 	var currentPlayer = TTT_State_Selectors.getCurrentPlayer(state)
 	if currentPlayer != player: return
 
-	# prints("> AI", "currentPlayer", currentPlayer)
 	makeTurn()
 
 func makeTurn():

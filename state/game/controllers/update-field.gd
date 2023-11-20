@@ -14,19 +14,14 @@ const lines = [
 ]
 
 static func updateField(state: TTT_State, index: int, parentIndex: int):
-	var logId: String = "> updateField[" + str(index) + "," + str(parentIndex) + "]"
-	prints(logId, "start")
-
 	var parent = state.fields[parentIndex]
 	if parent.type != TTT_Cell_Resource.FieldType.field || !parent.inner[index]:
 		assert("Cannot find field [" + str(parentIndex) + "][" + str(index) + "]. It\"s not field cell.")
 
 	var value = TTT_Cell_Resource.FieldType.x if state.currentPlayer == TTT_State.PlayerSign.x else TTT_Cell_Resource.FieldType.o
 	_updateCellType(state, index, parentIndex, value)
-	prints("\t", logId, "value", value)
 
 	var finishedLine =_getFinishedLine(state.fields if parentIndex == TTT_State.mainFieldIndex else parent.inner)
-	prints("\t", logId, "finishedLine", finishedLine)
 	if finishedLine:
 		_updateCellType(state, parentIndex, TTT_State.mainFieldIndex, finishedLine)
 
@@ -34,26 +29,18 @@ static func updateField(state: TTT_State, index: int, parentIndex: int):
 		if finishedField:
 			var winner = TTT_State.PlayerSign.x if finishedField == TTT_Cell_Resource.FieldType.x else TTT_State.PlayerSign.o
 			ControllerFinishGame.finishGame(state, winner)
-			prints("\t", logId, "finish game", winner)
 		elif !_hasAvailableFields(state.fields):
 			ControllerFinishGame.finishGame(state, state.currentPlayer, true)
-			prints("\t", logId, "finish game", 'It\'s draw')
 		else:
 			ControllerUpdateOpenBlock.updateOpenBlock(state, TTT_State.mainFieldIndex)
-			prints("\t", logId, "update openBlock", TTT_State.mainFieldIndex)
 	elif parentIndex == TTT_State.mainFieldIndex && !_hasAvailableFields(state.fields):
 		ControllerFinishGame.finishGame(state, state.currentPlayer, true)
-		prints("\t", logId, "finish game", 'It\'s draw')
 	elif (state.fields[index].type == TTT_Cell_Resource.FieldType.field):
 		ControllerUpdateOpenBlock.updateOpenBlock(state, index)
-		prints("\t", logId, "update openBlock", index)
 	else:
 		ControllerUpdateOpenBlock.updateOpenBlock(state, TTT_State.mainFieldIndex)
-		prints("\t", logId, "update openBlock", TTT_State.mainFieldIndex)
 
 	ControllerUpdatePlayer.togglePlayer(state, true)
-	prints("\t", logId, "togglePlayer")
-	prints(logId, "end", index, parentIndex)
 
 static func _updateCellType(state: TTT_State, index: int, parentIndex: int, value: TTT_Cell_Resource.FieldType):
 	if (parentIndex == TTT_State.mainFieldIndex):

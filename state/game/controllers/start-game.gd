@@ -1,8 +1,6 @@
 const scriptAI = preload("res://components/game/ai/ai.gd")
 
 static func startGame(state: TTT_State):
-	prints('Restart game')
-
 	state.openBlock = TTT_State.mainFieldIndex
 	state.prevOpenBlock = TTT_State.mainFieldIndex
 	state.currentPlayer = TTT_State.PlayerSign.x

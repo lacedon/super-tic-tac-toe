@@ -18,6 +18,7 @@ const lineCoordinates: Array[Vector4] = [
 @export var cellSize: int = gameSettings.cellSize
 @export var hasOffset: bool = true
 var _lines: Array[Line2D] = []
+var cells: Array[TTT_Cell] = []
 
 func _init(
 	initState: TTT_State = state,
@@ -31,12 +32,14 @@ func _init(
 	hasOffset = initHasOffset
 
 func _ready():
+	cells.clear()
 	var index: = 0
 	for x in range(gameSettings.cellNumber):
 		for y in range(gameSettings.cellNumber):
 			var cell = _createCell(x, y, index)
 			index += 1
 			add_child(cell)
+			cells.append(cell)
 
 	for lineVector in lineCoordinates:
 		var line = _initFieldLines(lineVector)

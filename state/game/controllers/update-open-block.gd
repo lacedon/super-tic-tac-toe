@@ -1,5 +1,4 @@
 static func updateOpenBlock(state: TTT_State, value: int):
-	print('> updateOpenBlock[', value, ']')
 	if !TTT_State_Selectors.getIsFieldAvailable(state.fields[value].inner):
 		value = TTT_State.mainFieldIndex
 

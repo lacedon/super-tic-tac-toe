@@ -10,6 +10,7 @@ signal restart()
 const ControllerStartGame = preload("./controllers/start-game.gd")
 const ControllerUpdateOpenBlock = preload("./controllers/update-open-block.gd")
 const ControllerUpdateField = preload("./controllers/update-field.gd")
+const ControllerUpdatePlayer = preload("./controllers/update-player.gd")
 
 enum PlayerSign { x, o }
 enum NestingLevel { one, two }
@@ -27,6 +28,7 @@ var fields: Array[TTT_Cell_Resource]
 
 func updateOpenBlock(value: int): ControllerUpdateOpenBlock.updateOpenBlock(self, value)
 func updateField(index: int, parentIndex: int): ControllerUpdateField.updateField(self, index, parentIndex)
+func togglePlayer(): ControllerUpdatePlayer.togglePlayer(self, true, PlayerSign.x)
 func _startGame(): ControllerStartGame.startGame(self)
 
 func _enter_tree():

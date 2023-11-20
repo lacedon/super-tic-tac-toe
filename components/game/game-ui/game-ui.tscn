@@ -4,9 +4,9 @@
 [ext_resource type="Script" path="res://components/game/game-ui/game-ui.gd" id="1_1254t"]
 [ext_resource type="Theme" uid="uid://vig7p8jjbqd7" path="res://themes/game.tres" id="1_yrynv"]
 [ext_resource type="PackedScene" uid="uid://cbpn7gaycmv0j" path="res://components/game/game-ui/current-player/current-player.tscn" id="2_yuyyf"]
-[ext_resource type="StyleBox" uid="uid://bcci2bff5r8eu" path="res://themes/button-styles/menu/normal.tres" id="4_l26w3"]
-[ext_resource type="StyleBox" path="res://themes/button-styles/menu/hover.tres" id="5_pt8dy"]
-[ext_resource type="StyleBox" path="res://themes/button-styles/menu/pressed.tres" id="6_12p65"]
+[ext_resource type="StyleBox" uid="uid://cwlreaff5np8d" path="res://themes/button-styles/menu/normal.tres" id="4_l26w3"]
+[ext_resource type="StyleBox" uid="uid://cbu3rvyhwkw18" path="res://themes/button-styles/menu/hover.tres" id="5_pt8dy"]
+[ext_resource type="StyleBox" uid="uid://d1opuvwwwn31k" path="res://themes/button-styles/menu/pressed.tres" id="6_12p65"]
 [ext_resource type="Script" path="res://components/game/game-ui/in-game-menu/toggle-in-game-menu.gd" id="7_kremk"]
 
 [node name="game-ui" type="Control" node_paths=PackedStringArray("passStateNodes")]

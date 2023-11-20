@@ -13,6 +13,7 @@ const lines = [
 	{ start = 3, stepSize = 1 },
 	{ start = 6, stepSize = 1 },
 ]
+const middleCell: = 4
 
 static func _getClosingCells(playerSign: TTT_State.PlayerSign, fieldList: Array[TTT_Cell_Resource]) -> Array[Array]:
 	var playerFieldType: = TTT_Cell_Resource.FieldType.x if playerSign == TTT_State.PlayerSign.x else TTT_Cell_Resource.FieldType.o
@@ -64,32 +65,9 @@ static func getCellsToChoose(state: TTT_State, openBlock: int, playerSign: TTT_S
 	var result: Array[int] = []
 	for closingCells in closingCellsList:
 		if closingCells.size() > 0:
-			result.append_array(closingCells)
+			if closingCells.has(middleCell):
+				result.append(middleCell)
+			else:
+				result.append_array(closingCells)
 			break
 	return result
-
-static func _printDebugInfo(state: TTT_State, openBlock: int, closingCellsList: Array):
-	print('closingCellsList', closingCellsList)
-
-	var values = [null, null, null, null, null, null, null, null, null]
-	for index in range(closingCellsList.size()):
-		for cell in closingCellsList[index]:
-			values[cell] = index if values[cell] == null else min(values[cell], index)
-
-	print(
-		'[' + _getDebugField(0, values, state, openBlock) + ']',
-		'[' + _getDebugField(3, values, state, openBlock) + ']',
-		'[' + _getDebugField(6, values, state, openBlock) + ']\n',
-		'[' + _getDebugField(1, values, state, openBlock) + ']',
-		'[' + _getDebugField(4, values, state, openBlock) + ']',
-		'[' + _getDebugField(7, values, state, openBlock) + ']\n',
-		'[' + _getDebugField(2, values, state, openBlock) + ']',
-		'[' + _getDebugField(5, values, state, openBlock) + ']',
-		'[' + _getDebugField(8, values, state, openBlock) + ']',
-	)
-
-static func _getDebugField(index: int, values: Array, state: TTT_State, openBlock: int) -> String:
-	if values[index] == null: 
-		if TTT_State_Selectors.getFieldType(state, index, openBlock) == TTT_Cell_Resource.FieldType.x: 'x'
-		return 'o'
-	return str(values[index])

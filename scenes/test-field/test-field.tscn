@@ -1,0 +1,85 @@
+[gd_scene load_steps=6 format=3 uid="uid://b13ociwuqidtp"]
+
+[ext_resource type="Script" path="res://scenes/test-field/test-field.gd" id="1_all03"]
+[ext_resource type="Script" path="res://state/game/state.gd" id="2_3ol6v"]
+[ext_resource type="Theme" uid="uid://vig7p8jjbqd7" path="res://themes/game.tres" id="3_73d2c"]
+[ext_resource type="Script" path="res://components/game/game-field/game-field.gd" id="4_q45kk"]
+[ext_resource type="PackedScene" uid="uid://cbpn7gaycmv0j" path="res://components/game/game-ui/current-player/current-player.tscn" id="4_sgg8m"]
+
+[node name="test-field" type="Node2D" node_paths=PackedStringArray("titleComponent", "state", "gameField", "changeDifficultyButton")]
+script = ExtResource("1_all03")
+titleComponent = NodePath("CanvasLayer/VBoxContainer/MarginContainer2/Title")
+state = NodePath("TTT_State")
+gameField = NodePath("CanvasLayer/VBoxContainer/TTT_Game_Field")
+changeDifficultyButton = NodePath("CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/changeDifficulty")
+
+[node name="TTT_State" type="Node" parent="."]
+script = ExtResource("2_3ol6v")
+nestingLevel = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_73d2c")
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+
+[node name="Title" type="Label" parent="CanvasLayer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+text = "Test AI - {Difficulty}"
+
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+alignment = 1
+
+[node name="current-player" parent="CanvasLayer/VBoxContainer/MarginContainer3/HBoxContainer" node_paths=PackedStringArray("state") instance=ExtResource("4_sgg8m")]
+layout_mode = 2
+state = NodePath("../../../../../TTT_State")
+
+[node name="TTT_Game_Field" type="Control" parent="CanvasLayer/VBoxContainer" node_paths=PackedStringArray("state")]
+custom_minimum_size = Vector2(2.08165e-12, 768)
+layout_mode = 2
+script = ExtResource("4_q45kk")
+state = NodePath("../../../TTT_State")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_right = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="switchPlayer" type="Button" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Swith player"
+
+[node name="VSeparator" type="VSeparator" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="changeDifficulty" type="OptionButton" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+item_count = 3
+selected = 0
+popup/item_0/text = "Easy"
+popup/item_0/id = 0
+popup/item_1/text = "Hard"
+popup/item_1/id = 1
+popup/item_2/text = "Rando"
+popup/item_2/id = 2
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/switchPlayer" to="." method="_onSwitchPlayerPressed"]
+[connection signal="item_selected" from="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/changeDifficulty" to="." method="_onChangeDifficultyItemSelected"]
