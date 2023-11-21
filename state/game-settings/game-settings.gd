@@ -18,7 +18,7 @@ var _configPassword: String = 'super-tic-tac-toe'
 
 var mode: GameMode = GameMode.vsAI
 var aiDificulty: String = 'easy'
-var shouldShowFPS: bool = true
+var shouldShowFPS: bool = false
 var disableZoom: bool = false
 var masterVolume: float = 75
 var backgroundVolume: float = 100
