@@ -45,12 +45,12 @@ func changeSetting(key: String, value: Variant):
 
 	_config.set_value(_configSection, key, value)
 
-	var error = _config.save(_configFilePath)
+	var error = _config.save_encrypted_pass(_configFilePath, _configPassword)
 	if error != OK:
 		prints('WARN: Cannot save game setting. Error: ', error)
 
 func _getConfigValue():
-	var error = _config.load(_configFilePath)
+	var error = _config.load_encrypted_pass(_configFilePath, _configPassword)
 	if error != OK:
 		prints('WARN: Cannot load game setting. Error: ', error)
 		return
