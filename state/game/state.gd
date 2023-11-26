@@ -25,6 +25,7 @@ static var mainFieldIndex = -1
 @export var currentPlayer: PlayerSign = PlayerSign.x
 @export var activePlayers: Array[PlayerSign] = [currentPlayer]
 @export var openBlock: int = mainFieldIndex
+@export var rewrittenAiDifficulty: GameSettings.GameDifficulty = GameSettings.GameDifficulty.none
 var prevOpenBlock: int = openBlock
 var isGameOver: bool = false
 var fields: Array[TTT_Cell_Resource]

@@ -18,10 +18,15 @@ static func startGame(state: TTT_State):
 		GameSettings.GameMode.vsAI:
 			state.activePlayers = [TTT_State.PlayerSign.x]
 
+			var difficulty: GameSettings.GameDifficulty = (
+				gameSettings.aiDificulty
+					if state.rewrittenAiDifficulty == GameSettings.GameDifficulty.none
+				else state.rewrittenAiDifficulty
+			)
 			var ai: TTT_AI = scriptAI.new()
 			ai.state = state
 			ai.player = TTT_State.PlayerSign.o
-			ai.name = 'AI-' + gameSettings.aiDificulty
+			ai.name = 'AI-' + GameSettings.GameDifficulty.keys()[difficulty]
 			state.add_child(ai)
 		GameSettings.GameMode.hotSeat:
 			state.activePlayers = [TTT_State.PlayerSign.x, TTT_State.PlayerSign.o]

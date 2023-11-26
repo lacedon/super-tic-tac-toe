@@ -17,7 +17,8 @@ var preFilledField: Array[TTT_Cell_Resource] = [
 ]
 
 func _enter_tree():
-	gameSettings.changeSetting('aiDificulty', 'tutorial')
+	# TODO: handle restart game
+	pass
 
 func _ready():
 	processTutorial()

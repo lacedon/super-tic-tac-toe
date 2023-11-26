@@ -49,8 +49,8 @@ func _getTimeout():
 
 func _getDifficultyImplementation():
 	match gameSettings.aiDificulty:
-		"rando": return difficultiesRando
-		"easy": return difficultiesEasy
-		"hard": return difficultiesHard
-		"tutorial": return difficultiesTutorial
+		GameSettings.GameDifficulty.rando: return difficultiesRando
+		GameSettings.GameDifficulty.easy: return difficultiesEasy
+		GameSettings.GameDifficulty.hard: return difficultiesHard
+		GameSettings.GameDifficulty.tutorial: return difficultiesTutorial
 	return difficultiesEasy

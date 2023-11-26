@@ -1,7 +1,6 @@
 extends Control
 class_name BubbleAnimation
 
-# const Sign = preload('res://components/game/sign/sign.gd')
 const itemNumber: int = 10
 const minSpeed: int = 30
 const maxSpeed: int = 100

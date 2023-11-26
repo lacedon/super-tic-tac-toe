@@ -42,7 +42,7 @@ styles = {}
 scriptPath = ExtResource("6_jp34q")
 props = {
 "settingUpdate": {
-"aiDificulty": "rando"
+"aiDificulty": 1
 }
 }
 
@@ -57,7 +57,7 @@ styles = {}
 scriptPath = ExtResource("6_jp34q")
 props = {
 "settingUpdate": {
-"aiDificulty": "easy"
+"aiDificulty": 2
 }
 }
 
@@ -72,7 +72,7 @@ styles = {}
 scriptPath = ExtResource("6_jp34q")
 props = {
 "settingUpdate": {
-"aiDificulty": "hard"
+"aiDificulty": 3
 }
 }
 

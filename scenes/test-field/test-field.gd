@@ -29,10 +29,11 @@ func disableSounds():
 func disableAI():
 	gameSettings.changeSetting('mode', GameSettings.GameMode.hotSeat)
 
-func updateDifficulty(difficulty: String):
+func updateDifficulty(difficulty: GameSettings.GameDifficulty):
+	var difficultyName: String = GameSettings.GameDifficulty.keys()[difficulty]
 	gameSettings.changeSetting('aiDificulty', difficulty)
-	titleComponent.text = titleText.replace('{Difficulty}', difficulty)
-	aiScript = load('res://components/game/ai/difficulties/' + difficulty + '.gd')
+	titleComponent.text = titleText.replace('{Difficulty}', difficultyName)
+	aiScript = load('res://components/game/ai/difficulties/' + difficultyName + '.gd')
 	drawNumbers()
 
 func handleCellTypeChanged(_parentIndex: int, _index: int, _newType: TTT_Cell_Resource.FieldType):
@@ -48,7 +49,7 @@ func drawNumbers():
 
 func _onChangeDifficultyItemSelected(index: int):
 	var difficulty: String = changeDifficultyButton.get_item_text(index)
-	updateDifficulty(difficulty.to_lower())
+	updateDifficulty(GameSettings.GameDifficulty[difficulty])
 
 func _onSwitchPlayerPressed():
 	state.togglePlayer()
