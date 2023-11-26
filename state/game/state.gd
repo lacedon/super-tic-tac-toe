@@ -7,6 +7,7 @@ signal fieldChanged()
 signal currentPlayerChanged(player: PlayerSign)
 signal gameOver(winner: PlayerSign, isDraw: bool)
 signal restart()
+signal turnMade()
 
 const ControllerFillField = preload("./controllers/fill-field.gd")
 const ControllerFinishGame = preload("./controllers/finish-game.gd")
@@ -36,6 +37,7 @@ func togglePlayer(): ControllerUpdatePlayer.togglePlayer(self, true, PlayerSign.
 func startGame(): ControllerStartGame.startGame(self)
 func finishGame(winner: PlayerSign, isDraw: bool = false): ControllerFinishGame.finishGame(self, winner, isDraw)
 func fillField(parentIndex: int, value: Array[TTT_Cell_Resource]): ControllerFillField.fillField(self, parentIndex, value)
+func makeTurn(): emit_signal(turnMade.get_name())
 
 func _enter_tree():
 	eventEmitter.addListener('restartGame', startGame)

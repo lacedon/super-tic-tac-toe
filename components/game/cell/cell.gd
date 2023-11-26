@@ -40,6 +40,7 @@ func _enter_tree():
 	state.connect(state.currentPlayerChanged.get_name(), _handleNewPlayer)
 	state.connect(state.restart.get_name(), _handleRestart)
 	state.connect(state.fieldChanged.get_name(), _handleFieldChanged)
+	state.connect(state.turnMade.get_name(), buttonHelper.hide)
 
 func _exit_tree():
 	state.disconnect(state.openBlockChanged.get_name(), _updateOpenBlock)
@@ -47,6 +48,7 @@ func _exit_tree():
 	state.disconnect(state.currentPlayerChanged.get_name(), _handleNewPlayer)
 	state.disconnect(state.restart.get_name(), _handleRestart)
 	state.disconnect(state.fieldChanged.get_name(), _handleFieldChanged)
+	state.disconnect(state.turnMade.get_name(), buttonHelper.hide)
 
 func _handleRestart():
 	var openBlock: = TTT_State_Selectors.getOpenBlock(state)
@@ -69,6 +71,7 @@ func _updateCellType(updatedCellParentIndex: int, updatedCellIndex: int, newType
 	await childHelper.toggle(newType)
 
 func _handleButtonPressed():
+	state.makeTurn()
 	var cellType = TTT_State_Selectors.getFieldType(state, index, parentIndex)
 
 	if cellType == TTT_Cell_Resource.FieldType.field:
