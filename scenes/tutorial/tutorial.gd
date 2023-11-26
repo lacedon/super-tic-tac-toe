@@ -17,11 +17,16 @@ var preFilledField: Array[TTT_Cell_Resource] = [
 ]
 
 func _enter_tree():
-	# TODO: handle restart game
-	pass
+	state.connect(state.restart.get_name(), _handleRestart)
+
+func _exit_tree():
+	state.disconnect(state.restart.get_name(), _handleRestart)
 
 func _ready():
 	processTutorial()
+
+func _handleRestart():
+	get_tree().reload_current_scene()
 
 func _getVerticalPosition(index: int) -> String:
 	if index < 3: return 'left'
