@@ -5,10 +5,10 @@ extends Slider
 func _enter_tree():
 	self.value = gameSettings[settingName]
 
-	connect("value_changed", setSettingChange)
+	connect(value_changed.get_name(), setSettingChange)
 
 func _exit_tree():
-	disconnect("value_changed", setSettingChange)
+	disconnect(value_changed.get_name(), setSettingChange)
 
 func setSettingChange(newValue: float):
 	gameSettings.changeSetting(settingName, newValue)

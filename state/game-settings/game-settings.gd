@@ -32,7 +32,7 @@ const playerOColor: Color = Color(0.15, 0.55, 0.82, 1) # 268bd2
 const lineColor: Color = Color(0.4, 0.48, 0.51, 1) # 667a82
 const lineColorActive: Color = Color(0.03, 0.21, 0.26, 1) # 073642
 
-func _ready():
+func _enter_tree():
 	_getConfigValue()
 
 	# Set background color
@@ -41,7 +41,7 @@ func _ready():
 func changeSetting(key: String, value: Variant):
 	var oldValue = self[key]
 	self[key] = value
-	emit_signal('gameSettingChanged', key, value, oldValue)
+	emit_signal(gameSettingChanged.get_name(), key, value, oldValue)
 
 	_config.set_value(_configSection, key, value)
 

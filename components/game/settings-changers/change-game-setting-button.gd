@@ -9,12 +9,12 @@ func _enter_tree():
 		handleGameSettingChanged(propKey, gameSettings[propKey], null)
 		break
 
-	connect("pressed", setSettingChange)
-	gameSettings.connect("gameSettingChanged", handleGameSettingChanged)
+	connect(pressed.get_name(), setSettingChange)
+	gameSettings.connect(gameSettings.gameSettingChanged.get_name(), handleGameSettingChanged)
 
 func _exit_tree():
-	disconnect("pressed", setSettingChange)
-	gameSettings.disconnect("gameSettingChanged", handleGameSettingChanged)
+	disconnect(pressed.get_name(), setSettingChange)
+	gameSettings.disconnect(gameSettings.gameSettingChanged.get_name(), handleGameSettingChanged)
 
 func setSettingChange():
 	for propKey in settingUpdate:

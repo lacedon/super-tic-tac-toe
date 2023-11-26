@@ -3,6 +3,8 @@ class_name TTT_AI
 
 const difficultiesRando = preload('./difficulties/rando.gd')
 const difficultiesEasy = preload('./difficulties/easy.gd')
+const difficultiesHard = preload('./difficulties/hard.gd')
+const difficultiesTutorial = preload('./difficulties/tutorial.gd')
 
 @export var state: TTT_State
 @export var player: TTT_State.PlayerSign = TTT_State.PlayerSign.o
@@ -12,10 +14,10 @@ func _ready():
 	randomize()
 
 func _enter_tree():
-	state.connect("currentPlayerChanged", _initTurnAction)
+	state.connect(state.currentPlayerChanged.get_name(), _initTurnAction)
 
 func _exit_tree():
-	state.disconnect("currentPlayerChanged", _initTurnAction)
+	state.disconnect(state.currentPlayerChanged.get_name(), _initTurnAction)
 
 func _initTurnAction(_value: int):
 	if TTT_State_Selectors.getIsGameOver(state): return
@@ -49,4 +51,6 @@ func _getDifficultyImplementation():
 	match gameSettings.aiDificulty:
 		"rando": return difficultiesRando
 		"easy": return difficultiesEasy
+		"hard": return difficultiesHard
+		"tutorial": return difficultiesTutorial
 	return difficultiesEasy

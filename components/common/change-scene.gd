@@ -4,10 +4,10 @@ extends Button
 @export var gameSettingModification: Dictionary
 
 func _enter_tree():
-	connect("pressed", changeScene)
+	connect(pressed.get_name(), changeScene)
 
 func _exit_tree():
-	disconnect("pressed", changeScene)
+	disconnect(pressed.get_name(), changeScene)
 
 func changeScene():
 	for setting in gameSettingModification:

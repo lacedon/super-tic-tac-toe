@@ -7,10 +7,10 @@ const Menu = preload('./resources/menu.gd')
 @export var previousMenu: MenuGenerator
 
 func _enter_tree():
-	connect("pressed", _onClick)
+	connect(pressed.get_name(), _onClick)
 
 func _exit_tree():
-	disconnect("pressed", _onClick)
+	disconnect(pressed.get_name(), _onClick)
 
 func _onClick():
 	previousMenu.hide()

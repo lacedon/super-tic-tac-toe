@@ -17,13 +17,13 @@ func _ready():
 
 func _enter_tree():
 	eventEmitter.addListener('toggleCamera', toggleCamera)
-	state.connect("openBlockChanged", moveCamera)
-	state.connect("restart", _handleRestart)
+	state.connect(state.openBlockChanged.get_name(), moveCamera)
+	state.connect(state.restart.get_name(), _handleRestart)
 
 func _exit_tree():
 	eventEmitter.removeListener('toggleCamera', toggleCamera)
-	state.disconnect("openBlockChanged", moveCamera)
-	state.disconnect("restart", _handleRestart)
+	state.disconnect(state.openBlockChanged.get_name(), moveCamera)
+	state.disconnect(state.restart.get_name(), _handleRestart)
 
 func _handleRestart():
 	isCameraZoomedOut = false

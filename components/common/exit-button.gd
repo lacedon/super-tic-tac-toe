@@ -1,10 +1,10 @@
 extends Button
 
 func _enter_tree():
-	connect("pressed", exit)
+	connect(pressed.get_name(), exit)
 
 func _exit_tree():
-	disconnect("pressed", exit)
+	disconnect(pressed.get_name(), exit)
 
 func exit():
 	get_tree().quit()

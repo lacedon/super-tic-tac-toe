@@ -47,12 +47,12 @@ func _ready():
 		add_child(line)
 
 func _enter_tree():
-	state.connect("openBlockChanged", _toggleActive)
-	state.connect("restart", _handleRestart)
+	state.connect(state.openBlockChanged.get_name(), _toggleActive)
+	state.connect(state.restart.get_name(), _handleRestart)
 
 func _exit_tree():
-	state.disconnect("openBlockChanged", _toggleActive)
-	state.disconnect("restart", _handleRestart)
+	state.disconnect(state.openBlockChanged.get_name(), _toggleActive)
+	state.disconnect(state.restart.get_name(), _handleRestart)
 
 func _handleRestart():
 	_toggleActive(TTT_State.mainFieldIndex)

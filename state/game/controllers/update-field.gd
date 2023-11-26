@@ -48,7 +48,7 @@ static func _updateCellType(state: TTT_State, index: int, parentIndex: int, valu
 	else:
 		state.fields[parentIndex].inner[index].type = value
 
-	state.emit_signal("cellTypeChanged", parentIndex, index, value)
+	state.emit_signal(state.cellTypeChanged.get_name(), parentIndex, index, value)
 
 static func _getFinishedLine(fieldList: Array[TTT_Cell_Resource]):
 	for line in lines:

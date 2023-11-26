@@ -4,4 +4,4 @@ static func updateOpenBlock(state: TTT_State, value: int):
 
 	state.prevOpenBlock = state.openBlock
 	state.openBlock = value
-	state.emit_signal("openBlockChanged", value)
+	state.emit_signal(state.openBlockChanged.get_name(), value)

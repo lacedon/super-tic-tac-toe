@@ -4,10 +4,10 @@ const backgroundMusic: AudioStream = preload("res://assets/komiku-bicycle.mp3")
 const volumeSettings: Array[String] = ['backgroundVolume', 'uiVolume', 'masterVolume']
 
 func _enter_tree():
-	gameSettings.connect('gameSettingChanged', _handleGameSettingChanged)
+	gameSettings.connect(gameSettings.gameSettingChanged.get_name(), _handleGameSettingChanged)
 
 func _exit_tree():
-	gameSettings.disconnect('gameSettingChanged', _handleGameSettingChanged)
+	gameSettings.disconnect(gameSettings.gameSettingChanged.get_name(), _handleGameSettingChanged)
 
 func _ready():
 	syncVolume()

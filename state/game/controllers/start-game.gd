@@ -26,4 +26,4 @@ static func startGame(state: TTT_State):
 		GameSettings.GameMode.hotSeat:
 			state.activePlayers = [TTT_State.PlayerSign.x, TTT_State.PlayerSign.o]
 
-	state.emit_signal('restart')
+	state.emit_signal(state.restart.get_name())

@@ -17,10 +17,10 @@ func _enter_tree():
 
 	disableAI()
 
-	state.connect('cellTypeChanged', handleCellTypeChanged)
+	state.connect(state.cellTypeChanged.get_name(), handleCellTypeChanged)
 
 func _exit_tree():
-	state.connect('cellTypeChanged', handleCellTypeChanged)
+	state.disconnect(state.cellTypeChanged.get_name(), handleCellTypeChanged)
 
 func disableSounds():
 	SoundManager.set_music_volume(0)

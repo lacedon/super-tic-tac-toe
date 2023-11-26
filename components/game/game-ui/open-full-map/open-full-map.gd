@@ -14,8 +14,8 @@ func _enter_tree():
 		return
 
 	text = "Zoom"
-	eventEmitter.addEmitter('toggleCamera', self)
-	pressed.connect(_button_pressed)
+	eventEmitter.addEmitter(toggleCamera.get_name(), self)
+	connect(pressed.get_name(), _button_pressed)
 
 	var buttonSound = ButtonSound.new()
 	buttonSound.name = 'ButtonSound'
@@ -23,7 +23,8 @@ func _enter_tree():
 	add_child(buttonSound)
 
 func _exit_tree():
-	eventEmitter.removeEmitter('toggleCamera', self)
+	eventEmitter.removeEmitter(toggleCamera.get_name(), self)
+	disconnect(pressed.get_name(), _button_pressed)
 
 func _button_pressed():
-	emit_signal('toggleCamera')
+	emit_signal(toggleCamera.get_name())

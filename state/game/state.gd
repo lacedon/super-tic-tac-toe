@@ -3,10 +3,13 @@ class_name TTT_State
 
 signal openBlockChanged(openBlock: int)
 signal cellTypeChanged(parentIndex: int, index: int, newType: TTT_Cell_Resource.FieldType)
+signal fieldChanged()
 signal currentPlayerChanged(player: PlayerSign)
 signal gameOver(winner: PlayerSign, isDraw: bool)
 signal restart()
 
+const ControllerFillField = preload("./controllers/fill-field.gd")
+const ControllerFinishGame = preload("./controllers/finish-game.gd")
 const ControllerStartGame = preload("./controllers/start-game.gd")
 const ControllerUpdateOpenBlock = preload("./controllers/update-open-block.gd")
 const ControllerUpdateField = preload("./controllers/update-field.gd")
@@ -30,6 +33,8 @@ func updateOpenBlock(value: int): ControllerUpdateOpenBlock.updateOpenBlock(self
 func updateField(index: int, parentIndex: int): ControllerUpdateField.updateField(self, index, parentIndex)
 func togglePlayer(): ControllerUpdatePlayer.togglePlayer(self, true, PlayerSign.x)
 func startGame(): ControllerStartGame.startGame(self)
+func finishGame(winner: PlayerSign, isDraw: bool = false): ControllerFinishGame.finishGame(self, winner, isDraw)
+func fillField(parentIndex: int, value: Array[TTT_Cell_Resource]): ControllerFillField.fillField(self, parentIndex, value)
 
 func _enter_tree():
 	eventEmitter.addListener('restartGame', startGame)

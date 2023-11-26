@@ -1,6 +1,6 @@
 [gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://cy35amnr1jo4g"]
 
-[ext_resource type="Texture2D" uid="uid://pcbttgjo7gwa" path="./normal.svg" id="1_d6a12"]
+[ext_resource type="Texture2D" uid="uid://pcbttgjo7gwa" path="res://themes/button-styles/first-full/normal.svg" id="1_d6a12"]
 
 [resource]
 content_margin_left = 32.0

@@ -5,14 +5,16 @@ extends AudioStreamPlayer2D
 @export var upSound: AudioStream
 
 func _enter_tree():
-	get_parent().connect('pressed', playPressedSound)
-	get_parent().connect('button_down', playDownSound)
-	get_parent().connect('button_up', playUpSound)
+	var parent: Button = get_parent()
+	parent.connect(parent.pressed.get_name(), playPressedSound)
+	parent.connect(parent.button_down.get_name(), playDownSound)
+	parent.connect(parent.button_up.get_name(), playUpSound)
 
 func _exit_tree():
-	get_parent().disconnect('pressed', playPressedSound)
-	get_parent().disconnect('button_down', playDownSound)
-	get_parent().disconnect('button_up', playUpSound)
+	var parent: Button = get_parent()
+	parent.disconnect(parent.pressed.get_name(), playPressedSound)
+	parent.disconnect(parent.button_down.get_name(), playDownSound)
+	parent.disconnect(parent.button_up.get_name(), playUpSound)
 
 func playPressedSound(): if pressSound: SoundManager.play_ui_sound(pressSound)
 func playDownSound(): if downSound: SoundManager.play_ui_sound(downSound)

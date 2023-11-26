@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://vig7p8jjbqd7"]
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://vig7p8jjbqd7"]
 
 [ext_resource type="FontFile" uid="uid://blqpt64dhrpyj" path="res://assets/fonts/Roboto-Bold.ttf" id="1_fnn45"]
 [ext_resource type="StyleBox" uid="uid://bhvndtnx1dhex" path="res://themes/button-styles/main-full/disabled.tres" id="1_vr0c6"]
@@ -6,6 +6,9 @@
 [ext_resource type="StyleBox" uid="uid://bshhiqo3xu1lt" path="res://themes/button-styles/main-full/normal.tres" id="2_p05eb"]
 [ext_resource type="StyleBox" uid="uid://cwru2hyfrd6b3" path="res://themes/button-styles/main-full/pressed.tres" id="3_u2ckj"]
 [ext_resource type="StyleBox" uid="uid://c4jdpnf2pum28" path="res://themes/panel-styles/style-box-flat-panel.tres" id="4_80mcs"]
+[ext_resource type="FontFile" uid="uid://dpvp8tqnb747r" path="res://assets/fonts/Roboto-BoldItalic.ttf" id="7_lgvvc"]
+[ext_resource type="FontFile" uid="uid://by5nyqrbtxbn4" path="res://assets/fonts/Roboto-Italic.ttf" id="8_6d2ji"]
+[ext_resource type="FontFile" uid="uid://dar4x0vqtl8tj" path="res://assets/fonts/Roboto-Regular.ttf" id="9_an87w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oe7bk"]
 
@@ -32,3 +35,13 @@ Label/colors/font_color = Color(0.027451, 0.211765, 0.258824, 1)
 Label/font_sizes/font_size = 48
 Label/fonts/font = ExtResource("1_fnn45")
 Panel/styles/panel = ExtResource("4_80mcs")
+RichTextLabel/colors/default_color = Color(0.992157, 0.964706, 0.890196, 1)
+RichTextLabel/font_sizes/bold_font_size = 36
+RichTextLabel/font_sizes/bold_italics_font_size = 36
+RichTextLabel/font_sizes/italics_font_size = 36
+RichTextLabel/font_sizes/mono_font_size = 36
+RichTextLabel/font_sizes/normal_font_size = 36
+RichTextLabel/fonts/bold_font = ExtResource("1_fnn45")
+RichTextLabel/fonts/bold_italics_font = ExtResource("7_lgvvc")
+RichTextLabel/fonts/italics_font = ExtResource("8_6d2ji")
+RichTextLabel/fonts/normal_font = ExtResource("9_an87w")

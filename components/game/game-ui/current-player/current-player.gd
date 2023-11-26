@@ -12,12 +12,12 @@ func _ready():
 	_updatePlayerSign(TTT_State_Selectors.getCurrentPlayer(state))
 
 func _enter_tree():
-	state.connect("currentPlayerChanged", _updatePlayerSign)
-	state.connect("restart", _handleRestart)
+	state.connect(state.currentPlayerChanged.get_name(), _updatePlayerSign)
+	state.connect(state.restart.get_name(), _handleRestart)
 
 func _exit_tree():
-	state.disconnect("currentPlayerChanged", _updatePlayerSign)
-	state.disconnect("restart", _handleRestart)
+	state.disconnect(state.currentPlayerChanged.get_name(), _updatePlayerSign)
+	state.disconnect(state.restart.get_name(), _handleRestart)
 
 func _handleRestart():
 	_updatePlayerSign(TTT_State_Selectors.getCurrentPlayer(state))

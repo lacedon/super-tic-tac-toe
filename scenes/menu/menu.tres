@@ -98,7 +98,7 @@ styles = {}
 scriptPath = ExtResource("4_r722j")
 props = {
 "custom_minimum_size": Vector2(280, 2.08167e-12),
-"nextScenePath": "res://scenes/game/game.tscn"
+"nextScenePath": "res://scenes/tutorial/tutorial.tscn"
 }
 
 [sub_resource type="Resource" id="Resource_3878i"]

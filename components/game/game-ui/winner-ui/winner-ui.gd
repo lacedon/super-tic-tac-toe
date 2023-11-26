@@ -10,16 +10,16 @@ const winnerSound = preload('res://assets/game-over-win.mp3')
 func _enter_tree():
 	hide()
 	if state:
-		state.connect("gameOver", showWinner)
-		state.connect("restart", _handleRestart)
+		state.connect(state.gameOver.get_name(), showWinner)
+		state.connect(state.restart.get_name(), _handleRestart)
 	else:
 		prints('WARN:', 'State is not provided', self)
 		showWinner(TTT_State.PlayerSign.o, true)
 
 func _exit_tree():
 	if state:
-		state.disconnect("gameOver", showWinner)
-		state.disconnect("restart", _handleRestart)
+		state.disconnect(state.gameOver.get_name(), showWinner)
+		state.disconnect(state.restart.get_name(), _handleRestart)
 
 func _handleRestart():
 	hide()

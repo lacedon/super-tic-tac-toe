@@ -35,16 +35,18 @@ func _ready():
 	add_child(buttonHelper)
 
 func _enter_tree():
-	state.connect("openBlockChanged", _updateOpenBlock)
-	state.connect("cellTypeChanged", _updateCellType)
-	state.connect("currentPlayerChanged", _handleNewPlayer)
-	state.connect("restart", _handleRestart)
+	state.connect(state.openBlockChanged.get_name(), _updateOpenBlock)
+	state.connect(state.cellTypeChanged.get_name(), _updateCellType)
+	state.connect(state.currentPlayerChanged.get_name(), _handleNewPlayer)
+	state.connect(state.restart.get_name(), _handleRestart)
+	state.connect(state.fieldChanged.get_name(), _handleFieldChanged)
 
 func _exit_tree():
-	state.disconnect("openBlockChanged", _updateOpenBlock)
-	state.disconnect("cellTypeChanged", _updateCellType)
-	state.disconnect("currentPlayerChanged", _handleNewPlayer)
-	state.disconnect("restart", _handleRestart)
+	state.disconnect(state.openBlockChanged.get_name(), _updateOpenBlock)
+	state.disconnect(state.cellTypeChanged.get_name(), _updateCellType)
+	state.disconnect(state.currentPlayerChanged.get_name(), _handleNewPlayer)
+	state.disconnect(state.restart.get_name(), _handleRestart)
+	state.disconnect(state.fieldChanged.get_name(), _handleFieldChanged)
 
 func _handleRestart():
 	var openBlock: = TTT_State_Selectors.getOpenBlock(state)
@@ -79,3 +81,8 @@ func _handleButtonPressed():
 		)
 
 		state.updateField(index, parentIndex)
+
+func _handleFieldChanged():
+	var newType: = TTT_State_Selectors.getFieldType(state, index, parentIndex)
+	buttonHelper.toggle(TTT_State_Selectors.getOpenBlock(state), newType)
+	await childHelper.toggle(newType)

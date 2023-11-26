@@ -5,4 +5,4 @@ static func togglePlayer(state: TTT_State, toggle: bool, value: TTT_State.Player
 
 	state.currentPlayer = newValue
 
-	state.emit_signal("currentPlayerChanged", newValue)
+	state.emit_signal(state.currentPlayerChanged.get_name(), newValue)
