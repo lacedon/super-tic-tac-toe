@@ -13,7 +13,6 @@ func _enter_tree():
 		hide()
 		return
 
-	text = "Zoom"
 	eventEmitter.addEmitter(toggleCamera.get_name(), self)
 	connect(pressed.get_name(), _button_pressed)
 
