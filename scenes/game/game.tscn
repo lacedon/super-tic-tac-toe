@@ -4,13 +4,13 @@
 [ext_resource type="Theme" uid="uid://vig7p8jjbqd7" path="res://themes/game.tres" id="1_ejj14"]
 [ext_resource type="PackedScene" uid="uid://cvvxj2xltuls8" path="res://components/game/game-ui/game-ui.tscn" id="1_hkrcm"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_rd66y"]
-[ext_resource type="Script" path="res://components/game/camera/camera.gd" id="2_lf8pj"]
 [ext_resource type="Script" path="res://components/game/game-field/game-field.gd" id="4_i38hl"]
 [ext_resource type="Script" path="res://components/common/fps/fps.gd" id="6_04ede"]
 [ext_resource type="PackedScene" uid="uid://dmw1beya3k70" path="res://components/game/game-ui/in-game-menu/in-game-menu.tscn" id="6_vv2wx"]
 [ext_resource type="PackedScene" uid="uid://dv66omxbf1214" path="res://components/common/adv-banner/adv-banner.tscn" id="7_k860c"]
 [ext_resource type="Theme" uid="uid://ddbxy7ksk4ske" path="res://themes/game-ui.tres" id="7_plqqw"]
 [ext_resource type="PackedScene" uid="uid://c2psott5mmktq" path="res://components/game/game-ui/winner-ui/winner-ui.tscn" id="8_1xnie"]
+[ext_resource type="PackedScene" uid="uid://d3l56y0hd07u8" path="res://components/game/camera/camera.tscn" id="10_glr35"]
 
 [node name="game" type="Node"]
 script = ExtResource("1_rd66y")
@@ -41,10 +41,7 @@ offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("6_04ede")
 
-[node name="TTT_Camera" type="Camera2D" parent="." node_paths=PackedStringArray("state", "gameField")]
-position = Vector2(1, 0)
-anchor_mode = 0
-script = ExtResource("2_lf8pj")
+[node name="camera" parent="." node_paths=PackedStringArray("state", "gameField") instance=ExtResource("10_glr35")]
 state = NodePath("../TTT_State")
 gameField = NodePath("../MarginContainer/TTT_Game_Field")
 
