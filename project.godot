@@ -10,9 +10,9 @@ config_version=5
 
 [application]
 
-config/name="tic-tac-toe"
+config/name="Super TicTacToe"
 run/main_scene="res://scenes/menu/menu.tscn"
-config/features=PackedStringArray("4.1", "C#", "Mobile")
+config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.png"
 
 [autoload]
@@ -30,6 +30,8 @@ window/size/viewport_height=1280
 window/size/resizable=false
 window/size/extend_to_title=true
 window/subwindows/embed_subwindows=false
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_width"
 window/handheld/orientation=1
 window/vsync/vsync_mode=0
 
@@ -44,3 +46,4 @@ enabled=PackedStringArray("res://addons/sound_manager/plugin.cfg")
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
