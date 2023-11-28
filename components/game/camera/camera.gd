@@ -19,6 +19,11 @@ func _enter_tree():
 	state.connect(state.openBlockChanged.get_name(), moveCamera)
 	state.connect(state.restart.get_name(), _handleRestart)
 
+	limit_left = 0
+	limit_top = 0
+	limit_right = ProjectSettings.get("display/window/size/viewport_width")
+	limit_bottom = ProjectSettings.get("display/window/size/viewport_height")
+
 func _exit_tree():
 	eventEmitter.removeListener('toggleCamera', toggleCamera)
 	state.disconnect(state.openBlockChanged.get_name(), moveCamera)
@@ -37,21 +42,17 @@ func moveCamera(openBlock: int):
 
 	if gameSettings.disableZoom || isCameraZoomedOut || openBlock == TTT_State.mainFieldIndex:
 		if zoom.x != 1: animationPlayer.play('zoom-out')
-
-		position = (gameField.position + gameField.size) / 2
 	else:
 		if zoom.x == 1:
 			animationPlayer.play('zoom-in')
 		else:
 			animationPlayer.play('zoom-out')
-			position = (gameField.position + gameField.size) / 2
 			await animationPlayer.animation_finished
 			animationPlayer.play('zoom-in')
 
 		var columnIndex: int = floori(float(openBlock) / gameSettings.cellNumber)
 		var rowIndex: int = openBlock - columnIndex * gameSettings.cellNumber
-		var gameFieldOffset: Vector2 = (gameField.position + gameField.size) / 2
-		position = Vector2(columnIndex - 1, rowIndex - 1) * _cellSize + gameFieldOffset
+		position = Vector2(columnIndex, rowIndex) * _cellSize + Vector2(_cellSize, _cellSize) / 2
 
 	await animationPlayer.animation_finished
 	set_physics_process(false)

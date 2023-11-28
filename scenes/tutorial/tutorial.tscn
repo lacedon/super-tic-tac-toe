@@ -97,22 +97,22 @@ offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("9_qgmgu")
 
-[node name="camera" parent="." node_paths=PackedStringArray("state", "gameField") instance=ExtResource("11_5ecav")]
-position = Vector2(1359.6, 983)
-state = NodePath("../TTT_State")
-gameField = NodePath("../MarginContainer/TTT_Game_Field")
-
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
+offset_bottom = 320.0
 grow_horizontal = 2
-grow_vertical = 2
 theme_override_constants/margin_top = 320
 
 [node name="TTT_Game_Field" type="Control" parent="MarginContainer" node_paths=PackedStringArray("state")]
+custom_minimum_size = Vector2(720, 2.08165e-12)
 layout_mode = 2
 script = ExtResource("11_o15r1")
 state = NodePath("../../TTT_State")
 hasOffset = false
+
+[node name="camera" parent="MarginContainer/TTT_Game_Field" node_paths=PackedStringArray("state", "gameField") instance=ExtResource("11_5ecav")]
+position = Vector2(0, -320)
+state = NodePath("../../../TTT_State")
+gameField = NodePath("..")

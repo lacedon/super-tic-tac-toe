@@ -80,6 +80,7 @@ _data = {
 }
 
 [node name="camera" type="Camera2D" node_paths=PackedStringArray("animationPlayer")]
+limit_smoothed = true
 position_smoothing_enabled = true
 script = ExtResource("1_vqje2")
 animationPlayer = NodePath("AnimationPlayer")
