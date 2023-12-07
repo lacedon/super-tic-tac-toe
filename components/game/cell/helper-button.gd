@@ -1,7 +1,6 @@
 extends Button
 
 const fieldNoice = preload("res://assets/field-noise.mp3")
-const ButtonStyler = preload('res://components/common/button-styler.gd')
 const ButtonSound = preload('res://components/common/button-sound.gd')
 
 @export var state: TTT_State

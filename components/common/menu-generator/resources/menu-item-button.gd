@@ -4,7 +4,6 @@ extends MenuItem
 class_name MenuItemButton
 
 const ButtonSound = preload("res://components/common/button-sound.gd")
-const ButtonStyler = preload("res://components/common/button-styler.gd")
 
 @export var text: String
 @export var styles: Dictionary

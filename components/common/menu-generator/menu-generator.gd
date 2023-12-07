@@ -4,7 +4,6 @@ extends VBoxContainer
 class_name MenuGenerator
 
 const buttonDownSound = preload("res://assets/button-noise.mp3")
-const Menu = preload('./resources/menu.gd')
 
 @export var menu: Menu
 

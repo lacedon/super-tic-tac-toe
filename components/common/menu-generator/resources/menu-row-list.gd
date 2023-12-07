@@ -3,8 +3,6 @@
 extends MenuRow
 class_name MenuRowList
 
-const MenuItem = preload('./menu-item.gd')
-
 enum MenuRowAligment {
 	begin,
 	center,

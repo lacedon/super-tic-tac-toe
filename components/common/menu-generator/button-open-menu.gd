@@ -1,7 +1,5 @@
 extends Button
 
-const Menu = preload('./resources/menu.gd')
-
 @export var menu: Menu
 @export var parentMenu: Node
 @export var previousMenu: MenuGenerator
