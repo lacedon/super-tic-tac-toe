@@ -31,8 +31,9 @@ func toggle(childType: TTT_Cell_Resource.FieldType):
 	child = await _createChild(childType)
 	if child:
 		add_child(child)
-		animationPlayer.play('scaleIn')
-		await animationPlayer.animation_finished
+		if childType == TTT_Cell_Resource.FieldType.x || childType == TTT_Cell_Resource.FieldType.o:
+			animationPlayer.play('scaleIn')
+			await animationPlayer.animation_finished
 
 func _createChild(childType: TTT_Cell_Resource.FieldType,):
 	var halfCellSize: int = roundi(float(cellSize) / 2)
