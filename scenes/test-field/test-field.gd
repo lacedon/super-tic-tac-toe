@@ -10,7 +10,7 @@ var titleText: String = ''
 
 func _ready():
 	disableSounds()
-	updateDifficulty(gameSettings.aiDificulty)
+	_onChangeDifficultyItemSelected(0)
 
 func _enter_tree():
 	titleText = titleComponent.text
@@ -18,9 +18,10 @@ func _enter_tree():
 	disableAI()
 
 	state.connect(state.cellTypeChanged.get_name(), handleCellTypeChanged)
+	state.connect(state.openBlockChanged.get_name(), handleOpenBlockChanged)
 
 func _exit_tree():
-	state.disconnect(state.cellTypeChanged.get_name(), handleCellTypeChanged)
+	state.disconnect(state.openBlockChanged.get_name(), handleOpenBlockChanged)
 
 func disableSounds():
 	SoundManager.set_music_volume(0)
@@ -36,19 +37,23 @@ func updateDifficulty(difficulty: GameSettings.GameDifficulty):
 	aiScript = load('res://components/game/ai/difficulties/' + difficultyName + '.gd')
 	drawNumbers()
 
-func handleCellTypeChanged(_parentIndex: int, _index: int, _newType: TTT_Cell_Resource.FieldType):
-	drawNumbers()
+func handleOpenBlockChanged(_openBlock: int): drawNumbers()
+func handleCellTypeChanged(_parentIndex: int, _index: int, _newType: TTT_Cell_Resource.FieldType): drawNumbers()
 
 func drawNumbers():
 	var cellsToChoose: Array[int] = aiScript.getCellsToChoose(state, state.openBlock, TTT_State.PlayerSign.o)
 	for cellIndex in range(gameField.cells.size()):
-		var cellButton = gameField.cells[cellIndex].get_child(1)
+		var cellButton = (
+			gameField.cells[cellIndex].get_child(1)
+			if state.openBlock == TTT_State.mainFieldIndex
+			else gameField.cells[state.openBlock].find_child('GameField', true, false).get_child(cellIndex).find_child('CellButton', true, false)
+		)
 
 		if cellButton:
-			cellButton.text = str(cellIndex) if cellsToChoose.has(cellIndex) else ''
+			cellButton.text = 'o' if cellsToChoose.has(cellIndex) else ''
 
 func _onChangeDifficultyItemSelected(index: int):
-	var difficulty: String = changeDifficultyButton.get_item_text(index)
+	var difficulty: String = changeDifficultyButton.get_item_text(index).to_lower()
 	updateDifficulty(GameSettings.GameDifficulty[difficulty])
 
 func _onSwitchPlayerPressed():

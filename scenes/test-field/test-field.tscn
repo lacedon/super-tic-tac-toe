@@ -15,7 +15,6 @@ changeDifficultyButton = NodePath("CanvasLayer/VBoxContainer/MarginContainer/HBo
 
 [node name="TTT_State" type="Node" parent="."]
 script = ExtResource("2_3ol6v")
-nestingLevel = 0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
