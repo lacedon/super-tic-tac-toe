@@ -80,7 +80,7 @@ func _handleButtonPressed():
 		await _updateCellType(
 			parentIndex,
 			index,
-			TTT_Cell_Resource.FieldType.x if TTT_State_Selectors.getCurrentPlayer(state) == TTT_State.PlayerSign.x else TTT_Cell_Resource.FieldType.o
+			TTT_State_Helpers.getPlayerFieldType(TTT_State_Selectors.getCurrentPlayer(state))
 		)
 
 		state.updateField(index, parentIndex)

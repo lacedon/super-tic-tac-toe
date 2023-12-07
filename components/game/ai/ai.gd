@@ -19,11 +19,9 @@ func _enter_tree():
 func _exit_tree():
 	state.disconnect(state.currentPlayerChanged.get_name(), _initTurnAction)
 
-func _initTurnAction(_value: int):
+func _initTurnAction(newPlayer: int):
 	if TTT_State_Selectors.getIsGameOver(state): return
-
-	var currentPlayer = TTT_State_Selectors.getCurrentPlayer(state)
-	if currentPlayer != player: return
+	if player != newPlayer: return
 
 	makeTurn()
 

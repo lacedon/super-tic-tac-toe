@@ -18,7 +18,7 @@ static func updateField(state: TTT_State, index: int, parentIndex: int):
 	if parent.type != TTT_Cell_Resource.FieldType.field || !parent.inner[index]:
 		assert("Cannot find field [" + str(parentIndex) + "][" + str(index) + "]. It\"s not field cell.")
 
-	var value = TTT_Cell_Resource.FieldType.x if state.currentPlayer == TTT_State.PlayerSign.x else TTT_Cell_Resource.FieldType.o
+	var value = TTT_State_Helpers.getPlayerFieldType(state.currentPlayer)
 	_updateCellType(state, index, parentIndex, value)
 
 	var finishedLine =_getFinishedLine(state.fields if parentIndex == TTT_State.mainFieldIndex else parent.inner)
@@ -27,7 +27,7 @@ static func updateField(state: TTT_State, index: int, parentIndex: int):
 
 		var finishedField = _getFinishedLine(state.fields)
 		if finishedField:
-			var winner = TTT_State.PlayerSign.x if finishedField == TTT_Cell_Resource.FieldType.x else TTT_State.PlayerSign.o
+			var winner = TTT_State_Helpers.getPlayerFieldType(finishedField)
 			ControllerFinishGame.finishGame(state, winner)
 		elif !_hasAvailableFields(state.fields):
 			ControllerFinishGame.finishGame(state, state.currentPlayer, true)

@@ -4,26 +4,29 @@
 # 1 2 1
 
 const lines = [
-	{ start = 0, stepSize = 1 },
-	{ start = 0, stepSize = 3 },
-	{ start = 0, stepSize = 4 },
-	{ start = 1, stepSize = 3 },
-	{ start = 2, stepSize = 2 },
-	{ start = 2, stepSize = 3 },
-	{ start = 3, stepSize = 1 },
-	{ start = 6, stepSize = 1 },
+	{start = 0, stepSize = 1},
+	{start = 0, stepSize = 3},
+	{start = 0, stepSize = 4},
+	{start = 1, stepSize = 3},
+	{start = 2, stepSize = 2},
+	{start = 2, stepSize = 3},
+	{start = 3, stepSize = 1},
+	{start = 6, stepSize = 1},
 ]
-const middleCell: = 4
+const middleCell := 4
 
-static func _getClosingCells(playerSign: TTT_State.PlayerSign, fieldList: Array[TTT_Cell_Resource]) -> Array[Array]:
-	var playerFieldType: = TTT_Cell_Resource.FieldType.x if playerSign == TTT_State.PlayerSign.x else TTT_Cell_Resource.FieldType.o
-	var enemyFieldType: = TTT_Cell_Resource.FieldType.o if playerSign == TTT_State.PlayerSign.x else TTT_Cell_Resource.FieldType.x
+
+static func _getClosingCells(
+	playerSign: TTT_State.PlayerSign, fieldList: Array[TTT_Cell_Resource]
+) -> Array[Array]:
+	var playerFieldType := TTT_State_Helpers.getPlayerFieldType(playerSign)
+	var enemyFieldType := TTT_State_Helpers.getEnemyFieldType(playerSign)
 	var result: Array[Array] = [
-		[], # Finish my 2-cell line
-		[], # Block enemy's 2-cell line
-		[], # Continue my 1-cell line
-		[], # Block enemy's 1-cell line
-		[], # Free cell
+		[],  # Finish my 2-cell line
+		[],  # Block enemy's 2-cell line
+		[],  # Continue my 1-cell line
+		[],  # Block enemy's 1-cell line
+		[],  # Free cell
 	]
 
 	for line in lines:
@@ -35,7 +38,7 @@ static func _getClosingCells(playerSign: TTT_State.PlayerSign, fieldList: Array[
 			var index: int = line.start + step * line.stepSize
 			var fieldType: TTT_Cell_Resource.FieldType = fieldList[index].type
 
-			match (fieldType):
+			match fieldType:
 				playerFieldType:
 					currentPlayerListItemNumber += 1
 				enemyFieldType:
@@ -59,8 +62,13 @@ static func _getClosingCells(playerSign: TTT_State.PlayerSign, fieldList: Array[
 
 	return result
 
-static func getCellsToChoose(state: TTT_State, openBlock: int, playerSign: TTT_State.PlayerSign) -> Array[int]:
-	var closingCellsList = _getClosingCells(playerSign, TTT_State_Selectors.getFieldList(state, openBlock))
+
+static func getCellsToChoose(
+	state: TTT_State, openBlock: int, playerSign: TTT_State.PlayerSign
+) -> Array[int]:
+	var closingCellsList = _getClosingCells(
+		playerSign, TTT_State_Selectors.getFieldList(state, openBlock)
+	)
 
 	var result: Array[int] = []
 	for closingCells in closingCellsList:

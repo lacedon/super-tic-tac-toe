@@ -61,7 +61,7 @@ func showWinner(winner: TTT_State.PlayerSign, isDraw: bool):
 
 		var winnerSign = TTTSign.new()
 		winnerSign.centererByX = true
-		winnerSign.value = TTT_Cell_Resource.FieldType.x if winner == TTT_State.PlayerSign.x else TTT_Cell_Resource.FieldType.o 
+		winnerSign.value = TTT_State_Helpers.getPlayerFieldType(winner)
 		winnerSign.cellSize = gameSettings.cellSize
 		winnerSign.layout_mode = 1
 		winnerSign.anchors_preset = PRESET_CENTER
