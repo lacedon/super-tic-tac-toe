@@ -18,6 +18,12 @@ static func getIsFieldAvailable(fieldList: Array[TTT_Cell_Resource]) -> bool:
 			return true
 	return false
 
+static func getIsFieldEmpty(fieldList: Array[TTT_Cell_Resource]) -> bool:
+	for cell in fieldList:
+		if cell.type != TTT_Cell_Resource.FieldType.none:
+			return false
+	return true
+
 static func getOpenBlock(state: TTT_State) -> int:
 	return state.openBlock
 
@@ -35,3 +41,6 @@ static func getIsGameOver(state: TTT_State) -> bool:
 
 static func getShouldShowZoom(state: TTT_State) -> bool:
 	return state.nestingLevel != TTT_State.NestingLevel.one
+
+static func getNestingLevel(state: TTT_State) -> TTT_State.NestingLevel:
+	return state.nestingLevel
