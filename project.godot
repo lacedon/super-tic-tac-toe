@@ -14,6 +14,7 @@ config/name="Super TicTacToe"
 run/main_scene="res://scenes/menu/menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 boot_splash/bg_color=Color(0.992157, 0.964706, 0.890196, 1)
+boot_splash/image="res://godot-logo.png"
 config/icon="res://icon.png"
 
 [autoload]
