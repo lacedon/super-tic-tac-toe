@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxfey2skaagxd"]
+[gd_scene load_steps=8 format=3 uid="uid://bxfey2skaagxd"]
 
 [ext_resource type="Theme" uid="uid://ddbxy7ksk4ske" path="res://themes/game-ui.tres" id="1_6rq2v"]
 [ext_resource type="Script" path="res://components/common/bubble-animation/bubble-animation.gd" id="2_be66o"]
 [ext_resource type="Script" path="res://components/common/fps/fps.gd" id="2_e1d2o"]
 [ext_resource type="Script" path="res://components/common/menu-generator/menu-generator.gd" id="2_upm6s"]
+[ext_resource type="Script" path="res://scenes/menu/menu.gd" id="2_xjvhr"]
 [ext_resource type="Script" path="res://components/game/sign/sign.gd" id="3_txv44"]
 [ext_resource type="Resource" uid="uid://bsc4hxfsm7bxt" path="res://scenes/menu/menu.tres" id="5_5f40g"]
 
@@ -15,6 +16,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_6rq2v")
+script = ExtResource("2_xjvhr")
 
 [node name="BubbleAnimation" type="Control" parent="."]
 layout_mode = 1

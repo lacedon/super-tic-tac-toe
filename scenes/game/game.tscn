@@ -33,13 +33,13 @@ state = NodePath("../../TTT_State")
 visible = false
 state = NodePath("../../TTT_State")
 
-[node name="WinnerUI" parent="UI" node_paths=PackedStringArray("state") instance=ExtResource("8_1xnie")]
-visible = false
-state = NodePath("../../TTT_State")
-
 [node name="in-game-menu" parent="UI" instance=ExtResource("6_vv2wx")]
 visible = false
 theme = ExtResource("7_plqqw")
+
+[node name="WinnerUI" parent="UI" node_paths=PackedStringArray("state") instance=ExtResource("8_1xnie")]
+visible = false
+state = NodePath("../../TTT_State")
 
 [node name="FPSMeter" type="Label" parent="UI"]
 offset_right = 40.0

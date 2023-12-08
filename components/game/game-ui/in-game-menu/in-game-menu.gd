@@ -8,6 +8,10 @@ func _enter_tree():
 func _exit_tree():
 	eventEmitter.removeListener("toggleInGameMenu", toggleVisibility)
 
+func _notification(what: int):
+	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		toggleVisibility()
+
 func toggleVisibility():
 	if self.visible:
 		animationPlayer.play_backwards('open')

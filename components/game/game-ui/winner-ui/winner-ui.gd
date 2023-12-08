@@ -1,7 +1,7 @@
 extends Control
 
-const TTTSign = preload("res://components/game/sign/sign.gd")
-const winnerSound = preload('res://assets/game-over-win.mp3')
+const winnerSound: AudioStreamMP3 = preload('res://assets/game-over-win.mp3')
+const homeScene: String = 'res://scenes/menu/menu.tscn'
 
 @export var state: TTT_State
 @export var titleNode: Label
@@ -21,6 +21,11 @@ func _exit_tree():
 		state.disconnect(state.gameOver.get_name(), showWinner)
 		state.disconnect(state.restart.get_name(), _handleRestart)
 
+func _notification(what: int):
+	if !visible: return
+	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		sceneChanger.changeScene(homeScene)
+
 func _handleRestart():
 	hide()
 
@@ -30,14 +35,14 @@ func showWinner(winner: TTT_State.PlayerSign, isDraw: bool):
 	if isDraw:
 		titleNode.text = 'It\'s a Draw!'
 
-		var xSign = TTTSign.new()
+		var xSign = TTT_Sign.new()
 		xSign.centererByX = true
 		xSign.value = TTT_Cell_Resource.FieldType.x
 		xSign.cellSize = gameSettings.cellSize
 		xSign.layout_mode = 1
 		xSign.anchors_preset = PRESET_CENTER
 
-		var oSign = TTTSign.new()
+		var oSign = TTT_Sign.new()
 		oSign.centererByX = true
 		oSign.value = TTT_Cell_Resource.FieldType.o
 		oSign.cellSize = gameSettings.cellSize
@@ -59,7 +64,7 @@ func showWinner(winner: TTT_State.PlayerSign, isDraw: bool):
 	else:
 		titleNode.text = 'Winner is'
 
-		var winnerSign = TTTSign.new()
+		var winnerSign = TTT_Sign.new()
 		winnerSign.centererByX = true
 		winnerSign.value = TTT_State_Helpers.getPlayerFieldType(winner)
 		winnerSign.cellSize = gameSettings.cellSize
