@@ -44,3 +44,9 @@ static func getShouldShowZoom(state: TTT_State) -> bool:
 
 static func getNestingLevel(state: TTT_State) -> TTT_State.NestingLevel:
 	return state.nestingLevel
+
+static func getGameStatus(state: TTT_State) -> TTT_State.GameStatus:
+	return state.status
+
+static func getIsGameRunning(state: TTT_State) -> bool:
+	return state.status == TTT_State.GameStatus.running

@@ -32,8 +32,8 @@ func createItem(menuGenerator: MenuGenerator) -> Control:
 
 	if styles:
 		var buttonThemable = ButtonStyler.new()
-		buttonThemable.mode = styles.mode
-		buttonThemable.direction = styles.direction
+		for styleName in styles:
+			buttonThemable[styleName] = styles[styleName]
 		button.add_child(buttonThemable)
 
 	var buttonSound = ButtonSound.new()

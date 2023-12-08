@@ -33,6 +33,7 @@ func _shouldDrawButton(
 	childType: TTT_Cell_Resource.FieldType
 ) -> bool:
 	if !TTT_State_Selectors.getIsCurrentPlayerActive(state): return false
+	if !TTT_State_Selectors.getIsGameRunning(state): return false
 
 	# If the current cell is already finished
 	if childType == TTT_Cell_Resource.FieldType.x || childType == TTT_Cell_Resource.FieldType.o: return false

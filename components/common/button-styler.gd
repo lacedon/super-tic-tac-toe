@@ -21,8 +21,8 @@ enum ButtonState {
 	pressed,
 }
 
-@export var mode: ButtonMode
-@export var direction: ButtonDirection
+@export var mode: ButtonMode = ButtonMode.none
+@export var direction: ButtonDirection = ButtonDirection.none
 @export var style: String
 
 func _enter_tree():

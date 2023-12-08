@@ -15,14 +15,27 @@ func _ready():
 
 func _enter_tree():
 	state.connect(state.currentPlayerChanged.get_name(), _initTurnAction)
+	state.connect(state.statusChanged.get_name(), _handleStatusChanged)
 
 func _exit_tree():
 	state.disconnect(state.currentPlayerChanged.get_name(), _initTurnAction)
+	state.disconnect(state.statusChanged.get_name(), _handleStatusChanged)
 
 func _initTurnAction(newPlayer: int):
+	if !TTT_State_Selectors.getIsGameRunning(state): return
 	if TTT_State_Selectors.getIsGameOver(state): return
 	if player != newPlayer: return
+	makeTurn()
 
+func _handleStatusChanged(_newStatus: TTT_State.GameStatus):
+	prints('TTT_State_Selectors.getIsGameRunning(state)', TTT_State_Selectors.getIsGameRunning(state))
+	prints('TTT_State_Selectors.getIsGameOver(state)', TTT_State_Selectors.getIsGameOver(state))
+	prints('TTT_State_Selectors.getCurrentPlayer(state)', TTT_State_Selectors.getCurrentPlayer(state))
+	prints('player', player)
+
+	if !TTT_State_Selectors.getIsGameRunning(state): return
+	if TTT_State_Selectors.getIsGameOver(state): return
+	if player != TTT_State_Selectors.getCurrentPlayer(state): return
 	makeTurn()
 
 func makeTurn():

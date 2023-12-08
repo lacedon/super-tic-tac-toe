@@ -41,6 +41,7 @@ func _enter_tree():
 	state.connect(state.restart.get_name(), _handleRestart)
 	state.connect(state.fieldChanged.get_name(), _handleFieldChanged)
 	state.connect(state.turnMade.get_name(), buttonHelper.hide)
+	state.connect(state.statusChanged.get_name(), _handleNewPlayer)
 
 func _exit_tree():
 	state.disconnect(state.openBlockChanged.get_name(), _updateOpenBlock)
@@ -49,6 +50,7 @@ func _exit_tree():
 	state.disconnect(state.restart.get_name(), _handleRestart)
 	state.disconnect(state.fieldChanged.get_name(), _handleFieldChanged)
 	state.disconnect(state.turnMade.get_name(), buttonHelper.hide)
+	state.disconnect(state.statusChanged.get_name(), _handleNewPlayer)
 
 func _handleRestart():
 	var openBlock: = TTT_State_Selectors.getOpenBlock(state)

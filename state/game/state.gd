@@ -3,6 +3,7 @@ class_name TTT_State
 
 signal openBlockChanged(openBlock: int)
 signal cellTypeChanged(parentIndex: int, index: int, newType: TTT_Cell_Resource.FieldType)
+signal statusChanged(newStatus: TTT_State.GameStatus)
 signal fieldChanged()
 signal currentPlayerChanged(player: PlayerSign)
 signal gameOver(winner: PlayerSign, isDraw: bool)
@@ -15,9 +16,11 @@ const ControllerStartGame = preload("./controllers/start-game.gd")
 const ControllerUpdateOpenBlock = preload("./controllers/update-open-block.gd")
 const ControllerUpdateField = preload("./controllers/update-field.gd")
 const ControllerUpdatePlayer = preload("./controllers/update-player.gd")
+const ControllerPlayerSign = preload("./controllers/change-player-sign.gd")
 
 enum PlayerSign { x, o }
 enum NestingLevel { one, two }
+enum GameStatus { running, choosePlayer }
 
 static var mainFieldIndex = -1
 
@@ -27,6 +30,7 @@ static var mainFieldIndex = -1
 @export var activePlayers: Array[PlayerSign] = [currentPlayer]
 @export var openBlock: int = mainFieldIndex
 @export var rewrittenAiDifficulty: GameSettings.GameDifficulty = GameSettings.GameDifficulty.none
+@export var status: GameStatus = GameStatus.running
 var prevOpenBlock: int = openBlock
 var isGameOver: bool = false
 var fields: Array[TTT_Cell_Resource]
@@ -38,10 +42,13 @@ func startGame(): ControllerStartGame.startGame(self)
 func finishGame(winner: PlayerSign, isDraw: bool = false): ControllerFinishGame.finishGame(self, winner, isDraw)
 func fillField(parentIndex: int, value: Array[TTT_Cell_Resource]): ControllerFillField.fillField(self, parentIndex, value)
 func makeTurn(): emit_signal(turnMade.get_name())
+func choosePlayerSign(playerSign: PlayerSign): ControllerPlayerSign.changePlayerSign(self, playerSign)
 
 func _enter_tree():
 	eventEmitter.addListener('restartGame', startGame)
+	eventEmitter.addListener('choosePlayerSign', choosePlayerSign)
 	startGame()
 
 func _exit_tree():
 	eventEmitter.removeListener('restartGame', startGame)
+	eventEmitter.addListener('choosePlayerSign', choosePlayerSign)

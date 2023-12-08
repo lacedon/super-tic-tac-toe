@@ -5,6 +5,7 @@ static func startGame(state: TTT_State):
 	state.prevOpenBlock = TTT_State.mainFieldIndex
 	state.currentPlayer = TTT_State.PlayerSign.x
 	state.isGameOver = false
+
 	for child in state.get_children():
 		state.remove_child(child)
 
@@ -16,17 +17,13 @@ static func startGame(state: TTT_State):
 
 	match gameSettings.mode:
 		GameSettings.GameMode.vsAI:
+			state.status = TTT_State.GameStatus.choosePlayer
 			state.activePlayers = [TTT_State.PlayerSign.x]
 
-			var difficulty: GameSettings.GameDifficulty = (
-				gameSettings.aiDificulty
-					if state.rewrittenAiDifficulty == GameSettings.GameDifficulty.none
-				else state.rewrittenAiDifficulty
-			)
 			var ai: TTT_AI = scriptAI.new()
 			ai.state = state
 			ai.player = TTT_State.PlayerSign.o
-			ai.name = 'AI-' + GameSettings.GameDifficulty.keys()[difficulty]
+			ai.name = 'AI'
 			state.add_child(ai)
 		GameSettings.GameMode.hotSeat:
 			state.activePlayers = [TTT_State.PlayerSign.x, TTT_State.PlayerSign.o]

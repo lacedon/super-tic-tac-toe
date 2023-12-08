@@ -1,0 +1,15 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://f1qsmofm21xq"]
+
+[ext_resource type="Texture2D" uid="uid://b2hl3rcxea3a3" path="res://themes/button-styles/player-select-x/normal.svg" id="1_nnvo5"]
+
+[resource]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 44.0
+texture = ExtResource("1_nnvo5")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+metadata/color = Color(0.345098, 0.431373, 0.458824, 1)

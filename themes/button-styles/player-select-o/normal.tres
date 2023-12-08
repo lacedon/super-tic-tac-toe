@@ -1,13 +1,13 @@
-[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://bfylp23l4r0bx"]
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://cs7vr1rlkb6a"]
 
-[ext_resource type="Texture2D" uid="uid://dwpwhg3t6p5mr" path="res://themes/button-styles/main-right/normal.svg" id="1_0duk7"]
+[ext_resource type="Texture2D" uid="uid://c46milquf34bf" path="res://themes/button-styles/player-select-o/normal.svg" id="1_3anln"]
 
 [resource]
 content_margin_left = 16.0
 content_margin_top = 16.0
 content_margin_right = 16.0
 content_margin_bottom = 44.0
-texture = ExtResource("1_0duk7")
+texture = ExtResource("1_3anln")
 texture_margin_left = 20.0
 texture_margin_top = 20.0
 texture_margin_right = 20.0

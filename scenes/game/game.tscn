@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b70ntsmvkm47f"]
+[gd_scene load_steps=13 format=3 uid="uid://b70ntsmvkm47f"]
 
 [ext_resource type="Script" path="res://state/game/state.gd" id="1_ai4i1"]
 [ext_resource type="Theme" uid="uid://vig7p8jjbqd7" path="res://themes/game.tres" id="1_ejj14"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_rd66y"]
 [ext_resource type="Script" path="res://components/game/game-field/game-field.gd" id="4_i38hl"]
 [ext_resource type="Script" path="res://components/common/fps/fps.gd" id="6_04ede"]
+[ext_resource type="PackedScene" uid="uid://dpybhyhlavnso" path="res://components/game/game-ui/player-selector/player-selector.tscn" id="6_pnxjb"]
 [ext_resource type="PackedScene" uid="uid://dmw1beya3k70" path="res://components/game/game-ui/in-game-menu/in-game-menu.tscn" id="6_vv2wx"]
 [ext_resource type="PackedScene" uid="uid://dv66omxbf1214" path="res://components/common/adv-banner/adv-banner.tscn" id="7_k860c"]
 [ext_resource type="Theme" uid="uid://ddbxy7ksk4ske" path="res://themes/game-ui.tres" id="7_plqqw"]
@@ -26,6 +27,10 @@ offset_top = -100.0
 theme = ExtResource("1_ejj14")
 
 [node name="GameUI" parent="UI" node_paths=PackedStringArray("state") instance=ExtResource("1_hkrcm")]
+state = NodePath("../../TTT_State")
+
+[node name="PlayerSelect" parent="UI" node_paths=PackedStringArray("state") instance=ExtResource("6_pnxjb")]
+visible = false
 state = NodePath("../../TTT_State")
 
 [node name="WinnerUI" parent="UI" node_paths=PackedStringArray("state") instance=ExtResource("8_1xnie")]
