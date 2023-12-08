@@ -35,20 +35,17 @@ const lineWeighs = {
 	twoEnemySigns = 5,
 	onePlayerSign = 3,
 	oneEnemySign = 2,
-	empty = 1,
+	empty = 2,
 	other = 0,
 	notBelongToCell = 0,
 }
 
 const fieldDefenceWeighs = {
 	blocked = -2,
-	blockedMinor = 0,
 	empty = 2,
-	hasOnePlayerLine = 1,
-	hasTwoSignPlayerLineBase = -1,
-	hasTwoSignPlayerLineWithAdvance = 2,
-	hasTwoSignEnemyLineBase = -1,
-	hasTwoSignEnemyLineWithAdvance = 1,
+	hasOnePlayerLine = 0,
+	hasTwoSignPlayerLineBase = -2,
+	hasTwoSignEnemyLineBase = -2,
 }
 
 const lines = [
@@ -149,11 +146,7 @@ static func _getNextFieldDefenceWeight(
 			!TTT_State_Selectors.getIsFieldAvailable(nextField.inner)
 		)
 	):
-		var mainFieldWeightTypes: Array[LineType] = _getCellLineTypes(playerFieldType, enemyFieldType, mainFieldList)
-		if mainFieldWeightTypes.has(LineType.twoEnemySigns):
-			return fieldDefenceWeighs.blocked
-		else:
-			return fieldDefenceWeighs.blockedMinor
+		return fieldDefenceWeighs.blocked
 
 	if (
 		nextField.type == TTT_Cell_Resource.FieldType.field &&
@@ -162,36 +155,12 @@ static func _getNextFieldDefenceWeight(
 		return fieldDefenceWeighs.empty
 
 	var targetFieldLinesWeights: Array[LineType] = _getCellLineTypes(playerFieldType, enemyFieldType, mainFieldList[targetFieldIndex].inner)
-	var targetCellLinesWeights: Array[LineType] = _getCellLineTypes(playerFieldType, enemyFieldType, mainFieldList, targetFieldIndex)
 
 	# Enemy can easely block me
 	if targetFieldLinesWeights.has(LineType.twoPlayerSigns):
-		# The target field won't win the game
-		if targetCellLinesWeights.has(LineType.twoPlayerSigns || LineType.twoEnemySigns):
-			return fieldDefenceWeighs.hasTwoSignPlayerLineBase
-
-		var line = lines[targetFieldLinesWeights.find(LineType.twoPlayerSigns)]
-		var nextCellIndex: int = _getNextCellIndexOfLine(mainFieldList[targetFieldIndex].inner, line.start, line.stepSize)
-		var nextFieldLinesWeights: Array[LineType] = _getCellLineTypes(playerFieldType, enemyFieldType, mainFieldList[nextCellIndex].inner)
-		# if the next field can be win by player and this one cannot win the game
-		if nextFieldLinesWeights.has(LineType.twoPlayerSigns):
-			return fieldDefenceWeighs.hasTwoSignPlayerLineWithAdvance
-
 		return fieldDefenceWeighs.hasTwoSignPlayerLineBase
 
 	if targetFieldLinesWeights.has(LineType.twoEnemySigns):
-		# The target field won't win the game
-		if targetCellLinesWeights.has(LineType.twoPlayerSigns || LineType.twoEnemySigns):
-			return fieldDefenceWeighs.hasTwoSignEnemyLineBase
-
-
-		var line = lines[targetFieldLinesWeights.find(LineType.twoPlayerSigns)]
-		var nextCellIndex: int = _getNextCellIndexOfLine(mainFieldList[targetFieldIndex].inner, line.start, line.stepSize)
-		var nextFieldLinesWeights: Array[LineType] = _getCellLineTypes(playerFieldType, enemyFieldType, mainFieldList[nextCellIndex].inner)
-		# if the next field can be win by player and this one cannot win the game
-		if nextFieldLinesWeights.has(LineType.twoPlayerSigns):
-			return fieldDefenceWeighs.hasTwoSignEnemyLineWithAdvance
-
 		return fieldDefenceWeighs.hasTwoSignEnemyLineBase
 
 	if (

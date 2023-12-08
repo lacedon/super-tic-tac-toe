@@ -11,7 +11,7 @@ enum GameMode {
 	hotSeat,
 }
 
-enum GameDifficulty { none, rando, easy, hard, tutorial }
+enum GameDifficulty { none, rando, easy, hard, tutorial, medium }
 
 var _config := ConfigFile.new()
 var _configFilePath: String = "user://super-tic-tac-toe-config.cfg"
@@ -19,7 +19,7 @@ var _configSection: String = "gameSettingChanged"
 var _configPassword: String = "super-tic-tac-toe"
 
 var mode: GameMode = GameMode.vsAI
-var aiDificulty: GameDifficulty = GameDifficulty.easy
+var aiDificulty: GameDifficulty = GameDifficulty.medium
 var shouldShowFPS: bool = false
 var disableZoom: bool = true
 var masterVolume: float = 75

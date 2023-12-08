@@ -35,21 +35,6 @@ script = ExtResource("2_bvo8j")
 aligment = 1
 items = Array[Resource("res://components/common/menu-generator/resources/menu-item.gd")]([SubResource("Resource_cr0st")])
 
-[sub_resource type="Resource" id="Resource_hdhub"]
-script = ExtResource("4_y1y35")
-text = "Rando"
-styles = {}
-scriptPath = ExtResource("6_jp34q")
-props = {
-"settingUpdate": {
-"aiDificulty": 1
-}
-}
-
-[sub_resource type="Resource" id="Resource_rm55r"]
-script = ExtResource("6_j1fnt")
-props = {}
-
 [sub_resource type="Resource" id="Resource_8bc3n"]
 script = ExtResource("4_y1y35")
 text = "Easy"
@@ -58,6 +43,21 @@ scriptPath = ExtResource("6_jp34q")
 props = {
 "settingUpdate": {
 "aiDificulty": 2
+}
+}
+
+[sub_resource type="Resource" id="Resource_rm55r"]
+script = ExtResource("6_j1fnt")
+props = {}
+
+[sub_resource type="Resource" id="Resource_hdhub"]
+script = ExtResource("4_y1y35")
+text = "Medium"
+styles = {}
+scriptPath = ExtResource("6_jp34q")
+props = {
+"settingUpdate": {
+"aiDificulty": 5
 }
 }
 
@@ -79,7 +79,7 @@ props = {
 [sub_resource type="Resource" id="Resource_rce7g"]
 script = ExtResource("2_bvo8j")
 aligment = 0
-items = Array[Resource("res://components/common/menu-generator/resources/menu-item.gd")]([SubResource("Resource_hdhub"), SubResource("Resource_rm55r"), SubResource("Resource_8bc3n"), SubResource("Resource_7eb1g"), SubResource("Resource_y3xs1")])
+items = Array[Resource("res://components/common/menu-generator/resources/menu-item.gd")]([SubResource("Resource_8bc3n"), SubResource("Resource_rm55r"), SubResource("Resource_hdhub"), SubResource("Resource_7eb1g"), SubResource("Resource_y3xs1")])
 
 [sub_resource type="Resource" id="Resource_0y8pu"]
 script = ExtResource("3_wlhmi")
