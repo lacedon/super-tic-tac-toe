@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://q46e48p1mmep"]
+
+[ext_resource type="Theme" uid="uid://ddbxy7ksk4ske" path="res://themes/game-ui.tres" id="1_44ngf"]
+[ext_resource type="Script" path="res://scenes/menu/menu.gd" id="2_su4lk"]
+[ext_resource type="Script" path="res://components/common/bubble-animation/bubble-animation.gd" id="3_57h8t"]
+[ext_resource type="Script" path="res://components/game/sign/sign.gd" id="4_cdrae"]
+[ext_resource type="Script" path="res://components/common/menu-generator/menu-generator.gd" id="5_ilt3o"]
+[ext_resource type="Resource" uid="uid://k2gkx8nlaidh" path="res://scenes/logo/menu.tres" id="6_841gk"]
+[ext_resource type="Script" path="res://components/common/fps/fps.gd" id="7_verb6"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_44ngf")
+script = ExtResource("2_su4lk")
+
+[node name="BubbleAnimation" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_57h8t")
+ItemCreator = ExtResource("4_cdrae")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="MenuGenerator" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+script = ExtResource("5_ilt3o")
+menu = ExtResource("6_841gk")
+
+[node name="FPSMeter" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 38.0
+script = ExtResource("7_verb6")

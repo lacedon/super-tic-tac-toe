@@ -14,7 +14,6 @@ func _enter_tree():
 		state.connect(state.restart.get_name(), _handleRestart)
 	else:
 		prints('WARN:', 'State is not provided', self)
-		showWinner(TTT_State.PlayerSign.o, true)
 
 func _exit_tree():
 	if state:

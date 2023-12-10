@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Menu" load_steps=9 format=3 uid="uid://k2gkx8nlaidh"]
+
+[ext_resource type="Script" path="res://components/common/menu-generator/resources/menu-item-title.gd" id="1_cqy4g"]
+[ext_resource type="Script" path="res://components/common/menu-generator/resources/menu-row-list.gd" id="2_ge6sy"]
+[ext_resource type="Script" path="res://components/common/menu-generator/resources/menu-row-spacer.gd" id="3_vlahq"]
+[ext_resource type="Script" path="res://components/common/menu-generator/resources/menu.gd" id="9_rdcm4"]
+
+[sub_resource type="Resource" id="Resource_7hhri"]
+script = ExtResource("3_vlahq")
+
+[sub_resource type="Resource" id="Resource_sfgem"]
+script = ExtResource("1_cqy4g")
+text = "Super TicTacToe"
+props = {}
+
+[sub_resource type="Resource" id="Resource_e4do5"]
+script = ExtResource("2_ge6sy")
+aligment = 1
+items = Array[Resource("res://components/common/menu-generator/resources/menu-item.gd")]([SubResource("Resource_sfgem")])
+
+[sub_resource type="Resource" id="Resource_reguf"]
+script = ExtResource("3_vlahq")
+
+[resource]
+script = ExtResource("9_rdcm4")
+rows = Array[Resource("res://components/common/menu-generator/resources/menu-row.gd")]([SubResource("Resource_7hhri"), SubResource("Resource_e4do5"), SubResource("Resource_reguf")])

@@ -1,0 +1,54 @@
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 432 432" width="432">
+  <g clip-path="url(#a)">
+    <path fill="#FDF6E3" d="M0 0h432v432H0z"/>
+    <path fill="#FDF6E3" d="M0 0h432v432H0z"/>
+    <path fill="#FDF6E3" d="M0 0h432v432H0z"/>
+    <path fill="#FDF6E3" d="M0 0h144v144H0z"/>
+    <path fill="#FDF6E3" d="M0 0h144v144H0zM144 0h144v144H144z"/>
+    <path fill="#FDF6E3" d="M144 0h144v144H144zM288 0h144v144H288z"/>
+    <path fill="#FDF6E3" d="M288 0h144v144H288zM0 144h144v144H0z"/>
+    <path fill="#FDF6E3" d="M0 144h144v144H0zM144 144h144v144H144z"/>
+    <path fill="#FDF6E3" d="M144 144h144v144H144zM288 144h144v144H288z"/>
+    <path fill="#FDF6E3" d="M288 144h144v144H288zM0 288h144v144H0z"/>
+    <path fill="#FDF6E3" d="M0 288h144v144H0zM144 288h144v144H144z"/>
+    <path fill="#FDF6E3" d="M144 288h144v144H144zM288 288h144v144H288z"/>
+    <path fill="#FDF6E3" d="M288 288h144v144H288z"/>
+    <g filter="url(#b)" stroke="#DC322F" stroke-width="32" stroke-linecap="round">
+      <path d="M238.927 192.932 366 66M238 67.068 365.073 194"/>
+    </g>
+    <g filter="url(#c)" stroke="#DC322F" stroke-width="32" stroke-linecap="round">
+      <path d="M67.073 364.932 194.144 238M66 239.068 193.073 366"/>
+    </g>
+    <g filter="url(#d)">
+      <circle cx="114" cy="114" r="48" transform="rotate(-90 114 114)" stroke="#268BD2" stroke-width="32"/>
+    </g>
+    <g filter="url(#e)">
+      <circle cx="318" cy="318" r="48" transform="rotate(-90 318 318)" stroke="#268BD2" stroke-width="32"/>
+    </g>
+  </g>
+  <defs>
+    <filter id="b" x="157.991" y="-13.991" width="288.018" height="287.982" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur stdDeviation="32" result="effect1_foregroundBlur_341_2"/>
+    </filter>
+    <filter id="c" x="-14.009" y="158.009" width="288.163" height="287.982" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur stdDeviation="32" result="effect1_foregroundBlur_341_2"/>
+    </filter>
+    <filter id="d" x="-14" y="-14" width="256" height="256" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur stdDeviation="32" result="effect1_foregroundBlur_341_2"/>
+    </filter>
+    <filter id="e" x="190" y="190" width="256" height="256" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur stdDeviation="32" result="effect1_foregroundBlur_341_2"/>
+    </filter>
+    <clipPath id="a">
+      <path fill="#fff" d="M0 0h432v432H0z"/>
+    </clipPath>
+  </defs>
+</svg>
