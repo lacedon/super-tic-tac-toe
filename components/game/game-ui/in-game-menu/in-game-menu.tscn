@@ -99,7 +99,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2.08165e-12, 1)
 pivot_offset = Vector2(720, 2.08165e-12)
-theme_override_constants/margin_bottom = 32
+theme_override_constants/margin_bottom = 160
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
