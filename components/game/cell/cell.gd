@@ -1,7 +1,7 @@
 extends Control
 
-const ChildHelper = preload('./helper-child.gd')
-const ButtonHelper = preload('./helper-button.gd')
+const ChildHelper = preload("./helper-child.gd")
+const ButtonHelper = preload("./helper-button.gd")
 
 @export var parentIndex: int = TTT_State.mainFieldIndex
 @export var index: int
@@ -9,6 +9,7 @@ const ButtonHelper = preload('./helper-button.gd')
 @export var cellSize: int = gameSettings.cellSize
 var buttonHelper: ButtonHelper
 var childHelper: ChildHelper
+
 
 func _init(
 	initState: TTT_State = state,
@@ -22,7 +23,8 @@ func _init(
 	cellSize = initCellSize
 
 	childHelper = ChildHelper.new(state, cellSize, index)
-	buttonHelper = ButtonHelper.new(state, cellSize, parentIndex, _handleButtonPressed)
+	buttonHelper = ButtonHelper.new(state, cellSize, index, parentIndex, _handleButtonPressed)
+
 
 func _ready():
 	var stateChildType = TTT_State_Selectors.getFieldType(state, index, parentIndex)
@@ -34,6 +36,7 @@ func _ready():
 	buttonHelper.toggle(stateOpenBlock, stateChildType)
 	add_child(buttonHelper)
 
+
 func _enter_tree():
 	state.connect(state.openBlockChanged.get_name(), _updateOpenBlock)
 	state.connect(state.cellTypeChanged.get_name(), _updateCellType)
@@ -42,6 +45,7 @@ func _enter_tree():
 	state.connect(state.fieldChanged.get_name(), _handleFieldChanged)
 	state.connect(state.turnMade.get_name(), buttonHelper.hide)
 	state.connect(state.statusChanged.get_name(), _handleNewPlayer)
+
 
 func _exit_tree():
 	state.disconnect(state.openBlockChanged.get_name(), _updateOpenBlock)
@@ -52,25 +56,36 @@ func _exit_tree():
 	state.disconnect(state.turnMade.get_name(), buttonHelper.hide)
 	state.disconnect(state.statusChanged.get_name(), _handleNewPlayer)
 
+
 func _handleRestart():
-	var openBlock: = TTT_State_Selectors.getOpenBlock(state)
-	var type: = TTT_State_Selectors.getFieldType(state, index, parentIndex)
+	var openBlock := TTT_State_Selectors.getOpenBlock(state)
+	var type := TTT_State_Selectors.getFieldType(state, index, parentIndex)
 	childHelper.toggle(type)
 	buttonHelper.toggle(openBlock, type)
 
+
 func _handleNewPlayer(_player: int):
-	buttonHelper.toggle(
-		TTT_State_Selectors.getOpenBlock(state),
-		TTT_State_Selectors.getFieldType(state, index, parentIndex),
+	(
+		buttonHelper
+		. toggle(
+			TTT_State_Selectors.getOpenBlock(state),
+			TTT_State_Selectors.getFieldType(state, index, parentIndex),
+		)
 	)
+
 
 func _updateOpenBlock(openBlock: int):
 	buttonHelper.toggle(openBlock, TTT_State_Selectors.getFieldType(state, index, parentIndex))
 
-func _updateCellType(updatedCellParentIndex: int, updatedCellIndex: int, newType: TTT_Cell_Resource.FieldType):
-	if parentIndex != updatedCellParentIndex || index != updatedCellIndex: return
+
+func _updateCellType(
+	updatedCellParentIndex: int, updatedCellIndex: int, newType: TTT_Cell_Resource.FieldType
+):
+	if parentIndex != updatedCellParentIndex || index != updatedCellIndex:
+		return
 	buttonHelper.toggle(TTT_State_Selectors.getOpenBlock(state), newType)
 	await childHelper.toggle(newType)
+
 
 func _handleButtonPressed():
 	state.makeTurn()
@@ -87,7 +102,8 @@ func _handleButtonPressed():
 
 		state.updateField(index, parentIndex)
 
+
 func _handleFieldChanged():
-	var newType: = TTT_State_Selectors.getFieldType(state, index, parentIndex)
+	var newType := TTT_State_Selectors.getFieldType(state, index, parentIndex)
 	buttonHelper.toggle(TTT_State_Selectors.getOpenBlock(state), newType)
 	await childHelper.toggle(newType)
