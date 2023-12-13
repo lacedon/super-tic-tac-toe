@@ -7,3 +7,9 @@ Super tic-tac-toe is a game composed of nine tic-tac-toe boards arranged in a 3 
 3. If a move is played so that it is to win a small board by the rules of normal tic-tac-toe, then the entire small board is marked as won by the player in the larger board.
 4. Once a small board is won by a player or it is filled completely, no more moves may be played on that board. If a player is sent to such a board, then that player may play on any other board.
 5. Game ends when either a player wins the larger board or there are no legal moves remaining, in which case the game is a draw.
+
+## Set up project
+
+1. Open the project in Godot v4(v4.2 is recomended).
+2. Click "Project" -> "Install Android Build Template". It'll create "./android/build" folder
+3. Copy "./android/AndroidManifest.xml" file to "./android/build/AndroidManifest.xml" with replacing the file
