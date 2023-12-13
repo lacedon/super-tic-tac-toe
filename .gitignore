@@ -17,4 +17,5 @@ mono_crash.*.json
 .DS_Store
 
 /build/
-/android/
+/android/build
+/android/.build_version
