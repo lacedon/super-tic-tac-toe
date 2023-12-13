@@ -1,4 +1,5 @@
 const scriptAI = preload("res://components/game/ai/ai.gd")
+const changeGameStatusController = preload('./change-game-status.gd')
 
 static func startGame(state: TTT_State):
 	state.openBlock = TTT_State.mainFieldIndex
@@ -25,6 +26,8 @@ static func startGame(state: TTT_State):
 			ai.player = TTT_State.PlayerSign.o
 			ai.name = 'AI'
 			state.add_child(ai)
+
+			changeGameStatusController.changeGameStatus(state, TTT_State.GameStatus.choosePlayer)
 		GameSettings.GameMode.hotSeat:
 			state.activePlayers = [TTT_State.PlayerSign.x, TTT_State.PlayerSign.o]
 
