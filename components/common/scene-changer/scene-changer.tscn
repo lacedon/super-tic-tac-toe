@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://components/common/scene-changer/scene-changer.gd" id="1_6r3si"]
 [ext_resource type="Texture2D" uid="uid://crmgg0jowmqrm" path="res://assets/circle.svg" id="2_b3nvy"]
 [ext_resource type="Texture2D" uid="uid://b5kxr1ma6afeb" path="res://assets/x.svg" id="2_purar"]
-[ext_resource type="Shader" path="res://components/common/scene-changer/Shaders/circle_mask.gdshader" id="4_hvrs5"]
+[ext_resource type="Shader" path="res://components/common/scene-changer/Shaders/circle-mask.gdshader" id="4_hvrs5"]
 
 [sub_resource type="Animation" id="Animation_yu3c0"]
 length = 0.001
