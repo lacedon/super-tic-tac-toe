@@ -73,7 +73,6 @@ config/name="Super TicTacToe"
 run/main_scene="res://scenes/menu/menu.tscn"
 config/quit_on_go_back=false
 config/features=PackedStringArray("4.2", "Mobile")
-run/max_fps=60
 boot_splash/bg_color=Color(0.992157, 0.964706, 0.890196, 1)
 boot_splash/image="res://godot-logo.png"
 config/icon="res://icon.png"
@@ -93,7 +92,7 @@ window/size/viewport_width=720
 window/size/viewport_height=1280
 window/subwindows/embed_subwindows=false
 window/stretch/mode="viewport"
-window/stretch/aspect="keep_width"
+window/stretch/aspect="expand"
 window/handheld/orientation=1
 window/vsync/vsync_mode=0
 
@@ -108,4 +107,5 @@ enabled=PackedStringArray("res://addons/admob/plugin.cfg", "res://addons/sound_m
 [rendering]
 
 renderer/rendering_method="mobile"
+renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
